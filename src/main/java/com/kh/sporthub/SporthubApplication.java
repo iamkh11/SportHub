@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 import com.kh.sporthub.models.Admins;
+import com.kh.sporthub.models.Discipline;
 import com.kh.sporthub.models.Players;
 import com.kh.sporthub.models.Stadium;
 import com.kh.sporthub.models.Staff;
@@ -16,6 +17,7 @@ import com.kh.sporthub.models.Supporters;
 import com.kh.sporthub.models.Team;
 import com.kh.sporthub.models.Ticket;
 import com.kh.sporthub.repositories.AdminsRepository;
+import com.kh.sporthub.repositories.DisciplineRepository;
 import com.kh.sporthub.repositories.PlayersRepository;
 import com.kh.sporthub.repositories.StadiumRepository;
 import com.kh.sporthub.repositories.StaffRepository;
@@ -46,11 +48,15 @@ public class SporthubApplication  implements CommandLineRunner{
 	 // Ticket
 	    private final TicketRepository ticketRepository;
 	    
+	    // Discipline
+	    private final DisciplineRepository disciplineRepository;
 	    
 	
 	@Autowired
 	public SporthubApplication(AdminsRepository adminsRepository,SupportersRepository supportersRepository,
-			TeamRepository teamRepository,PlayersRepository playerRepository,StaffRepository staffRepository,StadiumRepository stadiumRepository,TicketRepository ticketRepository) {
+			TeamRepository teamRepository,PlayersRepository playerRepository,StaffRepository staffRepository,
+			StadiumRepository stadiumRepository,TicketRepository ticketRepository,
+			DisciplineRepository disciplineRepository) {
 		
 			// Users
 			this.adminsRepository=adminsRepository;
@@ -65,7 +71,9 @@ public class SporthubApplication  implements CommandLineRunner{
 	        this.stadiumRepository=stadiumRepository;
 		// Ticket 
 	       this.ticketRepository=ticketRepository;
-		
+	       
+	       // Discipline
+	       this.disciplineRepository=disciplineRepository;
 	
 	}
 	
@@ -91,7 +99,7 @@ public class SporthubApplication  implements CommandLineRunner{
 		stadiumRepository.deleteAll();
 		ticketRepository.deleteAll();
 		
-		
+		disciplineRepository.deleteAll();
 		
 		
 		
@@ -156,6 +164,10 @@ public class SporthubApplication  implements CommandLineRunner{
 		ticketRepository.save(new Ticket ("#44809824", "United Vs City","Old Trafford","Virage",80.99));
 		ticketRepository.save(new Ticket ("#44809824", "United Vs City","Old Trafford","Virage",80.99));
 		ticketRepository.save(new Ticket ("#44809824", "United Vs City","Old Trafford","Virage",80.99));
+		
+		
+		disciplineRepository.save(new Discipline ("Football"));
+		disciplineRepository.save(new Discipline ("Handball"));
 	}
 	
 	

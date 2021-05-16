@@ -17,7 +17,14 @@ public class Discipline {
 	
 
 	
-	private String name; 
+	private String name;
+
+
+
+	public Discipline(String name) {
+		super();
+		this.name = name;
+	} 
 	
 	
 	
