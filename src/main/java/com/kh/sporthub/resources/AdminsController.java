@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -38,6 +39,67 @@ public class AdminsController {
 		 public Optional<Admins> findOne(String id) {
 			 return adminsRepository.findById(id);
 		 }
+		 
+		 
+		 // Create new Admin 
+		 
+		 @RequestMapping("/add-admin")
+		    public String create(Model model) {
+		        return "add-admin";
+		    }
+		 
+		 @RequestMapping("/save")
+		    public String save(@RequestParam int j,@RequestParam String name, @RequestParam String username, @RequestParam String email, @RequestParam String password , @RequestParam String profil_pic_URL , @RequestParam String role) {
+			 for (int i=0;i < j ; i++ ) {
+			 Admins admins = new Admins();
+			 	
+			 	admins.setName(name);
+			 	admins.setUsername(username);
+			 	admins.setEmail(email);
+			 	admins.setPassword(password);
+			 	admins.setProfil_pic_URL(profil_pic_URL);
+			 	admins.setRole(role);
+			 	
+			 	adminsRepository.save(admins);
+			 }
+		        return "redirect:/table-admin";
+		    }
+		 
+		 // END
+		 
+		 
+		 @RequestMapping("/modify-admin/{id}")
+		    public String edit(@PathVariable String id, Model model) {
+		        model.addAttribute("admins", adminsRepository.findById(id).get());
+		        return "/modify-admin";
+		        
+		    }
+		    
+		    @RequestMapping("/update")
+		    public String update(@RequestParam String id, @RequestParam String name, @RequestParam String username, @RequestParam String email, @RequestParam String password , @RequestParam String profil_pic_URL ,@RequestParam String role ) {
+		      
+		    	Optional<Admins> admins = adminsRepository.findById(id);
+		      
+		        admins.get().setName(name);
+		        admins.get().setUsername(username);
+		        admins.get().setEmail(email);
+		        admins.get().setPassword(password);
+		        admins.get().setProfil_pic_URL(profil_pic_URL);
+		        admins.get().setRole(role);
+		        
+		        adminsRepository.save(admins.get());
+
+		        return "redirect:/table-admin" ;
+		    }
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
 		 
 		 
 		 @RequestMapping("/delete")

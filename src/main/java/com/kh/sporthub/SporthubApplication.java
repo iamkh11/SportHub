@@ -93,13 +93,13 @@ public class SporthubApplication  implements CommandLineRunner{
 		//supportersRepository.deleteAll();
 		
 		System.out.println("==========Delete all Team entities==========");
-		teamRepository.deleteAll();
+		//teamRepository.deleteAll();
 		//playerRepository.deleteAll();
 		//staffRepository.deleteAll();
-		stadiumRepository.deleteAll();
-		ticketRepository.deleteAll();
+		//stadiumRepository.deleteAll();
+		//ticketRepository.deleteAll();
 		
-		disciplineRepository.deleteAll();
+		//disciplineRepository.deleteAll();
 		
 		
 		
@@ -108,66 +108,38 @@ public class SporthubApplication  implements CommandLineRunner{
 	
 		
 		System.out.println("==========Save list of Supporters entities==========");
-		supportersRepository.save(new Supporters  ("Med Kh","tyukyukyukyuj", "kh@kh.xcom", "need to encrypt this shit", "app-assets/img/supporters/med.png", "Super Fan"));
-		supportersRepository.save(new Supporters  ("Med Kh","tyukyukyukyuj", "kh@kh.xcom", "need to encrypt this shit", "app-assets/img/supporters/med.png", "Stupido"));
-		supportersRepository.save(new Supporters  ("Med Kh","tyukyukyukyuj", "kh@kh.xcom", "need to encrypt this shit", "app-assets/img/supporters/med.png", "Super Fan"));
-		supportersRepository.save(new Supporters  ("Med Kh","tyukyukyukyuj", "kh@kh.xcom", "need to encrypt this shit", "app-assets/img/supporters/med.png", "Super Fan"));
-		supportersRepository.save(new Supporters  ("Med Kh","tyukyukyukyuj", "kh@kh.xcom", "need to encrypt this shit", "app-assets/img/supporters/med.png", "Super Fan"));
-		supportersRepository.save(new Supporters  ("Med Kh","tyukyukyukyuj", "kh@kh.xcom", "need to encrypt this shit", "app-assets/img/supporters/med.png", "Super Fan"));
-		supportersRepository.save(new Supporters  ("Med Kh","tyukyukyukyuj", "kh@kh.xcom", "need to encrypt this shit", "app-assets/img/supporters/med.png", "Super Fan"));
-		supportersRepository.save(new Supporters  ("Med Kh","tyukyukyukyuj", "kh@kh.xcom", "need to encrypt this shit", "app-assets/img/supporters/med.png", "Super Fan"));
-		supportersRepository.save(new Supporters  ("Med Kh","tyukyukyukyuj", "kh@kh.xcom", "need to encrypt this shit", "app-assets/img/supporters/med.png", "Super Fan"));
-		supportersRepository.save(new Supporters  ("Med Kh","tyukyukyukyuj", "kh@kh.xcom", "need to encrypt this shit", "app-assets/img/supporters/med.png", "Super Fan"));
+		//supportersRepository.save(new Supporters  ("Med Kh","tyukyukyukyuj", "kh@kh.xcom", "need to encrypt this shit", "app-assets/img/supporters/med.png", "Super Fan"));
+		//supportersRepository.save(new Supporters  ("Med Kh","tyukyukyukyuj", "kh@kh.xcom", "need to encrypt this shit", "app-assets/img/supporters/med.png", "Stupido"));
 		
 		
 		System.out.println("==========Save list of team entities==========");
-		teamRepository.save(new Team ("Manchester United","Red Devils", "1878, Newton Heath, Manchester, Royaume-Uni", "Glazers", "Premier League", "app-assets/img/photos/ManUnited.png"));
-		teamRepository.save(new Team ("Manchester City","The Citizens", "16 April 1894", "Tamim bin Hamad Al Thani", "Premier League", "app-assets/img/photos/city.png"));
+		//teamRepository.save(new Team ("Manchester United","Red Devils", "1878, Newton Heath, Manchester, Royaume-Uni", "Glazers", "Premier League", "app-assets/img/photos/ManUnited.png"));
+		//teamRepository.save(new Team ("Manchester City","The Citizens", "16 April 1894", "Tamim bin Hamad Al Thani", "Premier League", "app-assets/img/photos/city.png"));
 		
 		
-		playerRepository.save(new Players ("Paul Pogba",26, "24/09/1998", "French", "Male",6,"CMD", "Manchester United","app-assets/img/photos/pog.jpg"));
-		playerRepository.save(new Players ("Edi Cavani",34, "24/09/1998", "Uruguayan", "Male",6,"CMD", "Manchester United","app-assets/img/photos/pog.jpg"));
-		playerRepository.save(new Players ("David De Gea",28, "24/09/1998", "Spanish", "Male",6,"CMD", "Manchester United","app-assets/img/photos/pog.jpg"));
-		playerRepository.save(new Players ("Bilel Ifa",0, "24/09/1998", "Tunisia", "Male",6,"CMD", "CA","app-assets/img/photos/pog.jpg"));
-		playerRepository.save(new Players ("Welid Eb3ath",99, "24/09/1998", "Tunisia", "Male",6,"CMD", "Manchester City","app-assets/img/photos/pog.jpg"));
+		//playerRepository.save(new Players ("Paul Pogba",26, "24/09/1998", "French", "Male",6,"CMD", "Manchester United","app-assets/img/photos/pog.jpg"));
 		
-		staffRepository.save(new Staff ("Ole Gunnar Solskjaer",48,  "February 26, 1973", "Norwegian","Male", "Manchester United", "Manager","app-assets/img/photos/ole.jpeg"));
-		staffRepository.save(new Staff ("Mustpha",48,  "February 26, 1973", "Norwegian","Male", "Manchester United", "Manager","app-assets/img/photos/ole.jpeg"));
-		staffRepository.save(new Staff ("Semir",48,  "February 26, 1973", "Norwegian","Male", "Manchester United", "Manager","app-assets/img/photos/ole.jpeg"));
-		staffRepository.save(new Staff ("X",48,  "February 26, 1973", "Norwegian","Male", "Manchester", "Manager","app-assets/img/photos/ole.jpeg"));
+		
+		//staffRepository.save(new Staff ("Ole Gunnar Solskjaer",48,  "February 26, 1973", "Norwegian","Male", "Manchester United", "Manager","app-assets/img/photos/ole.jpeg"));
 		
 		
 		
-		stadiumRepository.save(new Stadium ("Old Trafford","Manchester",76000, "Manchester United","app-assets/img/Old Trafford.jpg"));
+		
+		//stadiumRepository.save(new Stadium ("Old Trafford","Manchester",76000, "Manchester United","app-assets/img/Old Trafford.jpg"));
 		
 		System.out.println("==========Save list of Admins entities==========");
-		adminsRepository.save(new Admins  ("Med Kh","Kh11", "eb3ath_ye_welid@tsawar.ycom", "passwordxEnc", "app-assets/img/portrait/small/avatar-s-19.png", "Editor"));
-		adminsRepository.save(new Admins  ("Imtinen","asq", "k@mail.com", "passwordxEnc", "app-assets/img/portrait/small/avatar-s-18.png", "Admin"));
-		adminsRepository.save(new Admins  ("Welid","dd", "xx@mail.com", "passwordxEnc", "app-assets/img/portrait/small/avatar-s-17.png", "Controller"));
+		//adminsRepository.save(new Admins  ("Med Kh","Kh11", "eb3ath_ye_welid@tsawar.ycom", "passwordxEnc", "app-assets/img/portrait/small/avatar-s-19.png", "Editor"));
+		
 		System.out.println("==========Save Ticket of team entities==========");
 		
 		
 	
-		ticketRepository.save(new Ticket ("#44809824", "United Vs City","Old Trafford","Virage",80.99));
-		ticketRepository.save(new Ticket ("#44809824", "United Vs City","Old Trafford","Virage",80.99));
-		ticketRepository.save(new Ticket ("#44809824", "United Vs City","Old Trafford","Virage",80.99));
-		ticketRepository.save(new Ticket ("#44809824", "United Vs City","Old Trafford","Virage",80.99));
-		ticketRepository.save(new Ticket ("#44809824", "United Vs City","Old Trafford","Virage",80.99));
-		ticketRepository.save(new Ticket ("#44809824", "United Vs City","Old Trafford","Virage",80.99));
-		ticketRepository.save(new Ticket ("#44809824", "United Vs City","Old Trafford","Virage",80.99));
-		ticketRepository.save(new Ticket ("#44809824", "United Vs City","Old Trafford","Virage",80.99));
-		ticketRepository.save(new Ticket ("#44809824", "United Vs City","Old Trafford","Virage",80.99));
-		ticketRepository.save(new Ticket ("#44809824", "United Vs City","Old Trafford","Virage",80.99));
-		ticketRepository.save(new Ticket ("#44809824", "United Vs City","Old Trafford","Virage",80.99));
-		ticketRepository.save(new Ticket ("#44809824", "United Vs City","Old Trafford","Virage",80.99));
-		ticketRepository.save(new Ticket ("#44809824", "United Vs City","Old Trafford","Virage",80.99));
-		ticketRepository.save(new Ticket ("#44809824", "United Vs City","Old Trafford","Virage",80.99));
-		ticketRepository.save(new Ticket ("#44809824", "United Vs City","Old Trafford","Virage",80.99));
-		ticketRepository.save(new Ticket ("#44809824", "United Vs City","Old Trafford","Virage",80.99));
+		//ticketRepository.save(new Ticket ("#44809824", "United Vs City","Old Trafford","Virage",80.99));
+	
 		
 		
-		disciplineRepository.save(new Discipline ("Football"));
-		disciplineRepository.save(new Discipline ("Handball"));
+		//disciplineRepository.save(new Discipline ("Football"));
+		//disciplineRepository.save(new Discipline ("Handball"));
 	}
 	
 	
