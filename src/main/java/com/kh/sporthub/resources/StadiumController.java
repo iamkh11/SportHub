@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,11 +22,19 @@ import com.kh.sporthub.repositories.StadiumRepository;
 public class StadiumController {
 
 	
-	@Autowired
-	private  StadiumRepository repository;
-
-		
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	/*
 	@PostMapping("/addStadium")
 	public String saveStadium(@RequestBody Stadium stadium) {
 	
@@ -52,7 +61,7 @@ public class StadiumController {
 				return "Stadium deleted with id :" +id ; 
 			}
 	
-	
+	*/
 	
 	
 	

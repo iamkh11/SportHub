@@ -49,8 +49,8 @@ public class AdminsController {
 		    }
 		 
 		 @RequestMapping("/save")
-		    public String save(@RequestParam int j,@RequestParam String name, @RequestParam String username, @RequestParam String email, @RequestParam String password , @RequestParam String profil_pic_URL , @RequestParam String role) {
-			 for (int i=0;i < j ; i++ ) {
+		    public String save(@RequestParam String name, @RequestParam String username, @RequestParam String email, @RequestParam String password , @RequestParam String profil_pic_URL , @RequestParam String role) {
+			 
 			 Admins admins = new Admins();
 			 	
 			 	admins.setName(name);
@@ -61,7 +61,7 @@ public class AdminsController {
 			 	admins.setRole(role);
 			 	
 			 	adminsRepository.save(admins);
-			 }
+			
 		        return "redirect:/table-admin";
 		    }
 		 

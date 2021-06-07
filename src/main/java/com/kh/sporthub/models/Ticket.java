@@ -63,6 +63,15 @@ public class Ticket {
 
 
 
+	public Ticket() {
+		setRef_ticket(++count) ;
+		Status = true;
+		checked_by_agent = false;
+		
+	}
+
+
+
 	public String getId() {
 		return id;
 	}

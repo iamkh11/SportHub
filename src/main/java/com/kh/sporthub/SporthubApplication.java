@@ -97,7 +97,7 @@ public class SporthubApplication  implements CommandLineRunner{
 		//playerRepository.deleteAll();
 		//staffRepository.deleteAll();
 		//stadiumRepository.deleteAll();
-		//ticketRepository.deleteAll();
+		ticketRepository.deleteAll();
 		
 		//disciplineRepository.deleteAll();
 		
@@ -134,12 +134,28 @@ public class SporthubApplication  implements CommandLineRunner{
 		
 		
 	
-		//ticketRepository.save(new Ticket ("#44809824", "United Vs City","Old Trafford","Virage",80.99));
-	
+	        ticketRepository.save(new Ticket ("#VRGG", "United Vs City","Old Trafford","Virage",80.99));
+			ticketRepository.save(new Ticket ("#VRGG", "United Vs PSG","Old Trafford","Virage",80.99));
+		
+		// ticketRepository.save(new Ticket ("#XX00", "United Vs PSG","Old Trafford","Pelouse",80.99));
+		// ticketRepository.save(new Ticket ("#XX00", "United Vs City","Old Trafford","Pelouse",80.99));
+		// ticketRepository.save(new Ticket ("#XX00", "United Vs Tunisia","Old Trafford","Pelouse",80.99));
+		
+		 ticketRepository.save(new Ticket ("#YYINF", "United Vs Tunisia","Old Trafford","Enceinte Inf",80.99));
+		// ticketRepository.save(new Ticket ("#YYINF", "United Vs City","Old Trafford","Enceinte Inf",80.99));
+		 ticketRepository.save(new Ticket ("#YYINF", "United Vs Tunisia","Old Trafford","Enceinte Inf",80.99));
+		
+		 ticketRepository.save(new Ticket ("#ZZSUP", "United Vs City","Old Trafford","Enceinte Sup",80.99));
+		
+		// ticketRepository.save(new Ticket ("#ZZSUP", "United Vs PSG","Old Trafford","Enceinte Sup",80.99));
+		// ticketRepository.save(new Ticket ("#ZZSUP", "United Vs PSG","Old Trafford","Enceinte Sup",80.99));
+		
+		// ticketRepository.save(new Ticket ("#LLOO", "United Vs Tunisia","Old Trafford","Loge",80.99));
+		// ticketRepository.save(new Ticket ("#LLOO", "United Vs City","Old Trafford","Loge",80.99));
 		
 		
-		//disciplineRepository.save(new Discipline ("Football"));
-		//disciplineRepository.save(new Discipline ("Handball"));
+		// disciplineRepository.save(new Discipline ("Football"));
+		// disciplineRepository.save(new Discipline ("Handball"));
 	}
 	
 	
