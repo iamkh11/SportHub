@@ -96,7 +96,7 @@ public class SporthubApplication  implements CommandLineRunner{
 		//teamRepository.deleteAll();
 		//playerRepository.deleteAll();
 		//staffRepository.deleteAll();
-		//stadiumRepository.deleteAll();
+		stadiumRepository.deleteAll();
 		ticketRepository.deleteAll();
 		
 		//disciplineRepository.deleteAll();
@@ -125,27 +125,35 @@ public class SporthubApplication  implements CommandLineRunner{
 		
 		
 		
-		//stadiumRepository.save(new Stadium ("Old Trafford","Manchester",76000, "Manchester United","app-assets/img/Old Trafford.jpg"));
+		Stadium b = (new Stadium ("Old Trafford","Manchester",76000, "Manchester United","app-assets/img/Old Trafford.jpg"));
+		
+		stadiumRepository.save(b);
 		
 		System.out.println("==========Save list of Admins entities==========");
 		//adminsRepository.save(new Admins  ("Med Kh","Kh11", "eb3ath_ye_welid@tsawar.ycom", "passwordxEnc", "app-assets/img/portrait/small/avatar-s-19.png", "Editor"));
 		
 		System.out.println("==========Save Ticket of team entities==========");
 		
+
+		Ticket a = (new Ticket ("#VRGG", "Old Trafford","Virage",80.99)) ;
+		a.setStade(b) ;
+		ticketRepository.save(a);
+		
 		
 	
-	        ticketRepository.save(new Ticket ("#VRGG", "United Vs City","Old Trafford","Virage",80.99));
-			ticketRepository.save(new Ticket ("#VRGG", "United Vs PSG","Old Trafford","Virage",80.99));
+		//ticketRepository.save(new Ticket ("#VRGG", "Old Trafford","Virage",80.99, new Stadium ("Old Trafford","Manchester",76000, "Manchester United","app-assets/img/Old Trafford.jpg") ));
+		
+			//ticketRepository.save(new Ticket ("#VRGG", "Old Trafford","Virage",80.99, new Stadium ("Old Trafford","Manchester",76000, "Manchester United","app-assets/img/Old Trafford.jpg") ));
 		
 		// ticketRepository.save(new Ticket ("#XX00", "United Vs PSG","Old Trafford","Pelouse",80.99));
 		// ticketRepository.save(new Ticket ("#XX00", "United Vs City","Old Trafford","Pelouse",80.99));
 		// ticketRepository.save(new Ticket ("#XX00", "United Vs Tunisia","Old Trafford","Pelouse",80.99));
 		
-		 ticketRepository.save(new Ticket ("#YYINF", "United Vs Tunisia","Old Trafford","Enceinte Inf",80.99));
+		// ticketRepository.save(new Ticket ("#YYINF", "United Vs Tunisia","Old Trafford","Enceinte Inf",80.99));
 		// ticketRepository.save(new Ticket ("#YYINF", "United Vs City","Old Trafford","Enceinte Inf",80.99));
-		 ticketRepository.save(new Ticket ("#YYINF", "United Vs Tunisia","Old Trafford","Enceinte Inf",80.99));
+		// ticketRepository.save(new Ticket ("#YYINF", "United Vs Tunisia","Old Trafford","Enceinte Inf",80.99));
 		
-		 ticketRepository.save(new Ticket ("#ZZSUP", "United Vs City","Old Trafford","Enceinte Sup",80.99));
+		// ticketRepository.save(new Ticket ("#ZZSUP", "United Vs City","Old Trafford","Enceinte Sup",80.99));
 		
 		// ticketRepository.save(new Ticket ("#ZZSUP", "United Vs PSG","Old Trafford","Enceinte Sup",80.99));
 		// ticketRepository.save(new Ticket ("#ZZSUP", "United Vs PSG","Old Trafford","Enceinte Sup",80.99));

@@ -130,14 +130,9 @@ public class Stadium {
 
 	@Override
 	public String toString() {
-		return "Stadium [id=" + id + ", stadium_fullname=" + stadium_fullname + ", stadium_placement="
-				+ stadium_placement + ", stadium_capacity=" + stadium_capacity + ", team_fullname=" + team_fullname
-				+ ", image_URL=" + image_URL + "]";
+		return " " + stadium_fullname + " ";
 	}
 
-	
-	
-	
 	
 	
 	

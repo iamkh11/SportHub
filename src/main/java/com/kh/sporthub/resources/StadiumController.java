@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.kh.sporthub.models.Stadium;
 import com.kh.sporthub.repositories.StadiumRepository;
+import com.kh.sporthub.repositories.TicketRepository;
 
 
 
@@ -21,7 +22,10 @@ import com.kh.sporthub.repositories.StadiumRepository;
 @RestController
 public class StadiumController {
 
+private TicketRepository ticketRepository;
 	
+	private  StadiumRepository stadiumRepository;
+
 	
 	
 	

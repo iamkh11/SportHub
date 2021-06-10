@@ -14,8 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kh.sporthub.helpers.ZXingHelper;
-
-
+import com.kh.sporthub.models.Stadium;
 import com.kh.sporthub.models.Ticket;
 import com.kh.sporthub.repositories.StadiumRepository;
 import com.kh.sporthub.repositories.TicketRepository;
@@ -46,11 +45,11 @@ public class TicketController {
         return "virage";
     }
 
-	@RequestMapping(value = "qrcode/{id}", method = RequestMethod.GET)
-	public void qrcode(@PathVariable("id") String id, HttpServletResponse response) throws Exception {
+	@RequestMapping(value = "qrcode/{match_name}", method = RequestMethod.GET)
+	public void qrcode(@PathVariable("match_name") String match_name, HttpServletResponse response) throws Exception {
 		response.setContentType("image/png");
 		OutputStream outputStream = response.getOutputStream();
-		outputStream.write(ZXingHelper.getQRCodeImage(id, 200, 200));
+		outputStream.write(ZXingHelper.getQRCodeImage(match_name, 200, 200));
 		outputStream.flush();
 		outputStream.close();
 	}
@@ -60,7 +59,7 @@ public class TicketController {
 	 
 			 @RequestMapping("/ticketgen")
 			    public String create(Model model) {
-				 
+				 model.addAttribute("ticket", ticketRepository.findAll());
 			        return "ticketgen";
 			    }
 			 
@@ -76,11 +75,13 @@ public class TicketController {
 				 ticket.setStadium_name(stadium_name);
 				 ticket.setStadium_zone(stadium_zone);
 				 ticket.setPrice(price);
-				
 				 
 				 	
 				 	ticketRepository.save(ticket);
 				 }
+				
+				 
+				 
 			        return "redirect:/virage";
 			    }
 			 

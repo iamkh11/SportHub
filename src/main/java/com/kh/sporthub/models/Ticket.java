@@ -2,6 +2,10 @@ package com.kh.sporthub.models;
 
 
 
+import java.nio.charset.Charset;
+import java.util.Random;
+import java.util.UUID;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,6 +14,7 @@ import javax.persistence.GenerationType;
 
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 
@@ -26,7 +31,6 @@ public class Ticket {
 	
 	
 	
-	
 	private static int count = 0;
 	private int ref_ticket;
 	
@@ -39,18 +43,19 @@ public class Ticket {
 	private Boolean Status; 
 	private Boolean checked_by_agent;
 	
+	@DBRef
+	private Stadium stade ;
 	
-	
-	public Ticket(String match_tag, String match_name, String stadium_name,
-			String stadium_zone, double price) {
+	public Ticket(String match_tag,  String stadium_name,
+			String stadium_zone, double price  ) {
 		
 		super();
 		
 		
 		setRef_ticket(++count) ;
-		
+		setMatch_name (match_name) ;
 		this.match_tag = match_tag;
-		this.match_name = match_name;
+		
 		this.stadium_name = stadium_name;
 		this.stadium_zone = stadium_zone;
 		this.price = price;
@@ -67,7 +72,19 @@ public class Ticket {
 		setRef_ticket(++count) ;
 		Status = true;
 		checked_by_agent = false;
-		
+		this.stade = stade;
+	}
+
+
+
+	public Stadium getStade() {
+		return stade;
+	}
+
+
+
+	public void setStade(Stadium stade) {
+		this.stade = stade;
 	}
 
 
@@ -127,7 +144,10 @@ public class Ticket {
 
 
 	public void setMatch_name(String match_name) {
-		this.match_name = match_name;
+		 byte[] array = new byte[20]; 
+		    new Random().nextBytes(array);
+		    
+		this.match_name = (String) UUID.randomUUID().toString().subSequence(0, 30) ;
 	}
 
 
@@ -196,7 +216,7 @@ public class Ticket {
 	public String toString() {
 		return "Ticket [id=" + id + ", ref_ticket=" + ref_ticket + ", match_tag=" + match_tag + ", match_name="
 				+ match_name + ", stadium_name=" + stadium_name + ", stadium_zone=" + stadium_zone + ", price=" + price
-				+ ", Status=" + Status + ", checked_by_agent=" + checked_by_agent + "]";
+				+ ", Status=" + Status + ", checked_by_agent=" + checked_by_agent +  "]";
 	}
 	
 	

@@ -361,9 +361,8 @@
                   <div class="controls col-md-9 ">
                     <select name="stadium_name" id="select" required class="form-control" >
                       <option  value="">Select Stadium...</option>
-                      <option value="OLD Trafford">OLD Trafford</option>
-                      <option value="Rades">Rades</option>
-                      <option value="Manzeh">Manzeh</option>
+                      <option th:if="${ticket.stade != null}" th:each="ticket : ${ticket}"  th:value="${ticket.stade}" th:text="${ticket.stade}"></option>
+                    
                       
                     
                     </select>
