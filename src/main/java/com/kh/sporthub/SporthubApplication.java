@@ -2,6 +2,8 @@ package com.kh.sporthub;
 
 
 
+import java.util.Arrays;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -126,18 +128,20 @@ public class SporthubApplication  implements CommandLineRunner{
 		
 		
 		Stadium b = (new Stadium ("Old Trafford","Manchester",76000, "Manchester United","app-assets/img/Old Trafford.jpg"));
+		Stadium x = (new Stadium ("Rades","Manchester",76000, "Manchester United","app-assets/img/Old Trafford.jpg"));
 		
-		stadiumRepository.save(b);
-		
+		 stadiumRepository.save(b);
+		 stadiumRepository.save(x);
 		System.out.println("==========Save list of Admins entities==========");
 		//adminsRepository.save(new Admins  ("Med Kh","Kh11", "eb3ath_ye_welid@tsawar.ycom", "passwordxEnc", "app-assets/img/portrait/small/avatar-s-19.png", "Editor"));
 		
 		System.out.println("==========Save Ticket of team entities==========");
 		
 
-		Ticket a = (new Ticket ("#VRGG", "Old Trafford","Virage",80.99)) ;
-		a.setStade(b) ;
-		ticketRepository.save(a);
+		//Ticket a = (new Ticket ("Manchester United VS PSG", "Old Trafford","Virage",80.99)) ;
+		//a.setStade(Arrays.asList(b,x)) ;
+		
+		//ticketRepository.save(a);
 		
 		
 	

@@ -18,7 +18,7 @@ public interface StadiumRepository  extends MongoRepository<Stadium, String> {
 	
 	@Override
 	  List<Stadium> findAll();
-	
+	  
 
 }
 

@@ -8,7 +8,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
-@Entity
+
 public class Stadium {
 
 	
@@ -130,8 +130,13 @@ public class Stadium {
 
 	@Override
 	public String toString() {
-		return " " + stadium_fullname + " ";
+		return "Stadium [id=" + id + ", stadium_fullname=" + stadium_fullname + ", stadium_placement="
+				+ stadium_placement + ", stadium_capacity=" + stadium_capacity + ", team_fullname=" + team_fullname
+				+ ", image_URL=" + image_URL + "]";
 	}
+
+
+
 
 	
 	

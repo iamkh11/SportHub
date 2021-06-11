@@ -325,21 +325,6 @@
                 </div>
 
 
-                <div class="form-group row">
-                  <label class="col-md-3 label-control">#Tag <span class="required">*</span></label>
-                  <div class="controls col-md-9">
-                    <div class="position-relative has-icon-left">
-                      <input required type="text"  value="#" class="form-control" placeholder="Match #Tag" name="match_tag"  
-                      data-validation-regex-regex="([#]+)([A-Z\d]{6})"
-                      data-validation-required-message="This field is required">
-                      
-                      <div class="form-control-position">
-                        <i class="ft-help-circle"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
 
 
                 <div class="form-group row">
@@ -361,7 +346,7 @@
                   <div class="controls col-md-9 ">
                     <select name="stadium_name" id="select" required class="form-control" >
                       <option  value="">Select Stadium...</option>
-                      <option th:if="${ticket.stade != null}" th:each="ticket : ${ticket}"  th:value="${ticket.stade}" th:text="${ticket.stade}"></option>
+                      <option   th:each="stade, state : ${stade}"  th:value="${stade.stadium_fullname}" th:text="${stade.stadium_fullname}"></option>
                     
                       
                     

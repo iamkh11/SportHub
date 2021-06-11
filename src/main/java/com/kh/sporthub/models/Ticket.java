@@ -2,20 +2,23 @@ package com.kh.sporthub.models;
 
 
 
+
 import java.nio.charset.Charset;
+import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-
-
+import javax.persistence.OneToMany;
 
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+
 
 
 
@@ -35,7 +38,9 @@ public class Ticket {
 	private int ref_ticket;
 	
 	private String match_tag; 
+	
 	private String match_name;
+	
 	private String stadium_name; 
 	private String stadium_zone;
 	
@@ -43,19 +48,19 @@ public class Ticket {
 	private Boolean Status; 
 	private Boolean checked_by_agent;
 	
-	@DBRef
-	private Stadium stade ;
+	@OneToMany
+	private  List <Stadium> stade ;
 	
-	public Ticket(String match_tag,  String stadium_name,
+	public Ticket(String match_name,  String stadium_name,
 			String stadium_zone, double price  ) {
 		
 		super();
 		
 		
-		setRef_ticket(++count) ;
-		setMatch_name (match_name) ;
-		this.match_tag = match_tag;
+		setRef_ticket(ref_ticket) ;
+		setMatch_tag (match_tag) ;
 		
+		this.match_name = match_name ;
 		this.stadium_name = stadium_name;
 		this.stadium_zone = stadium_zone;
 		this.price = price;
@@ -69,21 +74,31 @@ public class Ticket {
 
 
 	public Ticket() {
-		setRef_ticket(++count) ;
+		setRef_ticket(ref_ticket) ;
 		Status = true;
 		checked_by_agent = false;
 		this.stade = stade;
+		setMatch_tag (match_tag) ;
+		
 	}
 
 
 
-	public Stadium getStade() {
+
+
+
+
+
+
+
+
+	public List<Stadium> getStade() {
 		return stade;
 	}
 
 
 
-	public void setStade(Stadium stade) {
+	public void setStade(List<Stadium> stade) {
 		this.stade = stade;
 	}
 
@@ -120,7 +135,8 @@ public class Ticket {
 
 
 	public void setRef_ticket(int ref_ticket) {
-		this.ref_ticket = ref_ticket;
+	
+		this.ref_ticket = count++;
 	}
 
 
@@ -132,7 +148,11 @@ public class Ticket {
 
 
 	public void setMatch_tag(String match_tag) {
-		this.match_tag = match_tag;
+		byte[] array = new byte[20]; 
+	    new Random().nextBytes(array);
+	    
+	this.match_tag = (String) UUID.randomUUID().toString().subSequence(0, 30) ;
+		
 	}
 
 
@@ -144,10 +164,8 @@ public class Ticket {
 
 
 	public void setMatch_name(String match_name) {
-		 byte[] array = new byte[20]; 
-		    new Random().nextBytes(array);
-		    
-		this.match_name = (String) UUID.randomUUID().toString().subSequence(0, 30) ;
+		
+		    this.match_name = match_name ;
 	}
 
 
@@ -218,7 +236,9 @@ public class Ticket {
 				+ match_name + ", stadium_name=" + stadium_name + ", stadium_zone=" + stadium_zone + ", price=" + price
 				+ ", Status=" + Status + ", checked_by_agent=" + checked_by_agent +  "]";
 	}
-	
+
+
+
 	
 	
 	

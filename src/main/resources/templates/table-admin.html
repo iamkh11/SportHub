@@ -294,12 +294,12 @@
                  
                   
                   <button type="button" class="btn btn-outline-danger"  data-toggle="modal"
-                    data-target="#default">
+                   th:attr="data-target='#default'+*{admins.id}" >
                     <i class="ft-x font-medium-2 mr-auto"></i>
                   </button>
   								</form>
                   <!-- Modal -->
-                  <div class="modal fade text-left" id="default" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
+                  <div class="modal fade text-left" th:id="*{'default'+{admins.id}}"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
                     aria-hidden="true">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">

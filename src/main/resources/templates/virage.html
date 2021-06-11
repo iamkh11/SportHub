@@ -263,7 +263,7 @@
                     
                      <th><i class="ft-image font-small-3 mr-2"></i> #Ref</th>
                      
-                    <th><i class="ft-info font-small-3 mr-2"></i> Tag</th>
+                   
                     <th><i class="ft-user font-small-3 mr-2"></i> Match</th>
                     <th><i class="ft-mail font-small-3 mr-2"></i> Stadium</th>
                    
@@ -287,11 +287,10 @@
 			<tr th:if="${ticket.stadium_zone == 'Virage' and ticket.Status == true }" th:each="ticket : ${ticket}">
                 
       				 <td>
-      				 <a th:text="${ticket.ref_ticket}" th:href="@{'/show/' + ${ticket.id}}"></a>
+      				 <a th:text="${ticket.ref_ticket}" th:href="@{'/show/' + ${ticket.match_tag}}"></a>
       				 </td>
                     
-                     <td th:text="${ticket.match_tag}">
-                     </td>
+                     
                      
                       <td th:text="${ticket.match_name}">
                       </td>
@@ -315,7 +314,9 @@
               
        			
        				<td>
-					<img th:src="@{'qrcode/' + ${ticket.match_name}}" width="100" height="100">
+					<a th:href="@{'qrcode/' + ${ticket.match_tag}} " th:download="${ticket.match_name}  + ' ' + ${ticket.stadium_name} + ' ' +${ticket.stadium_zone}" >
+					<img th:src="@{'qrcode/' + ${ticket.match_tag}}"  width="100" height="100"> </br> 	&nbsp;&nbsp; Download
+					</a>
 				    </td>
                    
 
@@ -331,7 +332,7 @@
                    
                     
                     <th>#Ref</th>
-                    <th>Tag</th>
+                   
                     <th>Match</th> 
                     <th>Stadium</th>
                     <th>Zone</th>

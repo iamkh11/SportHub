@@ -1,6 +1,7 @@
 package com.kh.sporthub.resources;
 
 import java.io.OutputStream;
+import java.util.Arrays;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -26,7 +27,7 @@ public class TicketController {
 
 	@Autowired
 	private TicketRepository ticketRepository;
-	
+	@Autowired
 	private  StadiumRepository stadiumRepository;
 
 	
@@ -45,11 +46,11 @@ public class TicketController {
         return "virage";
     }
 
-	@RequestMapping(value = "qrcode/{match_name}", method = RequestMethod.GET)
-	public void qrcode(@PathVariable("match_name") String match_name, HttpServletResponse response) throws Exception {
+	@RequestMapping(value = "qrcode/{match_tag}", method = RequestMethod.GET)
+	public void qrcode(@PathVariable("match_tag") String match_tag, HttpServletResponse response) throws Exception {
 		response.setContentType("image/png");
 		OutputStream outputStream = response.getOutputStream();
-		outputStream.write(ZXingHelper.getQRCodeImage(match_name, 200, 200));
+		outputStream.write(ZXingHelper.getQRCodeImage(match_tag, 500, 500));
 		outputStream.flush();
 		outputStream.close();
 	}
@@ -60,27 +61,34 @@ public class TicketController {
 			 @RequestMapping("/ticketgen")
 			    public String create(Model model) {
 				 model.addAttribute("ticket", ticketRepository.findAll());
+				 model.addAttribute("stade", stadiumRepository.findAll());
 			        return "ticketgen";
 			    }
 			 
 			 @RequestMapping("/save-tickets")
-			    public String save(@RequestParam int n,@RequestParam String match_tag, @RequestParam String match_name,
+			    public String save(@RequestParam int n, @RequestParam String match_name,
 			    		@RequestParam String stadium_name, @RequestParam String stadium_zone , @RequestParam double price 	) {
 			    	
 				 for (int i=1 ; i < n+1 ; i++ ) {
 				 Ticket ticket = new Ticket();
 				 	
-				 ticket.setMatch_tag(match_tag);
+				
 				 ticket.setMatch_name(match_name);
 				 ticket.setStadium_name(stadium_name);
 				 ticket.setStadium_zone(stadium_zone);
 				 ticket.setPrice(price);
-				 
+				
+				 Stadium b = (new Stadium ("Old Trafford","Manchester",76000, "Manchester United","app-assets/img/Old Trafford.jpg"));
+					Stadium x = (new Stadium ("Rades","Manchester",76000, "Manchester United","app-assets/img/Old Trafford.jpg"));
+					 stadiumRepository.save(b);
+					 stadiumRepository.save(x);
+					 ticket.setStade(Arrays.asList(b,x)) ;
 				 	
 				 	ticketRepository.save(ticket);
 				 }
 				
-				 
+				
+					
 				 
 			        return "redirect:/virage";
 			    }
