@@ -3,250 +3,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-  <!-- BEGIN : Head-->
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <meta name="description" content="Apex admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
-    <meta name="keywords" content="admin template, Apex admin template, dashboard template, flat admin template, responsive admin template, web app">
-    <meta name="author" content="PIXINVENT">
-    <title>Dashboard</title>
-    <link rel="apple-touch-icon" sizes="60x60" href="app-assets/img/ico/apple-icon-60.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="app-assets/img/ico/apple-icon-76.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="app-assets/img/ico/apple-icon-120.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="app-assets/img/ico/apple-icon-152.png">
-    <link rel="shortcut icon" type="image/x-icon" href="app-assets/img/ico/favicon.ico">
-    <link rel="shortcut icon" type="image/png" href="app-assets/img/ico/favicon-32.png">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-touch-fullscreen" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900|Montserrat:300,400,500,600,700,800,900" rel="stylesheet">
-    <!-- BEGIN VENDOR CSS-->
-    <!-- font icons-->
-    <link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css">
-    <link rel="stylesheet" type="text/css" href="app-assets/fonts/simple-line-icons/style.css">
-    <link rel="stylesheet" type="text/css" href="app-assets/fonts/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/perfect-scrollbar.min.css">
-    <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/prism.min.css">
-    <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/chartist.min.css">
-    <!-- END VENDOR CSS-->
-    <!-- BEGIN APEX CSS-->
-    <link rel="stylesheet" type="text/css" href="app-assets/css/app.css">
-    <!-- END APEX CSS-->
-    <!-- BEGIN Page Level CSS-->
-    <!-- END Page Level CSS-->
-  </head>
-  <!-- END : Head-->
-
+  
+ <div th:replace="fragments/header :: header">
+ </div>
   <!-- BEGIN : Body-->
   <body data-col="2-columns" class=" 2-columns ">
     <!-- ////////////////////////////////////////////////////////////////////////////-->
     <div class="wrapper">
+ 	 
+ 	  <div th:replace="fragments/sidebar :: sidebar">
+ 	  </div>
 
-
-      <!-- main menu-->
-      <!--.main-menu(class="#{menuColor} #{menuOpenType}", class=(menuShadow == true ? 'menu-shadow' : ''))-->
-      <div data-active-color="black" data-background-color="white" data-image="" class="app-sidebar">
-        <!-- main menu header-->
-        <!-- Sidebar Header starts-->
-        <div class="sidebar-header">
-          <div class="logo clearfix"><a href="/index" class="logo-text float-left">
-              <div class="logo-img"><img src="app-assets/img/logo-dark.png"/></div><span class="text align-middle">T-Hub.</span></a><a id="sidebarToggle" href="javascript:;" class="nav-toggle d-none d-sm-none d-md-none d-lg-block"><i data-toggle="expanded" class="toggle-icon ft-toggle-left"></i></a><a id="sidebarClose" href="javascript:;" class="nav-close d-block d-md-block d-lg-none d-xl-none"><i class="ft-x"></i></a></div>
-        </div>
-        <!-- Sidebar Header Ends-->
-        <!-- / main menu header-->
-         <!-- main menu content-->
-         <div class="sidebar-content">
-          <div class="nav-container">
-            <ul id="main-menu-navigation" data-menu="menu-navigation" data-scroll-to-active="true" class="navigation navigation-main">
-              <li class="has-sub nav-item">
-                  <a href="#"><i class="ft-home"></i><span data-i18n="" class="menu-title" >Dashboard</span></a>
-                    </a>
-                <ul class="menu-content">
-                  <li class="active"><a href="/index" class="menu-item">Dashboard1</a>
-                  </li>
-                 
-                </ul>
-
-            
-
-                    <li class="has-sub nav-item"><a href="#"><i class="ft-list"></i><span data-i18n="" class="menu-title">Disciplines</span></a>
-                      <ul class="menu-content">
-                        <li class="has-sub"><a href="#" class="menu-item">Football</a>
-                          <ul class="menu-content">
-
-                            <li class="has-sub"><a href="#" class="menu-item">Our Team</a>
-                          <ul class="menu-content">
-
-                            <li>
-                              <a href="../index/myteam-info" class="menu-item">Info</a>
-                            </li>
-
-                            <li>
-                              <a href="../index/our-players" class="menu-item">Our Players</a>
-                            </li>
-
-                            <li>
-                              <a href="../index/our-staff" class="menu-item">Our Staff</a>
-                            </li>
-                            
-                             <li>
-                              <a href="../index/our-staff" class="menu-item">Our Stadium</a>
-                            </li>
-
-                          </ul>
-
-                        </li>
-                        
-                        	 <li>
-                          <a href="../index/other-teams" class="has-sub menu-item">Other Teams</a>
-                        	</li>
-                        	
-                        	<li>
-                          <a href="../index/other-players" class="has-sub menu-item">Other Players</a>
-                        </li>
-
-                        <li>
-                          <a href="#" class="has-sub menu-item">Stadiums</a>
-                        </li>
-                        
-                        
-
-                          </ul>
-
-                        </li>
-                        
-                         <li class="has-sub"><a href="#" class="menu-item">Handball</a>
-                          <ul class="menu-content">
-
-                            <li class="has-sub"><a href="#" class="menu-item">Our Team</a>
-                          <ul class="menu-content">
-
-                            <li>
-                              <a href="../index/myteam-info" class="menu-item">Info</a>
-                            </li>
-
-                            <li>
-                              <a href="../index/our-players" class="menu-item">Our Players</a>
-                            </li>
-
-                            <li>
-                              <a href="../index/our-staff" class="menu-item">Our Staff</a>
-                            </li>
-                            
-                             <li>
-                              <a href="../index/our-staff" class="menu-item">Our Stadium</a>
-                            </li>
-
-                          </ul>
-
-                        </li>
-                        
-                        	 <li>
-                          <a href="../index/other-teams" class="has-sub menu-item">Other Teams</a>
-                        	</li>
-                        	<li>
-                          <a href="#" class="has-sub menu-item">Other Players</a>
-                        </li>
-
-                        <li>
-                          <a href="#" class="has-sub menu-item">Stadiums</a>
-                        </li>
-                        
-                        
-
-                          </ul>
-
-                        </li>
-                        
-
-                       
-
-                      </ul>
-                    </li>
-                        
-
-                    <li class="has-sub nav-item">
-                      <a href="#">
-                        <i class="ft-calendar"></i><span data-i18n="" class="menu-title">Calendar</span>
-                      </a>
-                    <ul class="menu-content">
-                      <li>
-                        <a href="#" class="has-sub menu-item">X</a>
-                      </li>
-                      <li>
-                        <a href="#" class="menu-item">X</a>
-                      </li>
-                      <li>
-                        <a href="#" class="menu-item">X</a>
-                      </li>
-                      <li>
-                        <a href="#" class="menu-item">X</a>
-                      </li>
-                    </ul>
-                       
-                      
-
-                <li class="has-sub nav-item">
-                  <a href="#"><i class="ft-credit-card"></i><span data-i18n="" class="menu-title">Tickets</span>
-                    </a>
-                <ul class="menu-content">
-                  <li>
-                          <a href="../index/ticketgen" class="has-sub menu-item"> *Tickets Generator</a>
-                        </li>
-                  <li class="has-sub"><a href="#" class="menu-item">Tickets per Zone</a>
-                          <ul class="menu-content">
-
-                            <li>
-                              <a href="/index/myteam-info" class="menu-item">Pelouse</a>
-                            </li>
-
-                            <li >
-                              <a href="/index/our-players" class="menu-item">Virage</a>
-                            </li>
-
-                            <li>
-                              <a href="/index/our-staff" class="menu-item">Enceinte Inf </a>
-                            </li>
-                              <li>
-                              <a href="/index/our-staff" class="menu-item">Enceinte Sup </a>
-                            </li>
-                            <li>
-                              <a href="/index/our-staff" class="menu-item">Loge </a>
-                            </li>
-
-                          </ul>
-
-                        </li>
-                </ul>
-  				</li>
-
-
-                <li class="has-sub nav-item">
-                    <a href="#"><i class="ft-users"></i><span data-i18n="" class="menu-title">Users</span>
-                      </a>
-                  <ul class="menu-content">
-                    <li><a href="../index/table-admin" class="has-sub menu-item">Admins</a>
-                    </li>
-                    <li ><a href="../index/table-supporters" class="menu-item">Supporters</a>
-                    </li>
-                  </ul>
-             
-
-            </ul>  
-              
-             
-          
-          </div>
-        </div>
-        <!-- main menu content-->
-        <div class="sidebar-background"></div>
-        <!-- main menu footer-->
-        <!-- include includes/menu-footer-->
-        <!-- main menu footer-->
-      </div>
-      <!-- / main menu-->
+      
+      
     
    <!-- Navbar (Header) Starts-->
    <nav class="navbar navbar-expand-lg navbar-light bg-faded header-navbar">
@@ -724,15 +493,20 @@
 </div>
 
           </div>
-        </div>
+      
         <!-- END : End Main Content-->
 
-        <!-- BEGIN : Footer-->
-        <footer class="footer footer-static footer-light">
-          <p class="clearfix text-muted text-sm-right px-2"><span>Copyright  &copy; 2021 <a href="https://www.facebook.com/iKh11/" id="pixinventLink" target="_blank" class="text-bold-800 primary darken-2">#Kh11 </a>, All rights reserved. </span></p>
-      </footer>
+       <!-- BEGIN : Footer-->
+       	<div th:replace="fragments/footer :: footer">
+  		</div>
+       
+       
+       
         <!-- End : Footer-->
-
+       
+       
+       
+  </div>
       </div>
     </div>
     <!-- ////////////////////////////////////////////////////////////////////////////-->
@@ -1016,6 +790,9 @@
       </div>
     </aside>
     <!-- END Notification Sidebar-->
+    
+    
+    
     <!-- Theme customizer Starts-->
     <div class="customizer border-left-blue-grey border-left-lighten-4 d-none d-sm-none d-md-block"><a class="customizer-close"><i class="ft-x font-medium-3"></i></a><a id="rtl-icon" href="https://pixinvent.com/apex-angular-4-bootstrap-admin-template/html-demo-6/" target="_blank" class="bg-dark customizer-toggle"><span class="font-medium-1 white align-middle">RTL</span></a><a id="customizer-toggle-icon" class="customizer-toggle bg-danger"><i class="ft-settings font-medium-4 fa fa-spin white align-middle"></i></a>
       <div data-ps-id="df6a5ce4-a175-9172-4402-dabd98fc9c0a" class="customizer-content p-3 ps-container ps-theme-dark">

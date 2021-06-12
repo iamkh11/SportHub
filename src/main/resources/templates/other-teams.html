@@ -4,42 +4,10 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
    >
-      
+      !
   <!-- BEGIN : Head-->
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <meta name="description" content="Apex admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
-    <meta name="keywords" content="admin template, Apex admin template, dashboard template, flat admin template, responsive admin template, web app">
-    <meta name="author" content="PIXINVENT">
-    <title>Dashboard</title>
-    <link rel="apple-touch-icon" sizes="60x60" href="app-assets/img/ico/apple-icon-60.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="app-assets/img/ico/apple-icon-76.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="app-assets/img/ico/apple-icon-120.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="app-assets/img/ico/apple-icon-152.png">
-    <link rel="shortcut icon" type="image/x-icon" href="app-assets/img/ico/favicon.ico">
-    <link rel="shortcut icon" type="image/png" href="app-assets/img/ico/favicon-32.png">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-touch-fullscreen" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900|Montserrat:300,400,500,600,700,800,900" rel="stylesheet">
-    <!-- BEGIN VENDOR CSS-->
-    <!-- font icons-->
-    <link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css">
-    <link rel="stylesheet" type="text/css" href="app-assets/fonts/simple-line-icons/style.css">
-    <link rel="stylesheet" type="text/css" href="app-assets/fonts/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/perfect-scrollbar.min.css">
-    <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/prism.min.css">
-    <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/tables/datatable/datatables.min.css">
-    <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/tables/datatable/responsive.dataTables.min.css">
-    <!-- END VENDOR CSS-->
-    <!-- BEGIN APEX CSS-->
-    <link rel="stylesheet" type="text/css" href="app-assets/css/app.css">
-    <!-- END APEX CSS-->
-    <!-- BEGIN Page Level CSS-->
-    <!-- END Page Level CSS-->
-  </head>
+       <div th:replace="fragments/header :: header">
+  		</div>
   <!-- END : Head-->
 
   <!-- BEGIN : Body-->
@@ -47,126 +15,11 @@
     <!-- ////////////////////////////////////////////////////////////////////////////-->
     <div class="wrapper">
 
-
-      <!-- main menu-->
-      <!--.main-menu(class="#{menuColor} #{menuOpenType}", class=(menuShadow == true ? 'menu-shadow' : ''))-->
-      <div data-active-color="black" data-background-color="white" data-image="" class="app-sidebar">
-        <!-- main menu header-->
-        <!-- Sidebar Header starts-->
-        <div class="sidebar-header">
-          <div class="logo clearfix"><a href="/index" class="logo-text float-left">
-              <div class="logo-img"><img  src="app-assets/img/logo-dark.png"/></div><span class="text align-middle">T-HUB.</span></a><a id="sidebarToggle" href="javascript:;" class="nav-toggle d-none d-sm-none d-md-none d-lg-block"><i data-toggle="expanded" class="toggle-icon ft-toggle-left"></i></a><a id="sidebarClose" href="javascript:;" class="nav-close d-block d-md-block d-lg-none d-xl-none"><i class="ft-x"></i></a></div>
-        </div>
-        <!-- Sidebar Header Ends-->
-        <!-- / main menu header-->
-        <!-- main menu content-->
-        <div class="sidebar-content">
-          <div class="nav-container">
-            <ul id="main-menu-navigation" data-menu="menu-navigation" data-scroll-to-active="true" class="navigation navigation-main">
-              <li class="has-sub nav-item">
-                  <a href="#"><i class="ft-home"></i><span data-i18n="" class="menu-title">Dashboard</span>
-                    </a>
-                <ul class="menu-content">
-                  <li ><a href="dashboard1.html" class="menu-item">Dashboard1</a>
-                  </li>
-                  <li><a href="dashboard2.html" class="menu-item">Dashboard2</a>
-                  </li>
-                </ul>
-
-            
-
-                    <li class="has-sub nav-item"><a href="#"><i class="ft-flag"></i><span data-i18n="" class="menu-title">Teams</span></a>
-                      <ul class="menu-content">
-                        <li class="has-sub"><a href="#" class="menu-item">My Team</a>
-                          <ul class="menu-content">
-
-                            <li>
-                              <a href="/index/myteam-info" class="menu-item">Info</a>
-                            </li>
-
-                            <li>
-                              <a href="/index/our-players" class="menu-item">Players</a>
-                            </li>
-
-                            <li>
-                              <a href="/index/our-staff" class="menu-item">Staff</a>
-                            </li>
-
-                          </ul>
-
-                        </li>
-
-                         <li class="active">
-                          <a href="../index/other-teams" class="has-sub menu-item">Other Teams</a>
-                        </li>
-                         <li>
-                          <a href="#" class="has-sub menu-item">All Players</a>
-                        </li>
-
-                        <li>
-                          <a href="#" class="has-sub menu-item">Stadiums</a>
-                        </li>
-
-                      </ul>
-                    </li>
-                        
-
-                    <li class="has-sub nav-item">
-                      <a href="#">
-                        <i class="ft-calendar"></i><span data-i18n="" class="menu-title">Calendar</span>
-                      </a>
-                    <ul class="menu-content">
-                      <li>
-                        <a href="#" class="has-sub menu-item">X</a>
-                      </li>
-                      <li>
-                        <a href="#" class="menu-item">X</a>
-                      </li>
-                      <li>
-                        <a href="#" class="menu-item">X</a>
-                      </li>
-                      <li>
-                        <a href="#" class="menu-item">X</a>
-                      </li>
-                    </ul>
-                       
-                      
-
-                <li class="has-sub nav-item">
-                  <a href="#"><i class="ft-credit-card"></i><span data-i18n="" class="menu-title">Tickets</span>
-                    </a>
-                <ul class="menu-content">
-                  <li > <a href="/index/tickets" class="has-sub menu-item">All Tickets</a>
-                  </li>
-                  <li><a href="#" class="menu-item">X</a>
-                  </li>
-                </ul>
-
-
-                <li class="has-sub nav-item">
-                    <a href="#"><i class="ft-users"></i><span data-i18n="" class="menu-title">Users</span>
-                      </a>
-                  <ul class="menu-content">
-                    <li ><a href="/index/table-admin" class="has-sub menu-item">Admins</a>
-                    </li>
-                    <li ><a href="/index/table-supporters" class="menu-item">Supporters</a>
-                    </li>
-                  </ul>
-             
-
-            </ul>  
-              
-             
-          
-          </div>
-        </div>
-        <!-- main menu content-->
-        <div class="sidebar-background"></div>
-        <!-- main menu footer-->
-        <!-- include includes/menu-footer-->
-        <!-- main menu footer-->
-      </div>
-      <!-- / main menu-->
+	<!-- main menu-->
+	<div th:replace="fragments/sidebar :: sidebar">
+ 		 </div>
+	<!-- main menu-->
+     
     
                   
               
@@ -260,7 +113,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr th:if="${teams.fullname != 'Manchester United'}" th:each="teams : ${teams}">
+                  <tr th:if="${teams.fullname != 'Manchester United' and teams.descipline == 'football'}" th:each="teams : ${teams}">
                   
                     <td>
                <img  alt="96x96" class="card-img  img-fluid half-width  height-40 "
@@ -403,15 +256,14 @@
 
 
           </div>
-        </div>
+     
         <!-- END : End Main Content-->
 
         <!-- BEGIN : Footer-->
-        <footer class="footer footer-static footer-light">
-            <p class="clearfix text-muted text-sm-right px-2"><span>Copyright  &copy; 2021 <a href="https://www.facebook.com/iKh11/" id="pixinventLink" target="_blank" class="text-bold-800 primary darken-2">#Kh11 </a>, All rights reserved. </span></p>
-          </footer>
+       	<div th:replace="fragments/footer :: footer">
+  		</div>
         <!-- End : Footer-->
-
+   </div>
       </div>
     </div>
     <!-- ////////////////////////////////////////////////////////////////////////////-->
