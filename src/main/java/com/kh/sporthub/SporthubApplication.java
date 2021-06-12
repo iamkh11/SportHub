@@ -95,11 +95,13 @@ public class SporthubApplication  implements CommandLineRunner{
 		//supportersRepository.deleteAll();
 		
 		System.out.println("==========Delete all Team entities==========");
-		//teamRepository.deleteAll();
-		//playerRepository.deleteAll();
-		//staffRepository.deleteAll();
+		teamRepository.deleteAll();
+		playerRepository.deleteAll();
+		staffRepository.deleteAll();
 		stadiumRepository.deleteAll();
-		ticketRepository.deleteAll();
+		
+		
+		//ticketRepository.deleteAll();
 		
 		//disciplineRepository.deleteAll();
 		
@@ -115,23 +117,37 @@ public class SporthubApplication  implements CommandLineRunner{
 		
 		
 		System.out.println("==========Save list of team entities==========");
-		//teamRepository.save(new Team ("Manchester United","Red Devils", "1878, Newton Heath, Manchester, Royaume-Uni", "Glazers", "Premier League", "app-assets/img/photos/ManUnited.png"));
-		//teamRepository.save(new Team ("Manchester City","The Citizens", "16 April 1894", "Tamim bin Hamad Al Thani", "Premier League", "app-assets/img/photos/city.png"));
+		teamRepository.save(new Team ("Manchester United","Red Devils", "1878, Newton Heath, Manchester, Royaume-Uni", "Glazers", "Premier League", "app-assets/img/photos/ManUnited.png","football"));
+		teamRepository.save(new Team ("Manchester City","The Citizens", "16 April 1894", "Tamim bin Hamad Al Thani", "Premier League", "app-assets/img/photos/city.png","handball"));
+		teamRepository.save(new Team ("Manchester City","The Citizens", "16 April 1894", "Tamim bin Hamad Al Thani", "Premier League", "app-assets/img/photos/city.png","handball"));
+		teamRepository.save(new Team ("Manchester City","The Citizens", "16 April 1894", "Tamim bin Hamad Al Thani", "Premier League", "app-assets/img/photos/city.png","football"));
+		teamRepository.save(new Team ("Manchester City","The Citizens", "16 April 1894", "Tamim bin Hamad Al Thani", "Premier League", "app-assets/img/photos/city.png","football"));
+		teamRepository.save(new Team ("Manchester City","The Citizens", "16 April 1894", "Tamim bin Hamad Al Thani", "Premier League", "app-assets/img/photos/city.png","football"));
 		
 		
-		//playerRepository.save(new Players ("Paul Pogba",26, "24/09/1998", "French", "Male",6,"CMD", "Manchester United","app-assets/img/photos/pog.jpg"));
+		playerRepository.save(new Players ("Paul Pogba",26, "24/09/1998", "French", "Male",6,"CMD", "Manchester United","app-assets/img/photos/pog.jpg","football"));
+		playerRepository.save(new Players ("Paul Pogba",26, "24/09/1998", "French", "Male",6,"CMD", "Manchester United","app-assets/img/photos/pog.jpg","football"));
+		playerRepository.save(new Players ("Paul Pogba",26, "24/09/1998", "French", "Male",6,"CMD", "Manchester United","app-assets/img/photos/pog.jpg","football"));
+		playerRepository.save(new Players ("Paul Pogba",26, "24/09/1998", "French", "Male",6,"CMD", "Manchester United","app-assets/img/photos/pog.jpg","handball"));
+		playerRepository.save(new Players ("Paul Pogba",26, "24/09/1998", "French", "Male",6,"CMD", "Manchester United","app-assets/img/photos/pog.jpg","handball"));
+		
+		staffRepository.save(new Staff ("Ole Gunnar Solskjaer",48,  "February 26, 1973", "Norwegian","Male", "Manchester United", "Manager","app-assets/img/photos/ole.jpeg","football"));
+		staffRepository.save(new Staff ("Jose Mourinho",488,  "February 26, 1973", "Norwegian","Male", "Manchester United", "Manager","app-assets/img/photos/ole.jpeg","football"));
+		staffRepository.save(new Staff ("Welid",888,  "February 26, 1973", "Norwegian","Male", "Manchester United", "Manager","app-assets/img/photos/ole.jpeg","football"));
+		staffRepository.save(new Staff ("Mustpha",999,  "February 26, 1973", "Norwegian","Male", "Manchester United", "Manager","app-assets/img/photos/ole.jpeg","handball"));
+		staffRepository.save(new Staff ("Mondher S8ayer",9,  "February 26, 1973", "Norwegian","Male", "Manchester United", "Manager","app-assets/img/photos/ole.jpeg","handball"));
+		
+		stadiumRepository.save(new Stadium ("Old Trafford","Manchester",76000, "Manchester United","app-assets/img/Old Trafford.jpg","football"));
+		stadiumRepository.save(new Stadium ("Old Trafford","Manchester",100000, "Manchester City","app-assets/img/Old Trafford.jpg","football"));
+		stadiumRepository.save(new Stadium ("Old Trafford","Manchester",300000, "Manchester City","app-assets/img/Old Trafford.jpg","football"));
+		stadiumRepository.save(new Stadium ("Old Trafford","Manchester",200, "Manchester City","app-assets/img/Old Trafford.jpg","football"));
 		
 		
-		//staffRepository.save(new Staff ("Ole Gunnar Solskjaer",48,  "February 26, 1973", "Norwegian","Male", "Manchester United", "Manager","app-assets/img/photos/ole.jpeg"));
+		//Stadium b = (new Stadium ("Old Trafford","Manchester",76000, "Manchester United","app-assets/img/Old Trafford.jpg"));
+		//Stadium x = (new Stadium ("Rades","Manchester",76000, "Manchester United","app-assets/img/Old Trafford.jpg"));
 		
-		
-		
-		
-		Stadium b = (new Stadium ("Old Trafford","Manchester",76000, "Manchester United","app-assets/img/Old Trafford.jpg"));
-		Stadium x = (new Stadium ("Rades","Manchester",76000, "Manchester United","app-assets/img/Old Trafford.jpg"));
-		
-		 stadiumRepository.save(b);
-		 stadiumRepository.save(x);
+		// stadiumRepository.save(b);
+		// stadiumRepository.save(x);
 		System.out.println("==========Save list of Admins entities==========");
 		//adminsRepository.save(new Admins  ("Med Kh","Kh11", "eb3ath_ye_welid@tsawar.ycom", "passwordxEnc", "app-assets/img/portrait/small/avatar-s-19.png", "Editor"));
 		
@@ -139,10 +155,11 @@ public class SporthubApplication  implements CommandLineRunner{
 		
 
 		//Ticket a = (new Ticket ("Manchester United VS PSG", "Old Trafford","Virage",80.99)) ;
+		//Ticket y = (new Ticket ("Tunisia VS Algeria", "Rades","Virage",10)) ;
 		//a.setStade(Arrays.asList(b,x)) ;
 		
 		//ticketRepository.save(a);
-		
+		//ticketRepository.save(y);
 		
 	
 		//ticketRepository.save(new Ticket ("#VRGG", "Old Trafford","Virage",80.99, new Stadium ("Old Trafford","Manchester",76000, "Manchester United","app-assets/img/Old Trafford.jpg") ));

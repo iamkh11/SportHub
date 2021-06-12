@@ -313,8 +313,7 @@
                           <h4><span class="text-bold-600">Warning !</span></h4>
                           
                            <div class="alert alert-danger" role="alert">
-                            <span class="text-bold-600">Well done!</span> You successfully read this important alert
-                            message.
+                            Are you<span class="text-bold-600"> sure</span> you want to <span class="text-bold-600">delete</span> this User ?
                           </div>
                           
                           
@@ -323,10 +322,10 @@
                         </div>
                        
                         <div class="modal-footer">
-                          <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn grey btn-outline-dark" data-dismiss="modal">Close</button>
                             <form action="/index/delete">  
                            <input type="hidden" name="id" th:value="${admins.id}" />
-                          <input type="submit" class="btn btn-outline-primary" value="Delete" onclick="return "/>
+                          <input type="submit" class="btn btn-outline-red" value="Delete" onclick="return "/>
                           
               </form>
                         </div>

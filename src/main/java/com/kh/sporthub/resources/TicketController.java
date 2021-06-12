@@ -78,8 +78,8 @@ public class TicketController {
 				 ticket.setStadium_zone(stadium_zone);
 				 ticket.setPrice(price);
 				
-				 Stadium b = (new Stadium ("Old Trafford","Manchester",76000, "Manchester United","app-assets/img/Old Trafford.jpg"));
-					Stadium x = (new Stadium ("Rades","Manchester",76000, "Manchester United","app-assets/img/Old Trafford.jpg"));
+				 Stadium b = (new Stadium ("Old Trafford","Manchester",76000, "Manchester United","app-assets/img/Old Trafford.jpg","football"));
+					Stadium x = (new Stadium ("Rades","Manchester",76000, "Manchester United","app-assets/img/Old Trafford.jpg","football"));
 					 stadiumRepository.save(b);
 					 stadiumRepository.save(x);
 					 ticket.setStade(Arrays.asList(b,x)) ;

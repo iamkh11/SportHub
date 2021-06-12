@@ -248,13 +248,166 @@
 				
 				
               <div class="card-footer border-top-0" align = "center">
-             <form action="/index/deleteourplayer">
-                 <a class="btn btn-outline-blue" href="#"  role="button">Modify</a> &nbsp;
+              
+              <form method="get" action="#">
+             
+                 <button type="button" class="btn btn-outline-blue" data-toggle="modal"
+                    data-target="#bootstrap">Modify</button>&nbsp;
                 
-                	
-                    <input type="hidden" name="id" th:value="${players.id}" />
-                    <input type="submit" class="btn btn-outline-danger" th:value="Delete" onclick="return confirm('Are you sure?');" />
+                
+                    <button type="button" class="btn btn-outline-danger"  data-toggle="modal"
+                   th:attr="data-target='#default'+*{players.id}" >
+                    Delete
+                  </button>
+        
               		</form>
+              		
+              		 <!-- Modal -->
+                    <div class="modal fade text-left" id="bootstrap" tabindex="-1" role="dialog" aria-labelledby="myModalLabel35"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-xl " role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h3 class="modal-title" id="myModalLabel35"><span>Modify Player :</span></h3>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                         <form class="form" novalidate>
+                          <div class="modal-body">
+                          
+                          <div class="form-body">
+                          <h4 class="form-section"><i class="ft-user"></i> Player Info</h4>
+                               
+                   <div class="row">
+                  <div class="form-group col-md-6 mb-2">
+                    <label for="projectinput1">player_fullname</label>
+                    <input type="text" id="projectinput1" class="form-control" placeholder="First Name" name="fname">
+                  </div>
+                  <div class="form-group col-md-6 mb-2">
+                    <label for="projectinput2">player_age</label>
+                    <input type="text" id="projectinput2" class="form-control" placeholder="Last Name" name="lname">
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <div class="form-group col-md-6 mb-2">
+                    <label for="projectinput3">player_birth_date</label>
+                    <input type="text" id="projectinput3" class="form-control" placeholder="E-mail" name="email">
+                  </div>
+                  <div class="form-group col-md-6 mb-2">
+                    <label for="projectinput4">player_nationality</label>
+                    <input type="number" id="projectinput4" class="form-control" placeholder="Phone" name="phone">
+                  </div>
+                </div>
+                 <div class="row">
+                  <div class="form-group col-md-6 mb-2">
+                    <label for="projectinput3">player_gender</label>
+
+                    <input type="text" id="projectinput3" class="form-control" placeholder="E-mail" name="email">
+                  </div>
+                  <div class="form-group col-md-6 mb-2">
+                    <label for="projectinput4">player_number</label>
+                    <input type="number" id="projectinput4" class="form-control" placeholder="Phone" name="phone">
+                  </div>
+                </div>
+                 <div class="row">
+                  <div class="form-group col-md-6 mb-2">
+                    <label for="projectinput3">player_position</label>
+
+                    <input type="text" id="projectinput3" class="form-control" placeholder="E-mail" name="email">
+                  </div>
+                  <div class="form-group col-md-6 mb-2">
+                    <label for="projectinput4">team_name</label>
+                    <input type="number" id="projectinput4" class="form-control" placeholder="Phone" name="phone">
+                  </div>
+                </div>
+                 <div class="row">
+                  <div class="form-group col-12 ">
+                    <label>logo_URL <span class="required">*</span></label>
+                              <div class="controls ">
+                    			<input type="text" value="app-assets/img/portrait/small/" name="avatar"  class="form-control" 
+                    			required data-validation-required-message="This field is required">
+                      
+                				  </div>
+                  </div>
+                 
+                </div>
+                
+                
+               
+
+               
+
+                            
+                              </div>  
+                          </div>
+                          
+                          <div class="modal-footer" novalidate>
+                            <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal" value="close">
+                            <input type="submit" class="btn btn-outline-primary btn-lg" >
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                   <!-- Modal -->
+              		
+              		
+              		
+              		
+              		
+              		
+              		
+              		
+              		
+              		
+              		
+              		
+              		
+              		 <!-- Modal -->
+                  <div class="modal fade text-left" th:id="*{'default'+{players.id}}"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header bg-danger">
+                          <h4 class="modal-title" id="myModalLabel1">Confirm :</h4>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <h4><span class="text-bold-600">Warning !</span></h4>
+                          
+                           <div class="alert alert-danger" role="alert">
+                            Are you<span class="text-bold-600"> sure</span> you want to <span class="text-bold-600">delete</span> this Player ?
+                          </div>
+                          
+                          
+                          
+                         
+                        </div>
+                       
+                        <div class="modal-footer">
+                          <button type="button" class="btn grey btn-outline-dark" data-dismiss="modal">Close</button>
+                            <form action="/index/deleteourplayer"> 
+                           <input type="hidden" name="id" th:value="${players.id}" />
+                          <input type="submit" class="btn btn-outline-red" value="Delete" onclick="return "/>
+                          
+              </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              		
+              		
+              		
+              		
+              		
+              		
+              		
+              		
+              		
               
               </div>
              
@@ -316,7 +469,7 @@
 
 
           </div>
-        </div>
+      
         <!-- END : End Main Content-->
 
         <!-- BEGIN : Footer-->
@@ -324,7 +477,7 @@
             <p class="clearfix text-muted text-sm-right px-2"><span>Copyright  &copy; 2021 <a href="https://www.facebook.com/iKh11/" id="pixinventLink" target="_blank" class="text-bold-800 primary darken-2">#Kh11 </a>, All rights reserved. </span></p>
         </footer>
         <!-- End : Footer-->
-
+  </div>
       </div>
     </div>
     <!-- ////////////////////////////////////////////////////////////////////////////-->
@@ -740,13 +893,15 @@
     <script src="app-assets/vendors/js/pace/pace.min.js" type="text/javascript"></script>
     <!-- BEGIN VENDOR JS-->
     <!-- BEGIN PAGE VENDOR JS-->
+     <script src="app-assets/vendors/js/jqBootstrapValidation.js" type="text/javascript"></script>
     <!-- END PAGE VENDOR JS-->
     <!-- BEGIN APEX JS-->
     <script src="app-assets/js/app-sidebar.js" type="text/javascript"></script>
     <script src="app-assets/js/notification-sidebar.js" type="text/javascript"></script>
     <script src="app-assets/js/customizer.js" type="text/javascript"></script>
-  
+   <script src="app-assets/js/form-validation.js" type="text/javascript"></script>
     <script src="app-assets/js/components-modal.min.js" type="text/javascript"></script>
+    
   
     <!-- END APEX JS-->
     <!-- BEGIN PAGE LEVEL JS-->

@@ -2,7 +2,7 @@ package com.kh.sporthub.models;
 
 
 
-import javax.persistence.Entity;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
@@ -16,8 +16,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 
 
+
 @Document(collection = "players")
-@Entity
 public class Players {
 
 	@Id
@@ -39,15 +39,14 @@ public class Players {
 	
 	private String player_pic_URL;
 
-	
-	
-	
+	private String player_descipline;
 	
 
+	
 
 	public Players(String player_fullname, Integer player_age, String player_birth_date, String player_nationality,
 			String player_gender, Integer player_number, String player_position, String team_name,
-			String player_pic_URL) {
+			String player_pic_URL, String player_descipline) {
 		super();
 		this.player_fullname = player_fullname;
 		this.player_age = player_age;
@@ -58,6 +57,27 @@ public class Players {
 		this.player_position = player_position;
 		this.team_name = team_name;
 		this.player_pic_URL = player_pic_URL;
+		this.player_descipline = player_descipline;
+	}
+
+
+
+
+
+
+
+	public String getPlayer_descipline() {
+		return player_descipline;
+	}
+
+
+
+
+
+
+
+	public void setPlayer_descipline(String player_descipline) {
+		this.player_descipline = player_descipline;
 	}
 
 
@@ -268,11 +288,18 @@ public class Players {
 
 	@Override
 	public String toString() {
-		return "Players [id=" + id + ", player_fullname=" + player_fullname + ", player_age=" + player_age
-				+ ", player_birth_date=" + player_birth_date + ", player_nationality=" + player_nationality
-				+ ", player_gender=" + player_gender + ", player_number=" + player_number + ", player_position="
-				+ player_position + ", team_name=" + team_name + ", player_pic_URL=" + player_pic_URL + "]";
+		return "Players [player_fullname=" + player_fullname + ", player_age=" + player_age + ", player_birth_date="
+				+ player_birth_date + ", player_nationality=" + player_nationality + ", player_gender=" + player_gender
+				+ ", player_number=" + player_number + ", player_position=" + player_position + ", team_name="
+				+ team_name + ", player_pic_URL=" + player_pic_URL + ", player_descipline=" + player_descipline + "]";
 	}
+
+
+
+
+
+
+
 
 
 

@@ -39,7 +39,11 @@ public class PlayersController {
 	        return "our-players";
 	    }
 	  
-	  
+	  @RequestMapping("/other-players")
+	    public String joueurs(Model model) {
+	        model.addAttribute("joueurs", playersRepository.findAll());
+	        return "other-players";
+	    }
 	  
 	  
 	  
@@ -57,6 +61,14 @@ public class PlayersController {
 	        playersRepository.delete(players.get());
 
 	        return "redirect:/our-players";
+	    }
+	    
+	    @RequestMapping("/deletejoueur")
+	    public String supprimer(@RequestParam String id) {
+	        Optional<Players> joueurs = playersRepository.findById(id);
+	        playersRepository.delete(joueurs.get());
+
+	        return "redirect:/other-players";
 	    }
 
 

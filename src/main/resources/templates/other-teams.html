@@ -302,12 +302,12 @@
                  
                   
                   <button type="button" class="btn btn-outline-danger"  data-toggle="modal"
-                    data-target="#default">
+                   th:attr="data-target='#default'+*{teams.id}">
                     <i class="ft-x font-medium-2 mr-auto"></i>
                   </button>
   								</form>
                   <!-- Modal -->
-                  <div class="modal fade text-left" id="default" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
+                  <div class="modal fade text-left" th:id="*{'default'+{teams.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
                     aria-hidden="true">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
@@ -321,8 +321,7 @@
                           <h4><span class="text-bold-600">Warning !</span></h4>
                           
                            <div class="alert alert-danger" role="alert">
-                            <span class="text-bold-600">Well done!</span> You successfully read this important alert
-                            message.
+                            Are you<span class="text-bold-600"> sure</span> you want to <span class="text-bold-600">delete</span> this Team ?
                           </div>
                           
                           
@@ -331,10 +330,10 @@
                         </div>
                        
                         <div class="modal-footer">
-                          <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn grey btn-outline-dark" data-dismiss="modal">Close</button>
                             <form action="/index/deleteteam">  
                            <input type="hidden" name="id" th:value="${teams.id}" />
-                          <input type="submit" class="btn btn-outline-primary" value="Delete" onclick="return "/>
+                          <input type="submit" class="btn btn-outline-red" value="Delete" onclick="return "/>
                           
              			 </form>
                         </div>

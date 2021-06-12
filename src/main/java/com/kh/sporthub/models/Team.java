@@ -27,13 +27,18 @@ public class Team {
 		private String team_owner;
 		private String team_league;
 		private String logo_URL;
-		
+		private String descipline;
 	
 		
 		
-		public Team(String fullname, String team_nickname, String team_founded, String team_owner,
-				String team_league, String logo_URL) {
-			
+		
+
+
+	
+
+
+		public Team(String fullname, String team_nickname, String team_founded, String team_owner, String team_league,
+				String logo_URL, String descipline) {
 			super();
 			this.fullname = fullname;
 			this.team_nickname = team_nickname;
@@ -41,11 +46,11 @@ public class Team {
 			this.team_owner = team_owner;
 			this.team_league = team_league;
 			this.logo_URL = logo_URL;
-			
+			this.descipline = descipline;
 		}
 
 
-	
+
 
 
 		public String getId() {
@@ -65,6 +70,22 @@ public class Team {
 
 
 	
+
+
+		public String getDescipline() {
+			return descipline;
+		}
+
+
+
+
+
+		public void setDescipline(String descipline) {
+			this.descipline = descipline;
+		}
+
+
+
 
 
 		public String getFullname() {
@@ -141,14 +162,15 @@ public class Team {
 
 		@Override
 		public String toString() {
-			return "Team [id=" + id + ", team_fullname=" + fullname + ", team_nickname=" + team_nickname
-					+ ", team_founded=" + team_founded + ", team_owner=" + team_owner + ", team_league=" + team_league
-					+ ", logo_URL=" + logo_URL + "]";
+			return "Team [id=" + id + ", fullname=" + fullname + ", team_nickname=" + team_nickname + ", team_founded="
+					+ team_founded + ", team_owner=" + team_owner + ", team_league=" + team_league + ", logo_URL="
+					+ logo_URL + ", descipline=" + descipline + "]";
 		}
 
 
-		
-		
+
+
+
 		
 		
 	

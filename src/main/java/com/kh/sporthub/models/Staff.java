@@ -2,7 +2,7 @@ package com.kh.sporthub.models;
 
 
 
-import javax.persistence.Entity;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
@@ -13,7 +13,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 
 @Document
-@Entity
+
 public class Staff  {
 
 		@Id
@@ -31,10 +31,13 @@ public class Staff  {
 		private String staff_role;
 		private String staff_pic_URL;
 		
+		private String descipline;
 		
 		
+
+
 		public Staff(String staff_fullname, Integer staff_age, String staff_birth_date, String staff_nationality,
-				String staff_gender, String team_fullname, String staff_role, String staff_pic_URL) {
+				String staff_gender, String team_fullname, String staff_role, String staff_pic_URL, String descipline) {
 			super();
 			this.staff_fullname = staff_fullname;
 			this.staff_age = staff_age;
@@ -44,11 +47,15 @@ public class Staff  {
 			this.team_fullname = team_fullname;
 			this.staff_role = staff_role;
 			this.staff_pic_URL = staff_pic_URL;
-			
+			this.descipline = descipline;
 		}
 
 
-	
+
+
+
+
+
 
 
 		public String getId() {
@@ -59,11 +66,27 @@ public class Staff  {
 
 
 
+
+
+
+
 		public void setId(String id) {
 			this.id = id;
 		}
 
 
+
+		public String getDescipline() {
+			return descipline;
+		}
+
+
+
+
+
+		public void setDescipline(String descipline) {
+			this.descipline = descipline;
+		}
 
 
 
@@ -150,18 +173,25 @@ public class Staff  {
 
 
 
+
 		@Override
 		public String toString() {
 			return "Staff [id=" + id + ", staff_fullname=" + staff_fullname + ", staff_age=" + staff_age
 					+ ", staff_birth_date=" + staff_birth_date + ", staff_nationality=" + staff_nationality
 					+ ", staff_gender=" + staff_gender + ", team_fullname=" + team_fullname + ", staff_role="
-					+ staff_role + ", staff_pic_URL=" + staff_pic_URL + "]";
+					+ staff_role + ", staff_pic_URL=" + staff_pic_URL + ", descipline=" + descipline + "]";
 		}
 
 
-		
-		
-		
+
+
+
+
+
+
+
+	
+
 		
 	
 		

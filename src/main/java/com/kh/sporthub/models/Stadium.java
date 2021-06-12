@@ -1,14 +1,14 @@
 package com.kh.sporthub.models;
 
-import javax.persistence.Entity;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
 
+@Document
 public class Stadium {
 
 	
@@ -24,18 +24,32 @@ public class Stadium {
 	private String team_fullname;
 	
 	private String image_URL;
+	private String descipline;
 	
 	
-	
-
 	public Stadium(String stadium_fullname, String stadium_placement, Integer stadium_capacity, String team_fullname,
-			String image_URL) {
+			String image_URL, String descipline) {
 		super();
 		this.stadium_fullname = stadium_fullname;
 		this.stadium_placement = stadium_placement;
 		this.stadium_capacity = stadium_capacity;
 		this.team_fullname = team_fullname;
 		this.image_URL = image_URL;
+		this.descipline = descipline;
+	}
+
+
+
+
+	public String getDescipline() {
+		return descipline;
+	}
+
+
+
+
+	public void setDescipline(String descipline) {
+		this.descipline = descipline;
 	}
 
 
@@ -132,8 +146,10 @@ public class Stadium {
 	public String toString() {
 		return "Stadium [id=" + id + ", stadium_fullname=" + stadium_fullname + ", stadium_placement="
 				+ stadium_placement + ", stadium_capacity=" + stadium_capacity + ", team_fullname=" + team_fullname
-				+ ", image_URL=" + image_URL + "]";
+				+ ", image_URL=" + image_URL + ", descipline=" + descipline + "]";
 	}
+
+
 
 
 
