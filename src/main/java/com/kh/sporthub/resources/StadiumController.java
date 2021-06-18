@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
 
@@ -18,7 +19,7 @@ import com.kh.sporthub.repositories.TicketRepository;
 
 
 
-@RestController
+@Controller
 public class StadiumController {
 
 
@@ -29,16 +30,23 @@ public class StadiumController {
 	
 	
 	@RequestMapping("/our-stadium")
-    public String team(Model model) {
+    public String stade(Model model) {
 		
-        model.addAttribute("team", stadiumRepository.findAll());
+        model.addAttribute("stade", stadiumRepository.findAll());
         
-        return "myteam-info";
+        return "our-stadium";
     }
 	
 	
 	
+	@RequestMapping("/other-stadiums")
+    public String stadium(Model model) {
+		
+        model.addAttribute("stadium", stadiumRepository.findAll());
+        
+        return "other-stadiums";
+    }
 	
-	
+
 	
 }
