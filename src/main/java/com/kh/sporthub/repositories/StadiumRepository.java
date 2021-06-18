@@ -17,6 +17,7 @@ public interface StadiumRepository  extends MongoRepository<Stadium, String> {
 	
 	
 	@Override
+	public void delete(Stadium stadium);
 	  List<Stadium> findAll();
 	  
 

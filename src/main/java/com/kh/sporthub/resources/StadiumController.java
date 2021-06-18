@@ -10,8 +10,10 @@ import org.springframework.ui.Model;
 
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.kh.sporthub.models.Admins;
 import com.kh.sporthub.models.Stadium;
 import com.kh.sporthub.repositories.StadiumRepository;
 import com.kh.sporthub.repositories.TicketRepository;
@@ -47,6 +49,12 @@ public class StadiumController {
         return "other-stadiums";
     }
 	
+	 @RequestMapping("/deletestade")
+	    public String delete(@RequestParam String id) {
+	        Optional<Stadium> stadium = stadiumRepository.findById(id);
+	        stadiumRepository.delete(stadium.get());
 
+	        return "redirect:/other-stadiums";
+	    }
 	
 }

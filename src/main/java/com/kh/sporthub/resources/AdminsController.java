@@ -70,7 +70,7 @@ public class AdminsController {
 		 
 		 @RequestMapping("/modify-admin/{id}")
 		    public String edit(@PathVariable String id, Model model) {
-		        model.addAttribute("team", adminsRepository.findById(id).get());
+		        model.addAttribute("admins", adminsRepository.findById(id).get());
 		        return "/modify-admin";
 		        
 		    }

@@ -56,13 +56,13 @@ public class TeamController {
 	 
 	 
 	 @RequestMapping("/updateteam")
-	    public String updateteam(@RequestParam String id,@RequestParam String fullname, @RequestParam String team_nickname, 
+	    public String update(@RequestParam String id, @RequestParam String team_nickname, 
 	    		@RequestParam String team_founded, @RequestParam String team_owner , 
 	    		@RequestParam String team_league ,@RequestParam String logo_URL ) {
 	      
 	    	Optional<Team> team = teamRepository.findById(id);
-	      
-	    	team.get().setFullname(fullname);
+	    	
+	    	
 	    	team.get().setTeam_nickname(team_nickname);
 	    	team.get().setTeam_founded(team_founded);
 	    	team.get().setTeam_owner(team_owner);
@@ -72,7 +72,7 @@ public class TeamController {
 	    	
 	    	teamRepository.save(team.get());
 
-	        return "redirect:/other-teams" ;
+	        return "redirect:/myteam-info" ;
 	    }
 	 
 	

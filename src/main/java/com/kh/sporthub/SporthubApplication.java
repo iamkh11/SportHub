@@ -137,10 +137,10 @@ public class SporthubApplication  implements CommandLineRunner{
 		staffRepository.save(new Staff ("Mustpha",999,  "February 26, 1973", "Norwegian","Male", "Manchester United", "Manager","app-assets/img/photos/ole.jpeg","handball"));
 		staffRepository.save(new Staff ("Mondher S8ayer",9,  "February 26, 1973", "Norwegian","Male", "Manchester United", "Manager","app-assets/img/photos/ole.jpeg","handball"));
 		
-		stadiumRepository.save(new Stadium ("Old Trafford","Manchester",76000, "Manchester United","app-assets/img/Old Trafford.jpg","football"));
-		stadiumRepository.save(new Stadium ("Old Trafford","Manchester",100000, "Manchester City","app-assets/img/Old Trafford.jpg","football"));
-		stadiumRepository.save(new Stadium ("Old Trafford","Manchester",300000, "Manchester City","app-assets/img/Old Trafford.jpg","football"));
-		stadiumRepository.save(new Stadium ("Old Trafford","Manchester",200, "Manchester City","app-assets/img/Old Trafford.jpg","football"));
+		stadiumRepository.save(new Stadium ("Old Trafford","Manchester",76000, "Manchester United","app-assets/img/Old Trafford.png","football"));
+		stadiumRepository.save(new Stadium ("Old Trafford","Manchester",100000, "Manchester City","app-assets/img/Old Trafford.png","football"));
+		stadiumRepository.save(new Stadium ("Old Trafford","Manchester",300000, "Manchester City","app-assets/img/Old Trafford.png","football"));
+		stadiumRepository.save(new Stadium ("Old Trafford","Manchester",200, "Manchester City","app-assets/img/Old Trafford.png","football"));
 		
 		
 		//Stadium b = (new Stadium ("Old Trafford","Manchester",76000, "Manchester United","app-assets/img/Old Trafford.jpg"));

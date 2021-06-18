@@ -43,7 +43,7 @@
     </div>
   
     <div class="row match-height">
-      <div class="col-lg-8" style="float:none;margin:auto;" align = "center"  th:if="${team.team_nickname == 'Red Devils'}" th:each="team : ${team}" >
+      <div class="col-lg-8" style="float:none;margin:auto;" align = "center"  th:if="${team.fullname == 'Manchester United'}" th:each="team : ${team}" >
       
         <div class="card half-width" >
           <div class="card-content">
@@ -88,7 +88,7 @@
                     <div class="modal fade text-left" th:id="*{'bootstrap'+{team.id}}"
                      tabindex="-1" role="dialog" aria-labelledby="myModalLabel35"
                     aria-hidden="true">
-                    <form class="form" action="../updateteam"  novalidate>
+                    <form class="form" action="../index/updateteam/" novalidate>
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
@@ -100,19 +100,16 @@
                          
                           <div class="modal-body" >
                           
+                           <div class="form-group">
+                            <input  type="hidden" th:value="${team.id}" class="form-control" id="id" name="id"/>
+                        </div>
                            
-                            <fieldset class="form-group floating-label-form-group" novalidate>
-                              <label>id<span class="required">*</span></label>
-                              <div class="controls">
-                             <input type="text" th:value="${team.id}"  name="id"  class="form-control" 
-                             disabled>
-                             </div>
-                            </fieldset>
                            
                             <fieldset class="form-group floating-label-form-group" novalidate>
                               <label>Team Name <span class="required">*</span></label>
                               <div class="controls">
-                             <input type="text" th:value="${team.fullname}" name="fullname"  class="form-control" required data-validation-required-message="This field is required">
+                             <input type="text" th:value="${team.fullname}" name="fullname"  class="form-control" 
+                             required data-validation-required-message="This field is required" disabled>
                              </div>
                             </fieldset>
                             
@@ -120,7 +117,7 @@
                             <fieldset class="form-group floating-label-form-group">
                               <label>Team NickName <span class="required">*</span></label>
                               <div class="controls">
-                             <input type="text"  th:value="${team.team_nickname}" name="team_nickname" placeholder="NickName" class="form-control" required data-validation-required-message="This field is required">
+                             <input type="text"  th:value="${team.team_nickname}" name="team_nickname"  class="form-control" required data-validation-required-message="This field is required">
                              </div>
                             </fieldset>
                             
@@ -128,21 +125,21 @@
                             <fieldset class="form-group floating-label-form-group">
                              <label>Founding Date <span class="required">*</span></label>
                               <div class="controls">
-                             <input type="text" th:value="${team.team_founded}" name="team_founded" placeholder="Founding Date" class="form-control" required data-validation-required-message="This field is required">
+                             <input type="text" th:value="${team.team_founded}" name="team_founded"  class="form-control" required data-validation-required-message="This field is required">
                              </div>
                             </fieldset>
                             
                              <fieldset class="form-group floating-label-form-group">
                              <label>Owner <span class="required">*</span></label>
                               <div class="controls">
-                             <input type="text" th:value="${team.team_owner}" name="team_owner" placeholder="Owner" class="form-control" required data-validation-required-message="This field is required">
+                             <input type="text" th:value="${team.team_owner}" name="team_owner" class="form-control" required data-validation-required-message="This field is required">
                              </div>
                             </fieldset>
                             
                              <fieldset class="form-group floating-label-form-group">
                              <label>Team league <span class="required">*</span></label>
                               <div class="controls">
-                             <input type="text" th:value="${team.team_league}" name="team_league" placeholder="Team league" class="form-control" required data-validation-required-message="This field is required">
+                             <input type="text" th:value="${team.team_league}" name="team_league" class="form-control" required data-validation-required-message="This field is required">
                              </div>
                             </fieldset>
                             
@@ -166,7 +163,7 @@
                    
                 			
               				  <button type="submit" class="btn btn-raised btn-primary">
-                 			 <i class="fa fa-check-square-o"></i> Save
+                 			 <i class="fa fa-check-square-o" value="save"></i> Save
                				 </button>
                				
                           </div>
