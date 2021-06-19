@@ -58,7 +58,7 @@
   <div class="card">
     <div class="card-header">
             <h4 class="card-title">Admins Table : </h4>
-            <div class="card-title" align="right">  <a  href="/index/add-admin"  class="btn btn-primary"  >
+            <div class="card-title" align="right">  <a  href="/add-admin"  class="btn btn-primary"  >
                     										<i class="ft-file-plus font-medium-2 mr-6">  Add User</i>
                  																	 </a> 
     </div>
@@ -150,7 +150,7 @@
                        
                         <div class="modal-footer">
                           <button type="button" class="btn grey btn-outline-dark" data-dismiss="modal">Close</button>
-                            <form action="/index/delete">  
+                            <form action="/delete">  
                            <input type="hidden" name="id" th:value="${admins.id}" />
                           <input type="submit" class="btn btn-outline-red" value="Delete" onclick="return "/>
                           
