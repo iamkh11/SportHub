@@ -47,6 +47,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .passwordEncoder(bCryptPasswordEncoder);
 
     }
+    
+    
+    
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -55,9 +58,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                
                 .antMatchers("/login").permitAll()
                 .antMatchers("/signup").permitAll()
-                .antMatchers("/dashboard/**").hasAuthority("ADMIN").anyRequest()
-                
+                .antMatchers("/dashboard/**").hasAnyAuthority("ADMIN", "EDITOR").anyRequest()
                 .authenticated().and().csrf().disable().formLogin().successHandler(customizeAuthenticationSuccessHandler)
+               
+                
                 .loginPage("/login").failureUrl("/login?error=true")
                 .usernameParameter("email")
                 .passwordParameter("password")
@@ -70,7 +74,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
         web
                 .ignoring()
-                .antMatchers("/app-assets/**", "/static/**", "/css/**", "/js/**", "/images/**, /**/favicon.ico ");
+                .antMatchers("../app-assets/**", "/static/**", "/css/**", "/js/**", "/images/**, /**/favicon.ico ");
     }
 
 }

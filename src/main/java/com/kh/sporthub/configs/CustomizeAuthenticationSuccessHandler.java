@@ -14,10 +14,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 
-/**
- *
- * @author didin
- */
+
 @Component
 public class CustomizeAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
 
@@ -31,8 +28,10 @@ public class CustomizeAuthenticationSuccessHandler implements AuthenticationSucc
         for (GrantedAuthority auth : authentication.getAuthorities()) {
             if ("ADMIN".equals(auth.getAuthority())) {
                 response.sendRedirect("/dashboard");
+            } else if ("EDITOR".equals(auth.getAuthority())) {
+                response.sendRedirect("/dashboard");
             }
         }
-    }
+    } 
 
 }

@@ -8,11 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
+import org.springframework.context.annotation.Bean;
 
 import com.kh.sporthub.models.Admins;
 import com.kh.sporthub.models.Discipline;
 import com.kh.sporthub.models.Players;
+import com.kh.sporthub.models.Role;
 import com.kh.sporthub.models.Stadium;
 import com.kh.sporthub.models.Staff;
 import com.kh.sporthub.models.Supporters;
@@ -21,6 +22,7 @@ import com.kh.sporthub.models.Ticket;
 import com.kh.sporthub.repositories.AdminsRepository;
 import com.kh.sporthub.repositories.DisciplineRepository;
 import com.kh.sporthub.repositories.PlayersRepository;
+import com.kh.sporthub.repositories.RoleRepository;
 import com.kh.sporthub.repositories.StadiumRepository;
 import com.kh.sporthub.repositories.StaffRepository;
 import com.kh.sporthub.repositories.SupportersRepository;
@@ -205,6 +207,36 @@ public class SporthubApplication  implements CommandLineRunner{
 	
 	public static void main(String[] args) {
 		SpringApplication.run(SporthubApplication.class, args);
+	}
+	
+	@Bean
+	CommandLineRunner init(RoleRepository roleRepository) {
+
+	    return args -> {
+
+	        Role adminRole = roleRepository.findByRole("ADMIN");
+	        if (adminRole == null) {
+	            Role newAdminRole = new Role();
+	            newAdminRole.setRole("ADMIN");
+	            roleRepository.save(newAdminRole);
+	        }
+
+	        Role userRole = roleRepository.findByRole("USER");
+	        if (userRole == null) {
+	            Role newUserRole = new Role();
+	            newUserRole.setRole("USER");
+	            roleRepository.save(newUserRole);
+	        }
+	        
+	        Role editorRole = roleRepository.findByRole("EDITOR");
+	        if (editorRole == null) {
+	            Role newEditorRole = new Role();
+	            newEditorRole.setRole("EDITOR");
+	            roleRepository.save(newEditorRole);
+	        }
+	        
+	    };
+
 	}
 
 

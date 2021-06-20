@@ -13,10 +13,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import nz.net.ultraq.thymeleaf.LayoutDialect;
 
-/**
- *
- * @author didin
- */
+
 @Configuration
 public class PageConfig implements WebMvcConfigurer {
 
@@ -37,9 +34,10 @@ public class PageConfig implements WebMvcConfigurer {
     public void addViewControllers(ViewControllerRegistry registry) {
         
         registry.addViewController("/dashboard").setViewName("dashboard");
+        registry.addViewController("/table-admin").setViewName("table-admin");
         registry.addViewController("/login").setViewName("login");
-        registry.addViewController("/home").setViewName("home");
-        registry.addViewController("/").setViewName("home");
+        
+        registry.addViewController("/").setViewName("login");
     }
 
     
