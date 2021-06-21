@@ -47,7 +47,7 @@ public class Players {
 	public Players(String player_fullname, Integer player_age, String player_birth_date, String player_nationality,
 			String player_gender, Integer player_number, String player_position, String team_name,
 			String player_pic_URL, String player_descipline) {
-		super();
+		
 		this.player_fullname = player_fullname;
 		this.player_age = player_age;
 		this.player_birth_date = player_birth_date;
@@ -66,6 +66,21 @@ public class Players {
 
 
 
+	
+
+
+
+
+
+
+	public Players() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+
+
 	public String getPlayer_descipline() {
 		return player_descipline;
 	}
@@ -79,6 +94,8 @@ public class Players {
 	public void setPlayer_descipline(String player_descipline) {
 		this.player_descipline = player_descipline;
 	}
+
+
 
 
 
@@ -279,6 +296,8 @@ public class Players {
 	public void setPlayer_pic_URL(String player_pic_URL) {
 		this.player_pic_URL = player_pic_URL;
 	}
+	
+	
 
 
 

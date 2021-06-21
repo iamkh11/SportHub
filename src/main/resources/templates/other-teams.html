@@ -48,14 +48,34 @@
             <h4 class="card-title">Teams Table : </h4>
     </div>
     <div class="card-header">
-            <div class="card-title" align="right">  <a  href="#"  class="btn btn-primary"  >
+            <div class="card-title" align="right">  <a  href="/new-team"  class="btn btn-primary"  >
                     										<i class="ft-file-plus font-medium-2 mr-6"> Create New Team</i>
                  																	 </a> 
                  																	 
            </div>
     </div>
           <div class="card-content ">
-            <div class="card-body table-responsive">
+            <div class="card-body ">
+            
+             <ul class="nav nav-tabs">
+                  <li class="nav-item">
+                    <a class="nav-link active" id="base-tab1" data-toggle="tab" aria-controls="tab1" href="#tab1"
+                      aria-expanded="true">Football</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="base-tab2" data-toggle="tab" aria-controls="tab2" href="#tab2" aria-expanded="false">Handball</a>
+                     
+                  </li>
+                 
+                  
+                </ul>
+
+            
+            <div class="tab-content px-1 pt-1">
+                  <div role="tabpanel" class="tab-pane active" id="tab1" aria-expanded="true" aria-labelledby="base-tab1">
+            
+            </br>
+            
             <table class="table text-inputs-searching">
                 <thead>
                   <tr>
@@ -110,9 +130,9 @@
                     
              <div class="form-group">
            		  <form method="get" action="#">
-                  <button type="submit" class="btn btn-outline-blue"  >
+                 <a th:href=" @{'/edit-team/' + ${teams.id}} " class="btn btn-outline-blue"  >
                     <i class="ft-edit font-medium-2 mr-auto"></i>
-                  </button>
+                  </a>
                  
                   
                   <button type="button" class="btn btn-outline-danger"  data-toggle="modal"
@@ -204,6 +224,174 @@
              </table>
 
             </div>
+            
+                  <div class="tab-pane" id="tab2" aria-expanded="true" aria-labelledby="base-tab2">
+            
+            </br>
+            
+            <table class="table text-inputs-searching">
+                <thead>
+                  <tr>
+                    
+                     <th><i class="ft-image font-small-3 mr-2"></i>Logo</th>
+                     
+                    <th><i class="ft-info font-small-3 mr-2"></i> Team Name</th>
+                    <th><i class="ft-info font-small-3 mr-2"></i> Team Nickname</th>
+                    <th><i class="ft-info font-small-3 mr-2"></i> Founded</th>
+                   
+                    <th><i class="ft-info font-small-3 mr-2"></i> Owner</th>
+                   
+                    <th><i class="ft-flag font-small-3 mr-2"></i> Team League</th>
+      
+     							 <th><i class="ft-edit-3 font-small-3 mr-2"></i>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr th:if="${teams.fullname != 'Manchester United' and teams.descipline == 'handball'}" th:each="teams : ${teams}">
+                  
+                    <td>
+               <img   width="120" height="90"  style="display:block; margin-left:auto; margin-right:auto;"
+                th:src="${teams.logo_URL}"  > 
+                </td>
+                
+      				 <td>
+      				 <a th:text="${teams.fullname}" th:href="@{'/show/' + ${teams.id}}"></a>
+      				 </td>
+                    
+                     <td th:text="${teams.team_nickname}">
+                     </td>
+                     
+                      <td th:text="${teams.team_founded}">
+                      </td>
+                    
+                    
+                     <td th:text="${teams.team_owner}">
+                     </td>
+                       <td th:text="${teams.team_league}">
+                     </td>
+                      
+              
+      
+                   
+
+                    
+      
+
+                   
+                      
+                    <td>
+                    
+             <div class="form-group">
+           		  <form method="get" action="#">
+                  <a th:href=" @{'/edit-team/' + ${teams.id}} " class="btn btn-outline-blue"  >
+                    <i class="ft-edit font-medium-2 mr-auto"></i>
+                  </a>
+                 
+                  
+                  <button type="button" class="btn btn-outline-danger"  data-toggle="modal"
+                   th:attr="data-target='#default'+*{teams.id}">
+                    <i class="ft-x font-medium-2 mr-auto"></i>
+                  </button>
+  								</form>
+                  <!-- Modal -->
+                  <div class="modal fade text-left" th:id="*{'default'+{teams.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h4 class="modal-title" id="myModalLabel1">Confirm :</h4>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <h4><span class="text-bold-600">Warning !</span></h4>
+                          
+                           <div class="alert alert-danger" role="alert">
+                            Are you<span class="text-bold-600"> sure</span> you want to <span class="text-bold-600">delete</span> this Team ?
+                          </div>
+                          
+                          
+                          
+                         
+                        </div>
+                       
+                        <div class="modal-footer">
+                          <button type="button" class="btn grey btn-outline-dark" data-dismiss="modal">Close</button>
+                            <form action="/deleteteam">  
+                           <input type="hidden" name="id" th:value="${teams.id}" />
+                          <input type="submit" class="btn btn-outline-red" value="Delete" onclick="return "/>
+                          
+             			 </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+               
+              </div>
+         
+                   
+          
+          
+          
+     
+          
+          
+          
+                      
+                    </td>
+                    
+                  
+                      
+                      
+                      
+                      
+                      
+                    
+                  </tr>
+
+               
+                </tbody>
+              
+          
+              
+              <tfoot>
+                <tr>
+                   
+                    
+                    <th></th>
+                    <th>Team Name</th>
+                    <th>Team Nickname</th>
+                    <th>Founded</th>
+                    <th>Owner</th>
+                    <th>Team League</th>
+                    <th></th>
+                    
+                   
+                </tr>
+              </tfoot>
+
+
+
+             </table>
+
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+          </div>
+          </div>
 
           </div>
         

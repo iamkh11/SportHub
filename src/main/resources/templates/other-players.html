@@ -53,7 +53,7 @@
       <div class="content-wrapper"><!--Extended Table starts-->
 <div class="row">
 <div class="col-12">
-<div class="content-header">Teams > Other Players :</div>
+<div class="content-header">Teams > All Players :</div>
 <p class="content-sub-header">         </p>
 </div>
 </div>
@@ -65,14 +65,39 @@
             <h4 class="card-title">Players Table : </h4>
     </div>
     <div class="card-header">
-            <div class="card-title" align="right">  <a  href="#"  class="btn btn-primary"  >
+            <div class="card-title" align="right">  <a  href="/newplayer"  class="btn btn-primary"  >
                     										<i class="ft-file-plus font-medium-2 mr-6"> Create New Player</i>
                  																	 </a> 
                  																	 
            </div>
     </div>
           <div class="card-content ">
-            <div class="card-body table-responsive">
+            <div class="card-body ">
+            
+            <ul class="nav nav-tabs">
+                  <li class="nav-item">
+                    <a class="nav-link active" id="base-tab1" data-toggle="tab" aria-controls="tab1" href="#tab1"
+                      aria-expanded="true">Football</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="base-tab2" data-toggle="tab" aria-controls="tab2" href="#tab2" aria-expanded="false">Handball</a>
+                     
+                  </li>
+                 
+                  
+                </ul>
+            
+            
+            
+            
+            
+            
+            <div class="tab-content px-1 pt-1">
+                  <div role="tabpanel" class="tab-pane active" id="tab1" aria-expanded="true" aria-labelledby="base-tab1">
+            
+            </br>
+            
+            
             <table class="table text-inputs-searching">
                 <thead>
                   <tr>
@@ -91,10 +116,11 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr  and players.player_descipline == 'football' th:each="joueurs : ${joueurs}">
+                  <tr  th:if="${joueurs.team_name != 'Manchester United' and joueurs.player_descipline == 'football'}"
+                   th:each="joueurs : ${joueurs}">
                   
                     <td>
-               <img  alt="96x96" class="card-img  img-fluid half-width  height-40 "
+               <img width="120" height="90"  style="display:block; margin-left:auto; margin-right:auto;"
                 th:src="${joueurs.player_pic_URL}" title="TODO" > 
                 </td>
                 
@@ -162,7 +188,7 @@
                        
                         <div class="modal-footer">
                           <button type="button" class="btn grey btn-outline-dark" data-dismiss="modal">Close</button>
-                            <form action="/index/deletejoueur">  
+                            <form action="/deletejoueur">  
                            <input type="hidden" name="id" th:value="${joueurs.id}" />
                           <input type="submit" class="btn btn-outline-red" value="Delete" onclick="return "/>
                           
@@ -221,6 +247,221 @@
              </table>
 
             </div>
+             
+              
+              
+              
+              
+              
+              
+              
+              
+                       
+            
+                  
+            <div class="tab-pane" id="tab2" aria-expanded="true" aria-labelledby="base-tab2">
+            </br>
+            
+            
+            <table class="table text-inputs-searching">
+                <thead>
+                  <tr>
+                    
+                     <th><i class="ft-image font-small-3 mr-2"></i>#Pic</th>
+                     
+                    <th><i class="ft-info font-small-3 mr-2"></i> Player Name</th>
+                    <th><i class="ft-info font-small-3 mr-2"></i> Player Age</th>
+                    <th><i class="ft-info font-small-3 mr-2"></i> Player Number</th>
+                   
+                    <th><i class="ft-info font-small-3 mr-2"></i> Player Position</th>
+                   
+                    <th><i class="ft-flag font-small-3 mr-2"></i> Player's Team</th>
+      
+     							 <th><i class="ft-edit-3 font-small-3 mr-2"></i>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr  th:if="${joueurs.team_name != 'Manchester United' and joueurs.player_descipline == 'handball'}"
+                   th:each="joueurs : ${joueurs}">
+                  
+                    <td>
+               <img  width="120" height="90"  style="display:block; margin-left:auto; margin-right:auto;"
+                th:src="${joueurs.player_pic_URL}" title="TODO" > 
+                </td>
+                
+      				 <td>
+      				 <a th:text="${joueurs.player_fullname}" th:href="@{'/show/' + ${joueurs.id}}"></a>
+      				 </td>
+                    
+                     <td th:text="${joueurs.player_age}">
+                     </td>
+                     
+                      <td th:text="${joueurs.player_number}">
+                      </td>
+                    
+                    
+                     <td th:text="${joueurs.player_position}">
+                     </td>
+                       <td th:text="${joueurs.team_name}">
+                     </td>
+                      
+              
+      
+                   
+
+                    
+      
+
+                   
+                      
+                    <td>
+                    
+             <div class="form-group">
+           		  <form method="get" action="#">
+                  <button type="submit" class="btn btn-outline-blue"  >
+                    <i class="ft-edit font-medium-2 mr-auto"></i>
+                  </button>
+                 
+                  
+                  <button type="button" class="btn btn-outline-danger"  data-toggle="modal"
+                   th:attr="data-target='#default'+*{joueurs.id}">
+                    <i class="ft-x font-medium-2 mr-auto"></i>
+                  </button>
+  								</form>
+                  <!-- Modal -->
+                  <div class="modal fade text-left" th:id="*{'default'+{joueurs.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h4 class="modal-title" id="myModalLabel1">Confirm :</h4>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <h4><span class="text-bold-600">Warning !</span></h4>
+                          
+                           <div class="alert alert-danger" role="alert">
+                            Are you<span class="text-bold-600"> sure</span> you want to <span class="text-bold-600">delete</span> this Player ?
+                          </div>
+                          
+                          
+                          
+                         
+                        </div>
+                       
+                        <div class="modal-footer">
+                          <button type="button" class="btn grey btn-outline-dark" data-dismiss="modal">Close</button>
+                            <form action="/deletejoueur">  
+                           <input type="hidden" name="id" th:value="${joueurs.id}" />
+                          <input type="submit" class="btn btn-outline-red" value="Delete" onclick="return "/>
+                          
+             			 </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+               
+              </div>
+         
+                   
+          
+          
+          
+     
+          
+          
+          
+                      
+                    </td>
+                    
+                  
+                      
+                      
+                      
+                      
+                      
+                    
+                  </tr>
+
+               
+                </tbody>
+              
+          
+              
+              <tfoot>
+                <tr>
+                   
+                    
+                    <th>#Pic</th>
+                    <th>Player Name</th>
+                    <th>Player Age</th>
+                    <th>Player Number</th>
+                    <th>Player Position</th>
+                    <th>Player's Team</th>
+                    <th></th>
+                    
+                   
+                </tr>
+              </tfoot>
+
+
+
+             </table>
+
+            </div>
+              </div>
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+
+          </div>
 
           </div>
         
