@@ -48,8 +48,8 @@
             <h4 class="card-title">Stadiums/Courts Table : </h4>
     </div>
     <div class="card-header">
-            <div class="card-title" align="right">  <a  href="#"  class="btn btn-primary"  >
-                    										<i class="ft-file-plus font-medium-2 mr-6"> Create New Stadium</i>
+            <div class="card-title" align="right">  <a  href="/newstadium"  class="btn btn-primary"  >
+                    										<i class="ft-file-plus font-medium-2 mr-6"> Create New Stadium/Court</i>
                  																	 </a> 
                  																	 
            </div>
@@ -129,9 +129,9 @@
                     
              <div class="form-group">
            		  <form method="get" action="#">
-                  <button type="submit" class="btn btn-outline-blue"  >
+                   <a th:href=" @{'/edit-stadium/' + ${stadium.id}} " class="btn btn-outline-blue"  >
                     <i class="ft-edit font-medium-2 mr-auto"></i>
-                  </button>
+                  </a>
                  
                   
                   <button type="button" class="btn btn-outline-danger"  data-toggle="modal"

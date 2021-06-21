@@ -41,6 +41,13 @@ public class Stadium {
 
 
 
+	public Stadium() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+
 	public String getDescipline() {
 		return descipline;
 	}

@@ -93,7 +93,7 @@
                     <!-- Modal -->
                     <div class="modal fade text-left" id="bootstrap" tabindex="-1" role="dialog" aria-labelledby="myModalLabel35"
                     aria-hidden="true">
-                    <div class="modal-dialog" role="document">
+                    <div class="modal-dialog modal-xl" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
                           <h3 class="modal-title" id="myModalLabel35">Modify Stadium</h3>
@@ -101,68 +101,130 @@
                             <span aria-hidden="true">&times;</span>
                           </button>
                         </div>
-                         <form class="form" novalidate>
+                       
+                       <form class="form" action="/updatestadium" novalidate>
                           <div class="modal-body">
-                          
-                            <fieldset class="form-group floating-label-form-group" novalidate>
-                              <label>Team Name <span class="required">*</span></label>
-                              <div class="controls">
-                             <input type="text" name="fullname" placeholder="Full Name" class="form-control" 
-                             required data-validation-required-message="This field is required">
-                             </div>
-                            </fieldset>
-                            
-                            
-                            <fieldset class="form-group floating-label-form-group">
-                              <label>Team Name <span class="required">*</span></label>
-                              <div class="controls">
-                             <input type="text" name="fullname" placeholder="Full Name" class="form-control" 
-                             required data-validation-required-message="This field is required">
-                             </div>
-                            </fieldset>
-                            
-                            
-                            <fieldset class="form-group floating-label-form-group">
-                             <label>Team found <span class="required">*</span></label>
-                              <div class="controls">
-                             <input type="text" name="fullname" placeholder="Full Name" class="form-control" required data-validation-required-message="This field is required">
-                             </div>
-                            </fieldset>
-                            
-                             <fieldset class="form-group floating-label-form-group">
-                             <label>Team own <span class="required">*</span></label>
-                              <div class="controls">
-                             <input type="text" name="fullname" placeholder="Full Name" class="form-control" required data-validation-required-message="This field is required">
-                             </div>
-                            </fieldset>
-                            
-                             <fieldset class="form-group floating-label-form-group">
-                             <label>Team league <span class="required">*</span></label>
-                              <div class="controls">
-                             <input type="text" name="fullname" placeholder="Full Name" class="form-control" required data-validation-required-message="This field is required">
-                             </div>
-                            </fieldset>
-                            
-                             <fieldset class="form-group floating-label-form-group">
-                             <label>logo_URL <span class="required">*</span></label>
-                              <div class="controls ">
-                    			<input type="text" value="app-assets/img/portrait/small/" name="avatar"  class="form-control" 
-                    			required data-validation-required-message="This field is required">
-                      
-                				  </div>
-                            </fieldset>
-                            
-                            
-                          </div>
-                          
-                          <div class="modal-footer" novalidate>
-                            <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal" value="Close">
-                            <input type="submit" class="btn btn-outline-primary btn-lg" value="Submit">
-                          </div>
-                        </form>
+              <div class="form-body">
+              
+               <div class="form-group">
+                      <input  type="hidden" th:value="${stade.id}" class="form-control" id="id" name="id"/>
+               </div>
+              
+              
+                <div class="row">
+                      		   
+                  <fieldset class="form-group col-md-6 mb-2" novalidate>
+                 <label>Stadium Name <span class="required">*</span></label>
+                 <div class="controls">
+                <input type="text"  name="stadium_fullname" th:value="${stade.stadium_fullname}" class="form-control" 
+                required data-validation-required-message="This field is required" >
+                </div>
+               </fieldset>
+             
+                  <fieldset class="form-group col-md-6 mb-2" novalidate>
+                 <label>Stadium Placement <span class="required">*</span></label>
+                 <div class="controls">
+                <input type="text"  name="stadium_placement" th:value="${stade.stadium_placement}" class="form-control" 
+                required data-validation-required-message="This field is required" >
+                </div>
+               </fieldset>
+  
+    
+          </div>
+          
+          
+          <div class="row">
+                
+                     <fieldset class="form-group col-md-6 mb-2" novalidate>
+                 <label>Stadium Capacity <span class="required">*</span></label>
+                 <div class="controls">
+                 <input required type="number"  class="form-control" th:value="${stade.stadium_capacity}" name="stadium_capacity"  
+         data-validation-regex-regex="([\d]{1,6})"
+         data-validation-required-message="This field is required">
+              
+              
+              
+                 </div>
+               </fieldset>
+              
+              
+              
+                
+             
+                   <fieldset class="form-group col-md-6 mb-2" novalidate>
+                 <label>Stadium Owning Team <span class="required">*</span></label>
+                 <div class="controls">
+                <select name="team_fullname" id="select" required class="form-control">
+                   <option  th:value="${stade.team_fullname}" th:text="'Default : ' +   ${stade.team_fullname} " > </option>
+                   <optgroup label="Football Teams">
+                  <option th:if="${teams.descipline == 'football'}"  th:each="teams : ${teams}"  th:value="${teams.fullname}" th:text="${teams.fullname}"></option>
+                </optgroup>
+                 <optgroup label="Handball Teams">
+                  <option  th:if="${teams.descipline == 'handball'}" th:each="teams : ${teams}"  th:value="${teams.fullname}" th:text="${teams.fullname}"></option>
+                </optgroup>
+       
+             </select>
+                </div>
+               </fieldset>
+  
+    
+          </div>
+          
+          
+          
+          <div class="row">
+                
+                  
+          <fieldset class="form-group col-12" novalidate>
+           <label>Discipline <span class="required">*</span></label>
+           <div class="controls">
+                
+            <input type="text" th:value="${stade.descipline}" name="descipline"  class="form-control" 
+                required data-validation-required-message="This field is required" disabled>
+            
+            </div>
+         </fieldset>
+  
+    
+          </div>
+          
+          
+         
+
+
+    
+          
+          
+          <div class="row">
+                
+                  <fieldset class="form-group col-12" novalidate>
+                 <label>Stadium Preview <span class="required">*</span></label>
+                 <div class="controls">
+                <input type="text" th:value="${stade.image_URL}" name="image_URL"  class="form-control" 
+                required data-validation-required-message="This field is required" >
+                </div>
+               </fieldset>
+             
+              
+          </div>
+
+
+              </div>
+
+              <div class="form-actions center">
+                <button type="reset" class="btn btn-raised btn-warning mr-1">
+                  <i class="fa fa-refresh"></i> Reset
+                </button>
+                <button type="submit" class="btn btn-raised btn-primary">
+                  <i class="fa fa-check-square-o"></i> Save
+                </button>
+              </div>
+            </form>
                       </div>
                     </div>
                   </div>
+            </div>
+        
                    <!-- Modal -->
                   
                    
