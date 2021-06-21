@@ -58,6 +58,18 @@ public class Staff  {
 
 
 
+		public Staff() {
+			// TODO Auto-generated constructor stub
+		}
+
+
+
+
+
+
+
+
+
 		public String getId() {
 			return id;
 		}

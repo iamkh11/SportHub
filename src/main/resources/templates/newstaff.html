@@ -39,30 +39,33 @@
     <div class="col-md-6">
       <div class="card">
         <div class="card-header">
-          <h3 align=center class="card-title" id="basic-layout-card-center">Add New Team</h3>
+          <h3 align=center class="card-title" id="basic-layout-card-center">Add New Staff Member</h3>
           <p></p>
         </div>
         <div class="card-content">
           <div class="px-3">
-            <form class="form" action="/saveteam" novalidate>
-              <div class="form-body">
-              
-                <div class="row">
+            <form class="form" action="/savestaff" novalidate>
+            
+ <div class="form-body">
+               
+    <div class="row">
                       		   
                   <fieldset class="form-group col-md-6 mb-2" novalidate>
-                 <label>Team Name <span class="required">*</span></label>
+                 <label>Staff Member Name <span class="required">*</span></label>
                  <div class="controls">
-                <input type="text"  name="fullname"  class="form-control" 
+                <input type="text"  name="staff_fullname"  class="form-control" 
                 required data-validation-required-message="This field is required" >
                 </div>
                </fieldset>
              
-                  <fieldset class="form-group col-md-6 mb-2" novalidate>
-                 <label>Team NickName <span class="required">*</span></label>
+                   <fieldset class="form-group col-md-6 mb-2" novalidate>
+                 <label>Staff Member Age <span class="required">*</span></label>
                  <div class="controls">
-                <input type="text"  name="team_nickname"  class="form-control" 
-                required data-validation-required-message="This field is required" >
+                <input required type="number"  class="form-control"  name="staff_age"  
+                 data-validation-regex-regex="([\d]{1,2})"
+                 data-validation-required-message="This field is required">
                 </div>
+                
                </fieldset>
   
     
@@ -71,10 +74,10 @@
           
           <div class="row">
                 
-                     <fieldset class="form-group col-md-6 mb-2" novalidate>
-                 <label>Founding Date <span class="required">*</span></label>
+                  <fieldset class="form-group col-md-6 mb-2" novalidate>
+                 <label>Staff Member BirthDate <span class="required">*</span></label>
                  <div class="controls">
-               <input required type="text"  class="form-control"  name="team_founded"  
+               <input required type="text"  class="form-control"  name="staff_birth_date"  
                  data-validation-regex-regex="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$"
                  data-validation-required-message="This field is required">
               
@@ -82,17 +85,12 @@
               
                  </div>
                </fieldset>
-              
-              
-              
-                
-               </fieldset>
                
              
                    <fieldset class="form-group col-md-6 mb-2" novalidate>
-                 <label>Team Owner <span class="required">*</span></label>
+                 <label>Staff Member Nationality <span class="required">*</span></label>
                  <div class="controls">
-                <input type="text"  name="team_owner"  class="form-control" 
+                <input type="text"  name="staff_nationality"  class="form-control" 
                 required data-validation-required-message="This field is required" >
                 </div>
                </fieldset>
@@ -105,18 +103,70 @@
           <div class="row">
                 
                   <fieldset class="form-group col-md-6 mb-2" novalidate>
-                 <label>Team League <span class="required">*</span></label>
+                 <label>Staff Member Gender <span class="required">*</span></label>
                  <div class="controls">
-                <select name="team_league" id="select" required class="form-control">
-                  <option value="">Select League...</option>
-                  <option value="Premiere league">Premiere league</option>
-                <option value="Other">Other</option>
-           
+                <select name="staff_gender" id="select" required class="form-control">
+                  <option value="">Select Gender...</option>
+                  <option value="Male">Male</option>
+                <option value="Female">Female</option>
+             
+       
              </select>
                 </div>
                </fieldset>
-              
-                 <fieldset class="form-group col-md-6 mb-2" novalidate>
+             
+                     <fieldset class="form-group col-md-6 mb-2" novalidate>
+                 <label>Staff Member Team <span class="required">*</span></label>
+                 <div class="controls">
+             
+                  <select name="team_fullname" id="select" required class="form-control">
+                 
+                  <option value="Manchester United">Manchester United</option>
+                
+             
+       
+             </select>
+                
+                </div>
+               </fieldset>
+                   
+                   
+                   
+                   
+                   
+  
+    
+          </div>
+          
+          
+ <div class="row">
+                
+                  <fieldset class="form-group col-md-6 mb-2" novalidate>
+                 <label>Staff Member Role <span class="required">*</span></label>
+                 <div class="controls">
+                
+                <select name="staff_role" id="select" required class="form-control">
+                  <option value="">Select Role...</option>
+                   
+                  <option value="Manager">Manager</option>
+                  <option value="The Assistant Manager">The Assistant Manager</option>
+                  <option value="The Goalkeeping Coach">The Goalkeeping Coach</option>
+                  <option value="Fitness Coach">Fitness Coach</option>
+                  <option value="Conditioning Coach">Conditioning Coach</option>
+                  <option value="Masseur">Masseur</option>
+                  <option value="Doctor">Doctor</option>
+                  <option value="Chef / Nutritionist">Chef / Nutritionist</option>
+                  <option value="Chief Analyst">Chief Analyst</option>
+       			  <option value="Physiotherapist">Physiotherapist</option>
+       			  <option value="Scout">Scout</option>
+       			  <option value="Kit Manager">Kit Manager</option>
+             </select>
+                
+                </div>
+               </fieldset>
+             
+             
+              <fieldset class="form-group  col-md-6 mb-2" novalidate>
            <label>Discipline <span class="required">*</span></label>
            <div class="controls">
                 
@@ -130,23 +180,21 @@
             
             </div>
          </fieldset>
+                 
   
     
-          </div>
-          
-          
-         
+ </div>
 
 
-    
+            
           
           
           <div class="row">
                 
                   <fieldset class="form-group col-12" novalidate>
-                 <label>Team Logo <span class="required">*</span></label>
+                 <label>Staff Member Picture <span class="required">*</span></label>
                  <div class="controls">
-                <input type="text" value="app-assets/img/teams/" name="logo_URL"  class="form-control" 
+                <input type="text" value="app-assets/img/staff/" name="staff_pic_URL"  class="form-control" 
                 required data-validation-required-message="This field is required" >
                 </div>
                </fieldset>
@@ -188,8 +236,7 @@
     </div>
     <!-- ////////////////////////////////////////////////////////////////////////////-->
 
-   
-  <!-- Theme customizer Starts-->
+   <!-- Theme customizer Starts-->
     
     <div th:replace="fragments/customizer :: customizer">
     
@@ -197,16 +244,17 @@
     
     
    <!-- Theme customizer Ends-->
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <!-- BEGIN VENDOR JS-->
     <script src="app-assets/vendors/js/core/jquery-3.2.1.min.js" type="text/javascript"></script>
     <script src="app-assets/vendors/js/core/popper.min.js" type="text/javascript"></script>
