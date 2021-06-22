@@ -102,7 +102,7 @@
                 </td>
                 
       				 <td>
-      				 <a th:text="${stadium.stadium_fullname}" th:href="@{'/show/' + ${stadium.id}}"></a>
+      				 <a th:text="${stadium.stadium_fullname}" ></a>
       				 </td>
                     
                      <td th:text="${stadium.stadium_placement}">
@@ -254,7 +254,7 @@
                 </td>
                 
       				 <td>
-      				 <a th:text="${stadium.stadium_fullname}" th:href="@{'/show/' + ${stadium.id}}"></a>
+      				 <a th:text="${stadium.stadium_fullname}" ></a>
       				 </td>
                     
                      <td th:text="${stadium.stadium_placement}">
@@ -281,9 +281,9 @@
                     
              <div class="form-group">
            		  <form method="get" action="#">
-                  <button type="submit" class="btn btn-outline-blue"  >
+                   <a th:href=" @{'/edit-stadium/' + ${stadium.id}} " class="btn btn-outline-blue"  >
                     <i class="ft-edit font-medium-2 mr-auto"></i>
-                  </button>
+                  </a>
                  
                   
                   <button type="button" class="btn btn-outline-danger"  data-toggle="modal"

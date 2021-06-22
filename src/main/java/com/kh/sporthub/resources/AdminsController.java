@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.kh.sporthub.models.Admins;
 
 import com.kh.sporthub.repositories.AdminsRepository;
+import com.kh.sporthub.repositories.UserRepository;
 
 
 
@@ -24,10 +25,14 @@ public class AdminsController {
 		@Autowired
 		private AdminsRepository adminsRepository;
 		
+		@Autowired
+		private UserRepository userRepository;
+		
+		
 		 @RequestMapping("/table-admin")
 		    public String admins(Model model) {
 		        
-			 	model.addAttribute("admins", adminsRepository.findAll());
+			 	model.addAttribute("admins", userRepository.findAll());
 			 
 		    return "table-admin";
 		    }

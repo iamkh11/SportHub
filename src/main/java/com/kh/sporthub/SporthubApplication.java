@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Bean;
 
 import com.kh.sporthub.models.Admins;
 import com.kh.sporthub.models.Discipline;
+import com.kh.sporthub.models.News;
 import com.kh.sporthub.models.Players;
 import com.kh.sporthub.models.Role;
 import com.kh.sporthub.models.Stadium;
@@ -21,6 +22,7 @@ import com.kh.sporthub.models.Team;
 import com.kh.sporthub.models.Ticket;
 import com.kh.sporthub.repositories.AdminsRepository;
 import com.kh.sporthub.repositories.DisciplineRepository;
+import com.kh.sporthub.repositories.NewsRepository;
 import com.kh.sporthub.repositories.PlayersRepository;
 import com.kh.sporthub.repositories.RoleRepository;
 import com.kh.sporthub.repositories.StadiumRepository;
@@ -54,13 +56,16 @@ public class SporthubApplication  implements CommandLineRunner{
 	    
 	    // Discipline
 	    private final DisciplineRepository disciplineRepository;
+
+	    // NEWS 
+	    private final NewsRepository newsRepository;
 	    
 	
 	@Autowired
 	public SporthubApplication(AdminsRepository adminsRepository,SupportersRepository supportersRepository,
 			TeamRepository teamRepository,PlayersRepository playerRepository,StaffRepository staffRepository,
 			StadiumRepository stadiumRepository,TicketRepository ticketRepository,
-			DisciplineRepository disciplineRepository) {
+			DisciplineRepository disciplineRepository, NewsRepository newsRepository) {
 		
 			// Users
 			this.adminsRepository=adminsRepository;
@@ -78,6 +83,11 @@ public class SporthubApplication  implements CommandLineRunner{
 	       
 	       // Discipline
 	       this.disciplineRepository=disciplineRepository;
+	       
+	    // news
+	       this.newsRepository=newsRepository;
+	       
+	       
 	
 	}
 	
@@ -101,7 +111,7 @@ public class SporthubApplication  implements CommandLineRunner{
 		playerRepository.deleteAll();
 		staffRepository.deleteAll();
 		stadiumRepository.deleteAll();
-		
+		newsRepository.deleteAll();
 		
 		//ticketRepository.deleteAll();
 		
@@ -187,6 +197,15 @@ public class SporthubApplication  implements CommandLineRunner{
 		
 		// disciplineRepository.save(new Discipline ("Football"));
 		// disciplineRepository.save(new Discipline ("Handball"));
+		
+		newsRepository.save(new News ("QUEL EST LE JOUEUR LE PLUS RAPIDE DE UNITED ?",
+										"parJeudi 10 juin 2021 18h34ShareWithTwitter ShareWithFacebook \r\n"
+										+ "L'un des principaux attributs de l'équipe de Manchester United d'Ole Gunnar Solskjaer est sa vitesse fulgurante en attaque, définie par un groupe de jeunes attaquants rapides.",
+										
+										"22/06/2021","app-assets/img/Old Trafford.png","football"));
+		
+		
+		
 	}
 	
 	

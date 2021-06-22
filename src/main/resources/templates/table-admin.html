@@ -71,7 +71,7 @@
                      <th><i class="ft-image font-small-3 mr-2"></i> Avatar</th>
                      
                     <th><i class="ft-info font-small-3 mr-2"></i> Name</th>
-                    <th><i class="ft-user font-small-3 mr-2"></i> Username</th>
+                  
                     <th><i class="ft-mail font-small-3 mr-2"></i> Email   </th>
                    
                     <th><i class="ft-settings font-small-3 mr-2"></i> Role</th>
@@ -84,22 +84,22 @@
                   <tr th:each="admins : ${admins}">
                   
                     <td>
-               <img alt="96x96" style="position:relative;" class="media-object   bg-danger height-50 rounded-circle"
-                th:src="${admins.profil_pic_URL}" title="TODO" > 
+               <img alt="96x96"  class="media-object   bg-danger height-50 rounded-circle"
+                style="display:block; margin-left:auto; margin-right:auto;" 
+                src="app-assets/img/portrait/avatars/avatar-02.png" title="TODO" > 
                 </td>
                 
       				 <td>
-      				 <a th:text="${admins.name}" th:href="@{'/show/' + ${admins.id}}"></a>
+      				 <a th:text="${admins.fullname}" ></a>
       				 </td>
                     
-                     <td th:text="${admins.username}">
+                     <td th:text="${admins.email}">
                      </td>
                      
-                      <td th:text="${admins.email}">
-                      </td>
+                      
                     
                     
-                     <td th:text="${admins.role}">
+                     <td th:text="${admins.roles}">
                      </td>
                       
               
@@ -194,7 +194,7 @@
                     
                     <th>Avatar</th>
                     <th>Name</th>
-                    <th>Username</th>
+                  
                     <th>Email</th>
                     <th>Role</th>
                     <th></th>
