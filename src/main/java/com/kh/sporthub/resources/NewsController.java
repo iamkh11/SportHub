@@ -63,7 +63,7 @@ public class NewsController {
 	    }
 	    
 	    @RequestMapping("/updatenews")
-	    public String updates(@RequestParam String id, @RequestParam String title, 
+	    public String updatenews(@RequestParam String id, @RequestParam String title, 
 	    		  @RequestParam String date, @RequestParam Boolean status, @RequestParam String image, 
 	    		     @RequestParam String content  ) {
 	    		

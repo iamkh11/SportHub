@@ -19,7 +19,7 @@ public interface NewsRepository  extends MongoRepository<News, String>  {
 	
 	    List<News> findAll();
 	    
-	    Optional<News> findByid(String id) ;
+	  
 	
 	
 	
