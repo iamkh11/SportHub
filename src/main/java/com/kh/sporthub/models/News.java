@@ -19,21 +19,47 @@ public class News {
 	private String content;
 	private String date;
 	private String image;
+	private String category;
 	private String descipline;
 	private Boolean status;
 	
-	public News(String title, String content, String date, String image, String descipline) {
+	
+
+
+
+	
+
+
+	public News(String title, String content, String date, String image, String category, String descipline,
+			Boolean status) {
 		super();
 		this.title = title;
 		this.content = content;
 		this.date = date;
 		this.image = image;
+		this.category = category;
 		this.descipline = descipline;
 		status = false;
 	}
 
 
-	
+
+
+
+	public String getCategory() {
+		return category;
+	}
+
+
+
+
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+
+
 
 
 	public Boolean getStatus() {

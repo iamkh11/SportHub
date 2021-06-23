@@ -84,17 +84,13 @@
                       		  </div>
                 <div class="row">
                       		   
-                  <fieldset class="form-group col-12" novalidate>
+                  <fieldset class="form-group col-md-6 mb-2" novalidate>
                  <label>Title <span class="required">*</span></label>
                  <div class="controls">
                 <input type="text" th:value="${news.title}" name="title"  class="form-control" 
                 required data-validation-required-message="This field is required" >
                 </div>
                </fieldset>
-               
-                   </div>
-                   
-                    <div class="row">
              
                   <fieldset class="form-group col-md-6 mb-2" novalidate>
                  <label>Date <span class="required">*</span></label>
@@ -104,24 +100,6 @@
                  data-validation-required-message="This field is required">
                 </div>
                </fieldset>
-               
-                 <fieldset class="form-group col-md-6 mb-2" novalidate>
-                 <label>Category <span class="required">*</span></label>
-                 <div class="controls" >
-                     
-            <select name="category" id="select" required class="form-control">
-             <option  th:value="${news.category}" th:text="'Default : ' +   ${news.category} " > </option>
-            <option value="News">News</option>
-            <option value="Slider">Slider</option>
-            
-   
-         </select>
-         
-                </div>
-               </fieldset>
-               
-               
-               
   
     
           </div>
@@ -144,8 +122,8 @@
                 
                  <select name="status" id="select" required class="form-control">
                   <option  th:value="${news.status}" th:text="'Default : ' +   ${news.status} " > </option>
-                   	<option value="true">Published</option>
-      				 <option value="false">Draft</option>
+                   	<option value="true">Published (true)</option>
+      				 <option value="false">Draft (false)</option>
              </select>
                 
                 

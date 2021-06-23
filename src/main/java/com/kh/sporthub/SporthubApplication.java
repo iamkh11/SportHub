@@ -104,14 +104,14 @@ public class SporthubApplication  implements CommandLineRunner{
 		System.out.println("==========Delete all Admins entities==========");
 		//adminsRepository.deleteAll();
 		System.out.println("==========Delete all Supporters entities==========");
-		//supportersRepository.deleteAll();
+		supportersRepository.deleteAll();
 		
 		System.out.println("==========Delete all Team entities==========");
 		teamRepository.deleteAll();
 		playerRepository.deleteAll();
 		staffRepository.deleteAll();
 		stadiumRepository.deleteAll();
-		newsRepository.deleteAll();
+		//newsRepository.deleteAll();
 		
 		//ticketRepository.deleteAll();
 		
@@ -198,11 +198,11 @@ public class SporthubApplication  implements CommandLineRunner{
 		// disciplineRepository.save(new Discipline ("Football"));
 		// disciplineRepository.save(new Discipline ("Handball"));
 		
-		newsRepository.save(new News ("QUEL EST LE JOUEUR LE PLUS RAPIDE DE UNITED ?",
-										"parJeudi 10 juin 2021 18h34ShareWithTwitter ShareWithFacebook \r\n"
-										+ "L'un des principaux attributs de l'équipe de Manchester United d'Ole Gunnar Solskjaer est sa vitesse fulgurante en attaque, définie par un groupe de jeunes attaquants rapides.",
+	// newsRepository.save(new News ("QUEL EST LE JOUEUR LE PLUS RAPIDE DE UNITED ?",
+										//"parJeudi 10 juin 2021 18h34ShareWithTwitter ShareWithFacebook \r\n"
+									//	+ "L'un des principaux attributs de l'équipe de Manchester United d'Ole Gunnar Solskjaer est sa vitesse fulgurante en attaque, définie par un groupe de jeunes attaquants rapides.",
 										
-										"22/06/2021","app-assets/img/Old Trafford.png","football"));
+					//	"22/06/2021","app-assets/img/Old Trafford.png","football"));
 		
 		
 		

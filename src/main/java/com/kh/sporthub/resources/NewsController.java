@@ -65,7 +65,7 @@ public class NewsController {
 	    @RequestMapping("/updatenews")
 	    public String updatenews(@RequestParam String id, @RequestParam String title, 
 	    		  @RequestParam String date, @RequestParam Boolean status, @RequestParam String image, 
-	    		     @RequestParam String content  ) {
+	    		     @RequestParam String content,@RequestParam String category  ) {
 	    		
 	    		
 	      
@@ -76,6 +76,8 @@ public class NewsController {
 	    	news.get().setTitle(title);
 	    	
 	    	news.get().setDate(date);
+	    	
+	    	news.get().setCategory(category);
 	    	
 	    	news.get().setStatus(status);
 	    	
@@ -105,7 +107,7 @@ public class NewsController {
 		 @RequestMapping("/savepost")
 		    public String save(@RequestParam String title, 
 		    		  @RequestParam String date,  @RequestParam Boolean status, @RequestParam String image, 
-		    		  @RequestParam String descipline ,  @RequestParam String content
+		    		  @RequestParam String descipline ,  @RequestParam String content,@RequestParam String category
 		    		) {
 		    		
 		    		
@@ -116,13 +118,14 @@ public class NewsController {
 			
 			 	news.setTitle(title);
 		    	news.setDate(date);
+		    	news.setCategory(category);
 		    	news.setStatus(status);
 		    	
 		    	news.setImage(image);
 		    	news.setDescipline(descipline);
 		    	news.setContent(content);
 			 
-			
+		    	
 			 	
 		    	newsRepository.save(news);
 			

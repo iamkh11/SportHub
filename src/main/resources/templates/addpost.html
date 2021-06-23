@@ -82,13 +82,17 @@
                
                 <div class="row">
                       		   
-                  <fieldset class="form-group col-md-6 mb-2" novalidate>
+                  <fieldset class="form-group col-12" novalidate>
                  <label>Title <span class="required">*</span></label>
                  <div class="controls">
                 <input type="text"  name="title"  class="form-control" 
                 required data-validation-required-message="This field is required" >
                 </div>
                </fieldset>
+               
+                </div>
+                
+                  <div class="row">
              
                   <fieldset class="form-group col-md-6 mb-2" novalidate>
                  <label>Date <span class="required">*</span></label>
@@ -96,6 +100,22 @@
                 <input required type="text"  class="form-control"  name="date"   
                  data-validation-regex-regex="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$"
                  data-validation-required-message="This field is required">
+                </div>
+               </fieldset>
+               
+               
+                <fieldset class="form-group col-md-6 mb-2" novalidate>
+                 <label>Category <span class="required">*</span></label>
+                 <div class="controls" >
+                     
+            <select name="category" id="select" required class="form-control">
+              <option value="">Select Category...</option>
+            <option value="News">News</option>
+            <option value="Slider">Slider</option>
+            
+   
+         </select>
+         
                 </div>
                </fieldset>
   

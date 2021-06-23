@@ -72,56 +72,32 @@
     <div class="col-md-6">
       <div class="card">
         <div class="card-header">
-          <h3 align=center class="card-title" id="basic-layout-card-center">Modify Post</h3>
+          <h3 align=center class="card-title" id="basic-layout-card-center">Add New Post</h3>
           <p></p>
         </div>
         <div class="card-content">
           <div class="px-3">
-            <form class="form" action="/updatenews" novalidate>
+            <form class="form" action="/savepost" novalidate>
               <div class="form-body">
-               <div class="form-group">
-                          		  <input  type="hidden" th:value="${news.id}" class="form-control" id="id" name="id"/>
-                      		  </div>
+               
                 <div class="row">
                       		   
-                  <fieldset class="form-group col-12" novalidate>
+                  <fieldset class="form-group col-md-6 mb-2" novalidate>
                  <label>Title <span class="required">*</span></label>
                  <div class="controls">
-                <input type="text" th:value="${news.title}" name="title"  class="form-control" 
+                <input type="text"  name="title"  class="form-control" 
                 required data-validation-required-message="This field is required" >
                 </div>
                </fieldset>
-               
-                   </div>
-                   
-                    <div class="row">
              
                   <fieldset class="form-group col-md-6 mb-2" novalidate>
                  <label>Date <span class="required">*</span></label>
                  <div class="controls">
-                <input required type="text"  class="form-control"  name="date"   th:value="${news.date}"
+                <input required type="text"  class="form-control"  name="date"   
                  data-validation-regex-regex="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$"
                  data-validation-required-message="This field is required">
                 </div>
                </fieldset>
-               
-                 <fieldset class="form-group col-md-6 mb-2" novalidate>
-                 <label>Category <span class="required">*</span></label>
-                 <div class="controls" >
-                     
-            <select name="category" id="select" required class="form-control">
-             <option  th:value="${news.category}" th:text="'Default : ' +   ${news.category} " > </option>
-            <option value="News">News</option>
-            <option value="Slider">Slider</option>
-            
-   
-         </select>
-         
-                </div>
-               </fieldset>
-               
-               
-               
   
     
           </div>
@@ -133,25 +109,32 @@
                   <fieldset class="form-group col-md-6 mb-2" novalidate>
                  <label>Discipline <span class="required">*</span></label>
                  <div class="controls" >
-                <input type="text" th:value="${news.descipline}" name="descipline"  class="form-control" 
-                required data-validation-required-message="This field is required" disabled>
+                     
+            <select name="descipline" id="select" required class="form-control">
+              <option value="">Select Discipline...</option>
+            <option value="football">football</option>
+            <option value="handball">handball</option>
+            
+   
+         </select>
+         
                 </div>
                </fieldset>
                
-                <fieldset class="form-group col-md-6 mb-2" novalidate>
+               
+               <fieldset class="form-group col-md-6 mb-2" novalidate>
                  <label>Post Status <span class="required">*</span></label>
                  <div class="controls" >
                 
                  <select name="status" id="select" required class="form-control">
-                  <option  th:value="${news.status}" th:text="'Default : ' +   ${news.status} " > </option>
-                   	<option value="true">Published</option>
-      				 <option value="false">Draft</option>
+                    <option value="">Select Status...</option>
+                   	<option value="true">Published (true)</option>
+      				 <option value="false">Draft (false)</option>
              </select>
                 
                 
                 </div>
                </fieldset>
-               
   
     
           </div>
@@ -168,7 +151,7 @@
                   <fieldset class="form-group col-12" novalidate>
                  <label>Img <span class="required">*</span></label>
                  <div class="controls">
-                <input type="text" th:value="${news.image}" name="image"  class="form-control" 
+                <input type="text" value="app-assets/img/news/" name="image"  class="form-control" 
                 required data-validation-required-message="This field is required" >
                 </div>
                </fieldset>
@@ -182,7 +165,8 @@
                   <fieldset class="form-group col-12" novalidate>
                  <label>Content <span class="required">*</span></label>
                  <div class="controls">
-                	<textarea  class="form-control"  th:field="${news.content}" name="content" id="placeTextarea" rows="6" >	
+                	<textarea  required="required" class="form-control"  name="content" id="placeTextarea" rows="6" data-validation-required-message="This field is required">	
+                	 
                 	
                 	
                 	

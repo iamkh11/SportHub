@@ -85,7 +85,6 @@
                     <th><i class="ft-info font-small-3 mr-2"></i> Title</th>
                     <th><i class="ft-info font-small-3 mr-2"></i> Content</th>
                     <th><i class="ft-info font-small-3 mr-2"></i> Date</th>
-                    <th><i class="ft-info font-small-3 mr-2"></i> Category</th>
                     <th><i class="ft-info font-small-3 mr-2"></i> Status</th>
                     <th><i class="ft-image font-small-3 mr-2"></i>Img</th>
                    
@@ -103,15 +102,11 @@
       				 <a th:text="${news.title}" ></a>
       				 </td>
                     
-                     <td th:text="${#strings.abbreviate(news.content,20)}">
+                     <td th:text="${news.content}">
                      </td>
                      
                       <td th:text="${news.date}">
                       </td>
-                      
-                      <td th:text="${news.category}">
-                      </td>
-                      
                       <td th:text="${news.status}">
                       </td>
                     
@@ -216,7 +211,6 @@
                     <th>Title</th>
                     <th>Content</th>
                     <th>Date</th>
-                    <th>Category</th>
                     <th>Status</th>
                     <th></th>
                     <th></th>
@@ -246,7 +240,6 @@
                     <th><i class="ft-info font-small-3 mr-2"></i> Title</th>
                     <th><i class="ft-info font-small-3 mr-2"></i> Content</th>
                     <th><i class="ft-info font-small-3 mr-2"></i> Date</th>
-                      <th><i class="ft-info font-small-3 mr-2"></i> Category</th>
                      <th><i class="ft-info font-small-3 mr-2"></i> Status</th>
                     <th><i class="ft-image font-small-3 mr-2"></i>Img</th>
                    
@@ -264,13 +257,10 @@
       				 <a th:text="${news.title}" ></a>
       				 </td>
                     
-                     <td th:text="${#strings.abbreviate(news.content,20)}">
+                     <td th:text="${news.content}">
                      </td>
                      
                       <td th:text="${news.date}">
-                      </td>
-                      
-                      <td th:text="${news.category}">
                       </td>
                       
                       <td th:text="${news.status}">
@@ -375,7 +365,6 @@
                     <th>Title</th>
                     <th>Content</th>
                     <th>Date</th>
-                     <th>Category</th>
                     <th>Status</th>
                     <th></th>
                     <th></th>

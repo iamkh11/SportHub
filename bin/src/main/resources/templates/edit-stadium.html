@@ -5,7 +5,7 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
    >
    
-  <!-- BEGIN : Head-->
+   <!-- BEGIN : Head-->
   <head th:fragment="header">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -72,86 +72,94 @@
     <div class="col-md-6">
       <div class="card">
         <div class="card-header">
-          <h3 align=center class="card-title" id="basic-layout-card-center">Modify Post</h3>
+          <h3 align=center class="card-title" id="basic-layout-card-center">Modify Stadium/Court</h3>
           <p></p>
         </div>
         <div class="card-content">
           <div class="px-3">
-            <form class="form" action="/updatenews" novalidate>
+            <form class="form" action="/updatestades" novalidate>
               <div class="form-body">
+              
                <div class="form-group">
-                          		  <input  type="hidden" th:value="${news.id}" class="form-control" id="id" name="id"/>
-                      		  </div>
+                      <input  type="hidden" th:value="${stadium.id}" class="form-control" id="id" name="id"/>
+               </div>
+              
+              
                 <div class="row">
                       		   
-                  <fieldset class="form-group col-12" novalidate>
-                 <label>Title <span class="required">*</span></label>
+                  <fieldset class="form-group col-md-6 mb-2" novalidate>
+                 <label>Stadium Name <span class="required">*</span></label>
                  <div class="controls">
-                <input type="text" th:value="${news.title}" name="title"  class="form-control" 
+                <input type="text"  name="stadium_fullname" th:value="${stadium.stadium_fullname}" class="form-control" 
                 required data-validation-required-message="This field is required" >
                 </div>
                </fieldset>
-               
-                   </div>
-                   
-                    <div class="row">
              
                   <fieldset class="form-group col-md-6 mb-2" novalidate>
-                 <label>Date <span class="required">*</span></label>
+                 <label>Stadium Placement <span class="required">*</span></label>
                  <div class="controls">
-                <input required type="text"  class="form-control"  name="date"   th:value="${news.date}"
-                 data-validation-regex-regex="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$"
-                 data-validation-required-message="This field is required">
+                <input type="text"  name="stadium_placement" th:value="${stadium.stadium_placement}" class="form-control" 
+                required data-validation-required-message="This field is required" >
                 </div>
                </fieldset>
-               
-                 <fieldset class="form-group col-md-6 mb-2" novalidate>
-                 <label>Category <span class="required">*</span></label>
-                 <div class="controls" >
-                     
-            <select name="category" id="select" required class="form-control">
-             <option  th:value="${news.category}" th:text="'Default : ' +   ${news.category} " > </option>
-            <option value="News">News</option>
-            <option value="Slider">Slider</option>
-            
-   
-         </select>
-         
-                </div>
-               </fieldset>
-               
-               
-               
   
     
           </div>
           
           
-          
           <div class="row">
                 
-                  <fieldset class="form-group col-md-6 mb-2" novalidate>
-                 <label>Discipline <span class="required">*</span></label>
-                 <div class="controls" >
-                <input type="text" th:value="${news.descipline}" name="descipline"  class="form-control" 
-                required data-validation-required-message="This field is required" disabled>
-                </div>
+                     <fieldset class="form-group col-md-6 mb-2" novalidate>
+                 <label>Stadium Capacity <span class="required">*</span></label>
+                 <div class="controls">
+                 <input required type="number"  class="form-control" th:value="${stadium.stadium_capacity}" name="stadium_capacity"  
+         data-validation-regex-regex="([\d]{1,6})"
+         data-validation-required-message="This field is required">
+              
+              
+              
+                 </div>
                </fieldset>
-               
-                <fieldset class="form-group col-md-6 mb-2" novalidate>
-                 <label>Post Status <span class="required">*</span></label>
-                 <div class="controls" >
+              
+              
+              
                 
-                 <select name="status" id="select" required class="form-control">
-                  <option  th:value="${news.status}" th:text="'Default : ' +   ${news.status} " > </option>
-                   	<option value="true">Published</option>
-      				 <option value="false">Draft</option>
+               
+               
+             
+                   <fieldset class="form-group col-md-6 mb-2" novalidate>
+                 <label>Stadium Owning Team <span class="required">*</span></label>
+                 <div class="controls">
+                <select name="team_fullname" id="select" required class="form-control">
+                   <option  th:value="${stadium.team_fullname}" th:text="'Default : ' +   ${stadium.team_fullname} " > </option>
+                   <optgroup label="Football Teams">
+                  <option th:if="${teams.descipline == 'football'}"  th:each="teams : ${teams}"  th:value="${teams.fullname}" th:text="${teams.fullname}"></option>
+                </optgroup>
+                 <optgroup label="Handball Teams">
+                  <option  th:if="${teams.descipline == 'handball'}" th:each="teams : ${teams}"  th:value="${teams.fullname}" th:text="${teams.fullname}"></option>
+                </optgroup>
+       
              </select>
-                
-                
                 </div>
                </fieldset>
-               
+  
+    
+          </div>
+          
+          
+          
+          <div class="row">
+                
+                  
+                 <fieldset class="form-group col-12" novalidate>
+           <label>Discipline <span class="required">*</span></label>
+           <div class="controls">
+                
+            <input type="text" th:value="${stadium.descipline}" name="descipline"  class="form-control" 
+                required data-validation-required-message="This field is required" disabled>
+            
+            </div>
+         </fieldset>
   
     
           </div>
@@ -166,38 +174,15 @@
           <div class="row">
                 
                   <fieldset class="form-group col-12" novalidate>
-                 <label>Img <span class="required">*</span></label>
+                 <label>Stadium Preview <span class="required">*</span></label>
                  <div class="controls">
-                <input type="text" th:value="${news.image}" name="image"  class="form-control" 
+                <input type="text" th:value="${stadium.image_URL}" name="image_URL"  class="form-control" 
                 required data-validation-required-message="This field is required" >
                 </div>
                </fieldset>
              
               
           </div>
-          
-          
-           <div class="row">
-                
-                  <fieldset class="form-group col-12" novalidate>
-                 <label>Content <span class="required">*</span></label>
-                 <div class="controls">
-                	<textarea  class="form-control"  th:field="${news.content}" name="content" id="placeTextarea" rows="6" >	
-                	
-                	
-                	
-                	</textarea>	
-					
-								
-                </div>
-               </fieldset>
-             
-              
-          </div>
-          
-          
-          
-          
 
 
               </div>
@@ -233,7 +218,7 @@
     </div>
     <!-- ////////////////////////////////////////////////////////////////////////////-->
 
-  <!-- Theme customizer Starts-->
+   <!-- Theme customizer Starts-->
     
     <div th:replace="fragments/customizer :: customizer">
     
@@ -241,18 +226,18 @@
     
     
    <!-- Theme customizer Ends-->
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
     <!-- BEGIN VENDOR JS-->
     <script src="../app-assets/vendors/js/core/jquery-3.2.1.min.js" type="text/javascript"></script>
     <script src="../app-assets/vendors/js/core/popper.min.js" type="text/javascript"></script>
