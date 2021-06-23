@@ -104,13 +104,13 @@ public class SporthubApplication  implements CommandLineRunner{
 		System.out.println("==========Delete all Admins entities==========");
 		//adminsRepository.deleteAll();
 		System.out.println("==========Delete all Supporters entities==========");
-		supportersRepository.deleteAll();
+		//supportersRepository.deleteAll();
 		
 		System.out.println("==========Delete all Team entities==========");
-		teamRepository.deleteAll();
-		playerRepository.deleteAll();
-		staffRepository.deleteAll();
-		stadiumRepository.deleteAll();
+		//teamRepository.deleteAll();
+		//playerRepository.deleteAll();
+		//staffRepository.deleteAll();
+		//stadiumRepository.deleteAll();
 		//newsRepository.deleteAll();
 		
 		//ticketRepository.deleteAll();
@@ -129,30 +129,30 @@ public class SporthubApplication  implements CommandLineRunner{
 		
 		
 		System.out.println("==========Save list of team entities==========");
-		teamRepository.save(new Team ("Manchester United","Red Devils", "1878, Newton Heath, Manchester, Royaume-Uni", "Glazers", "Premier League", "app-assets/img/photos/ManUnited.png","football"));
-		teamRepository.save(new Team ("Manchester City","The Citizens", "16 April 1894", "Tamim bin Hamad Al Thani", "Premier League", "app-assets/img/photos/city.png","handball"));
-		teamRepository.save(new Team ("Manchester City","The Citizens", "16 April 1894", "Tamim bin Hamad Al Thani", "Premier League", "app-assets/img/photos/city.png","handball"));
-		teamRepository.save(new Team ("Manchester City","The Citizens", "16 April 1894", "Tamim bin Hamad Al Thani", "Premier League", "app-assets/img/photos/city.png","football"));
-		teamRepository.save(new Team ("Manchester City","The Citizens", "16 April 1894", "Tamim bin Hamad Al Thani", "Premier League", "app-assets/img/photos/city.png","football"));
-		teamRepository.save(new Team ("Manchester City","The Citizens", "16 April 1894", "Tamim bin Hamad Al Thani", "Premier League", "app-assets/img/photos/city.png","football"));
+		//teamRepository.save(new Team ("Manchester United","Red Devils", "1878, Newton Heath, Manchester, Royaume-Uni", "Glazers", "Premier League", "app-assets/img/teams/ManUnited.png","football"));
+		//teamRepository.save(new Team ("Manchester City","The Citizens", "16 April 1894", "Tamim bin Hamad Al Thani", "Premier League", "app-assets/img/photos/city.png","handball"));
+		//teamRepository.save(new Team ("Manchester City","The Citizens", "16 April 1894", "Tamim bin Hamad Al Thani", "Premier League", "app-assets/img/photos/city.png","handball"));
+		//teamRepository.save(new Team ("Manchester City","The Citizens", "16 April 1894", "Tamim bin Hamad Al Thani", "Premier League", "app-assets/img/photos/city.png","football"));
+		//teamRepository.save(new Team ("Manchester City","The Citizens", "16 April 1894", "Tamim bin Hamad Al Thani", "Premier League", "app-assets/img/photos/city.png","football"));
+		//teamRepository.save(new Team ("Manchester City","The Citizens", "16 April 1894", "Tamim bin Hamad Al Thani", "Premier League", "app-assets/img/photos/city.png","football"));
 		
 		
-		playerRepository.save(new Players ("Paul Pogba",26, "24/09/1998", "French", "Male",6,"CMD", "Manchester United","app-assets/img/photos/pog.jpg","football"));
-		playerRepository.save(new Players ("Paul Pogba",26, "24/09/1998", "French", "Male",6,"CMD", "Manchester city","app-assets/img/photos/pog.jpg","football"));
-		playerRepository.save(new Players ("Paul Pogba",26, "24/09/1998", "French", "Male",6,"CMD", "Manchester United","app-assets/img/photos/pog.jpg","football"));
-		playerRepository.save(new Players ("Paul Pogba",26, "24/09/1998", "French", "Male",6,"CMD", "Manchester United","app-assets/img/photos/pog.jpg","handball"));
-		playerRepository.save(new Players ("Paul x",26, "24/09/1998", "tt", "Male",6,"CMD", "Manchester city","app-assets/img/photos/pog.jpg","handball"));
+		//playerRepository.save(new Players ("Paul Pogba",26, "24/09/1998", "French", "Male",6,"CMD", "Manchester United","app-assets/img/photos/pog.jpg","football"));
+		//playerRepository.save(new Players ("Paul Pogba",26, "24/09/1998", "French", "Male",6,"CMD", "Manchester city","app-assets/img/photos/pog.jpg","football"));
+		//playerRepository.save(new Players ("Paul Pogba",26, "24/09/1998", "French", "Male",6,"CMD", "Manchester United","app-assets/img/photos/pog.jpg","football"));
+		//playerRepository.save(new Players ("Paul Pogba",26, "24/09/1998", "French", "Male",6,"CMD", "Manchester United","app-assets/img/photos/pog.jpg","handball"));
+		//playerRepository.save(new Players ("Paul x",26, "24/09/1998", "tt", "Male",6,"CMD", "Manchester city","app-assets/img/photos/pog.jpg","handball"));
 		
-		staffRepository.save(new Staff ("Ole Gunnar Solskjaer",48,  "February 26, 1973", "Norwegian","Male", "Manchester United", "Manager","app-assets/img/photos/ole.jpeg","football"));
-		staffRepository.save(new Staff ("Jose Mourinho",488,  "February 26, 1973", "Norwegian","Male", "Manchester United", "Manager","app-assets/img/photos/ole.jpeg","football"));
-		staffRepository.save(new Staff ("Welid",888,  "February 26, 1973", "Norwegian","Male", "Manchester United", "Manager","app-assets/img/photos/ole.jpeg","football"));
-		staffRepository.save(new Staff ("Mustpha",999,  "February 26, 1973", "Norwegian","Male", "Manchester United", "Manager","app-assets/img/photos/ole.jpeg","handball"));
-		staffRepository.save(new Staff ("Mondher S8ayer",9,  "February 26, 1973", "Norwegian","Male", "Manchester United", "Manager","app-assets/img/photos/ole.jpeg","handball"));
+		//staffRepository.save(new Staff ("Ole Gunnar Solskjaer",48,  "February 26, 1973", "Norwegian","Male", "Manchester United", "Manager","app-assets/img/photos/ole.jpeg","football"));
+		//staffRepository.save(new Staff ("Jose Mourinho",488,  "February 26, 1973", "Norwegian","Male", "Manchester United", "Manager","app-assets/img/photos/ole.jpeg","football"));
+		//staffRepository.save(new Staff ("Welid",888,  "February 26, 1973", "Norwegian","Male", "Manchester United", "Manager","app-assets/img/photos/ole.jpeg","football"));
+		//staffRepository.save(new Staff ("Mustpha",999,  "February 26, 1973", "Norwegian","Male", "Manchester United", "Manager","app-assets/img/photos/ole.jpeg","handball"));
+		//staffRepository.save(new Staff ("Mondher S8ayer",9,  "February 26, 1973", "Norwegian","Male", "Manchester United", "Manager","app-assets/img/photos/ole.jpeg","handball"));
 		
-		stadiumRepository.save(new Stadium ("Old Trafford","Manchester",76000, "Manchester United","app-assets/img/Old Trafford.png","football"));
-		stadiumRepository.save(new Stadium ("Old Trafford","Manchester",100000, "Manchester City","app-assets/img/Old Trafford.png","football"));
-		stadiumRepository.save(new Stadium ("Old Trafford","Manchester",300000, "Manchester City","app-assets/img/Old Trafford.png","football"));
-		stadiumRepository.save(new Stadium ("Old Trafford","Manchester",200, "Manchester City","app-assets/img/Old Trafford.png","football"));
+		//stadiumRepository.save(new Stadium ("Old Trafford","Manchester",76000, "Manchester United","app-assets/img/Old Trafford.png","football"));
+		//stadiumRepository.save(new Stadium ("Old Trafford","Manchester",100000, "Manchester City","app-assets/img/Old Trafford.png","football"));
+		//stadiumRepository.save(new Stadium ("Old Trafford","Manchester",300000, "Manchester City","app-assets/img/Old Trafford.png","football"));
+		//stadiumRepository.save(new Stadium ("Old Trafford","Manchester",200, "Manchester City","app-assets/img/Old Trafford.png","football"));
 		
 		
 		//Stadium b = (new Stadium ("Old Trafford","Manchester",76000, "Manchester United","app-assets/img/Old Trafford.jpg"));
@@ -203,6 +203,17 @@ public class SporthubApplication  implements CommandLineRunner{
 									//	+ "L'un des principaux attributs de l'équipe de Manchester United d'Ole Gunnar Solskjaer est sa vitesse fulgurante en attaque, définie par un groupe de jeunes attaquants rapides.",
 										
 					//	"22/06/2021","app-assets/img/Old Trafford.png","football"));
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		
