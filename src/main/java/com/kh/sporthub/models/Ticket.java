@@ -3,15 +3,13 @@ package com.kh.sporthub.models;
 
 
 
-import java.nio.charset.Charset;
-import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
-import javax.persistence.Entity;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.OneToMany;
+
 
 
 import org.springframework.data.annotation.Id;
@@ -25,7 +23,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 
 @Document
-@Entity
 public class Ticket {
 
 	@Id
@@ -34,8 +31,6 @@ public class Ticket {
 	
 	
 	
-	private static int count = 0;
-	private int ref_ticket;
 	
 	private String match_tag; 
 	
@@ -44,40 +39,31 @@ public class Ticket {
 	private String stadium_name; 
 	private String stadium_zone;
 	
+	private String date;
+	private String time;
+	
+
+	private String competition;
+	private String discipline;
+	private String season;
+	
 	private double price;
 	private Boolean Status; 
 	private Boolean checked_by_agent;
 	
-	@OneToMany
-	private  List <Stadium> stade ;
+	private String mail_buyer;
 	
-	public Ticket(String match_name,  String stadium_name,
-			String stadium_zone, double price  ) {
-		
-		super();
-		
-		
-		setRef_ticket(ref_ticket) ;
-		setMatch_tag (match_tag) ;
-		
-		this.match_name = match_name ;
-		this.stadium_name = stadium_name;
-		this.stadium_zone = stadium_zone;
-		this.price = price;
-		Status = true;
-		checked_by_agent = false;
-		
-			
-		
-	}
-
-
+	@DBRef
+	private User buyer;
+	
+	
+	
 
 	public Ticket() {
-		setRef_ticket(ref_ticket) ;
+		
 		Status = true;
 		checked_by_agent = false;
-		this.stade = stade;
+		mail_buyer = null ;
 		setMatch_tag (match_tag) ;
 		
 	}
@@ -92,14 +78,138 @@ public class Ticket {
 
 
 
-	public List<Stadium> getStade() {
-		return stade;
+	
+
+
+
+	public String getMail_buyer() {
+		return mail_buyer;
 	}
 
 
 
-	public void setStade(List<Stadium> stade) {
-		this.stade = stade;
+
+
+
+
+
+
+
+
+
+
+
+
+	public void setMail_buyer(String mail_buyer) {
+		this.mail_buyer = mail_buyer;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public User getBuyer() {
+		return buyer;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public void setBuyer(User buyer) {
+		this.buyer = buyer;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public String getDate() {
+		return date;
+	}
+
+
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+
+
+	public String getTime() {
+		return time;
+	}
+
+
+
+	public void setTime(String time) {
+		this.time = time;
+	}
+
+
+
+	public String getCompetition() {
+		return competition;
+	}
+
+
+
+	public void setCompetition(String competition) {
+		this.competition = competition;
+	}
+
+
+
+	public String getDiscipline() {
+		return discipline;
+	}
+
+
+
+	public void setDiscipline(String discipline) {
+		this.discipline = discipline;
+	}
+
+
+
+	public String getSeason() {
+		return season;
+	}
+
+
+
+	public void setSeason(String season) {
+		this.season = season;
 	}
 
 
@@ -116,29 +226,7 @@ public class Ticket {
 
 
 
-	public static int getCount() {
-		return count;
-	}
-
-
-
-	public static void setCount(int count) {
-		Ticket.count = count;
-	}
-
-
-
-	public int getRef_ticket() {
-		return ref_ticket;
-	}
-
-
-
-	public void setRef_ticket(int ref_ticket) {
 	
-		this.ref_ticket = count++;
-	}
-
 
 
 	public String getMatch_tag() {
@@ -232,10 +320,14 @@ public class Ticket {
 
 	@Override
 	public String toString() {
-		return "Ticket [id=" + id + ", ref_ticket=" + ref_ticket + ", match_tag=" + match_tag + ", match_name="
-				+ match_name + ", stadium_name=" + stadium_name + ", stadium_zone=" + stadium_zone + ", price=" + price
-				+ ", Status=" + Status + ", checked_by_agent=" + checked_by_agent +  "]";
+		return "Ticket [id=" + id + ", match_tag=" + match_tag + ", match_name=" + match_name + ", stadium_name="
+				+ stadium_name + ", stadium_zone=" + stadium_zone + ", date=" + date + ", time=" + time
+				+ ", competition=" + competition + ", discipline=" + discipline + ", season=" + season + ", price="
+				+ price + ", Status=" + Status + ", checked_by_agent=" + checked_by_agent + "]";
 	}
+
+
+
 
 
 

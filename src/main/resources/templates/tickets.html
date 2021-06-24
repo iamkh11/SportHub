@@ -74,13 +74,13 @@
                 
                   
                 
-			<tr th:if="${ticket.stadium_zone == 'Virage' and ticket.Status == true }" th:each="ticket : ${ticket}">
+			<tr th:if="${ticket.Status == true }" th:each="ticket : ${ticket}">
                 
-      				 <td>
-      				 <a th:text="${ticket.ref_ticket}" th:href="@{'/show/' + ${ticket.match_tag}}"></a>
+      				 <td><span th:text="${ticket.date}"> </span> <span th:text="${ticket.time}"> </span> 
+      				 
       				 </td>
                     
-                     
+                 
                      
                       <td th:text="${ticket.match_name}">
                       </td>
@@ -170,9 +170,7 @@
 
    <!-- Theme customizer Starts-->
     
-    <div th:replace="fragments/customizer :: customizer">
-    
-  		</div>
+   
     
     
    <!-- Theme customizer Ends-->

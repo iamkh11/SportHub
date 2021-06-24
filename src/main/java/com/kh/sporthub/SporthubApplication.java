@@ -124,7 +124,7 @@ public class SporthubApplication  implements CommandLineRunner{
 	
 		
 		System.out.println("==========Save list of Supporters entities==========");
-		//supportersRepository.save(new Supporters  ("Med Kh","tyukyukyukyuj", "kh@kh.xcom", "need to encrypt this shit", "app-assets/img/supporters/med.png", "Super Fan"));
+		
 		//supportersRepository.save(new Supporters  ("Med Kh","tyukyukyukyuj", "kh@kh.xcom", "need to encrypt this shit", "app-assets/img/supporters/med.png", "Stupido"));
 		
 		
