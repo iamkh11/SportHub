@@ -205,10 +205,8 @@ public class SporthubApplication  implements CommandLineRunner{
 					//	"22/06/2021","app-assets/img/Old Trafford.png","football"));
 
 
+
 	
-		
-		
-		
 		
 		
 		

@@ -73,7 +73,7 @@
 
   <div class="row match-height">
 
-    <div class="col-xl-3 col-lg-6 col-md-12" th:if="${staff.team_fullname == 'Manchester United'}" th:each="staff : ${staff}" >
+    <div class="col-xl-3 col-lg-6 col-md-12" th:if="${staff.team_fullname == 'Manchester United' and staff.descipline == 'football'}" th:each="staff : ${staff}" >
       <div class="card" >
         <div class="card-content" >
           <div class="card-img  img-fluid "  align = "center">

@@ -14,8 +14,216 @@
 
 
 
- 		<div th:replace="fragments/sidebar :: sidebar">
- 		  </div>
+ 		<!-- main menu-->
+      <!--.main-menu(class="#{menuColor} #{menuOpenType}", class=(menuShadow == true ? 'menu-shadow' : ''))-->
+      <div data-active-color="black" data-background-color="white" data-image="" class="app-sidebar" th:fragment="sidebar">
+        <!-- main menu header-->
+        <!-- Sidebar Header starts-->
+        <div class="sidebar-header">
+          <div class="logo clearfix"><a href="/dashboard" class="logo-text float-left">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="logo-img"><img src="/app-assets/img/logo-cube.png"/></div><span class="text align-middle"> </span></a><a id="sidebarToggle" href="javascript:;" class="nav-toggle d-none d-sm-none d-md-none d-lg-block"><i data-toggle="expanded" class="toggle-icon ft-toggle-left"></i></a><a id="sidebarClose" href="javascript:;" class="nav-close d-block d-md-block d-lg-none d-xl-none"><i class="ft-x"></i></a></div>
+        </div>
+        <!-- Sidebar Header Ends-->
+        <!-- / main menu header-->
+         <!-- main menu content-->
+        
+         <div class="sidebar-content">
+          <div class="nav-container">
+            <ul id="main-menu-navigation" data-menu="menu-navigation" data-scroll-to-active="true" class="navigation navigation-main">
+             
+              <li >
+                  <a href="/dashboard"><i class="ft-home"></i><span data-i18n="" class="menu-title" >Dashboard</span></a>
+                    </a>
+              </li>
+
+            
+
+                    <li class="has-sub nav-item"><a href="#"><i class="ft-flag"></i><span data-i18n="" class="menu-title">Teams</span></a>
+                      <ul class="menu-content">
+                        <li class="has-sub"><a href="#" class="menu-item">Football</a>
+                          <ul class="menu-content">
+
+                            <li class="has-sub"><a href="#" class="menu-item">Our Team</a>
+                          <ul class="menu-content">
+
+                            <li>
+                              <a href="/myteam-info" class="menu-item">Info</a>
+                            </li>
+
+                            <li>
+                              <a href="/our-players" class="menu-item">Our Players</a>
+                            </li>
+
+                            <li>
+                              <a href="/our-staff" class="menu-item">Our Staff</a>
+                            </li>
+                            
+                             <li>
+                              <a href="/our-stadium" class="menu-item">Our Stadium</a>
+                            </li>
+
+                          </ul>
+
+                        </li>
+                        
+                        	
+                        
+                        
+
+                          </ul>
+
+                        </li>
+                        
+                         <li class="has-sub"><a href="#" class="menu-item">Handball</a>
+                          <ul class="menu-content">
+
+                            <li class="has-sub"><a href="#" class="menu-item">Our Team</a>
+                          <ul class="menu-content">
+
+                            <li>
+                              <a href="/myteam-info" class="menu-item">Info</a>
+                            </li>
+
+                            <li>
+                              <a href="/our-players" class="menu-item">Our Players</a>
+                            </li>
+
+                            <li>
+                              <a href="/our-staff" class="menu-item">Our Staff</a>
+                            </li>
+                            
+                             <li>
+                              <a href="/our-stadium" class="menu-item">Our Court</a>
+                            </li>
+
+                          </ul>
+
+                        </li>
+                        
+                        
+                        
+                        
+
+                          </ul>
+
+                        </li>
+                        
+                         <li>
+                          <a href="/other-teams" class="has-sub menu-item">All Teams</a>
+                        	</li>
+                        	
+                        	<li>
+                          <a href="/other-players" class="has-sub menu-item">All Players</a>
+                        </li>
+
+                        <li>
+                          <a href="/other-stadiums" class="has-sub menu-item">Stadiums/Courts</a>
+                        </li>
+                        
+
+                       
+
+                      </ul>
+                    </li>
+                        
+
+                    <li class="has-sub nav-item">
+                      <a href="#">
+                        <i class="ft-calendar"></i><span data-i18n="" class="menu-title">Calendar</span>
+                      </a>
+                    <ul class="menu-content">
+                      <li>
+                        <a href="#" class="has-sub menu-item">Seasons</a>
+                      </li>
+                      <li>
+                        <a href="#" class="menu-item">X</a>
+                      </li>
+                      <li>
+                        <a href="#" class="menu-item">X</a>
+                      </li>
+                      <li>
+                        <a href="#" class="menu-item">X</a>
+                      </li>
+                    </ul>
+                    </li>
+                       
+                      
+
+                <li class="has-sub nav-item">
+                  <a href="#"><i class="ft-credit-card"></i><span data-i18n="" class="menu-title">Tickets</span>
+                    </a>
+                <ul class="menu-content">
+                
+                     <li>
+                          <a href="/ticketgen" class="has-sub menu-item"> 
+                          
+                          *Tickets Generator</a>
+                        </li>
+                        
+                  <li class="has-sub"><a href="#" class="menu-item">Tickets per Zone</a>
+                          <ul class="menu-content">
+
+                            <li>
+                              <a href="/myteam-info" class="menu-item">Pelouse</a>
+                            </li>
+
+                            <li >
+                              <a href="/virage" class="menu-item">Virage</a>
+                            </li>
+
+                            <li>
+                              <a href="/our-staff" class="menu-item">Enceinte Inf </a>
+                            </li>
+                              <li>
+                              <a href="/our-staff" class="menu-item">Enceinte Sup </a>
+                            </li>
+                            <li>
+                              <a href="/our-staff" class="menu-item">Loge </a>
+                            </li>
+
+                          </ul>
+
+                        </li>
+                </ul>
+  				</li>
+  				
+  				 <li >
+                  <a href="/news"><i class="ft-info"></i><span data-i18n="" class="menu-title" >News</span></a>
+                    </a>
+              </li>
+  				
+  				
+  				
+  				
+  				
+
+
+                <li class="has-sub nav-item">
+                    <a href="#"><i class="ft-users"></i><span data-i18n="" class="menu-title">Users</span>
+                      </a>
+                  <ul class="menu-content">
+                    <li class="active"><a href="/table-admin" class="has-sub menu-item">Admins</a>
+                    </li>
+                    <li ><a href="/table-supporters" class="menu-item">Supporters</a>
+                    </li>
+                  </ul>
+             
+
+            </ul>  
+              
+             
+          
+          </div>
+        </div>
+        
+        
+        <!-- main menu content-->
+          <div class="sidebar-background"></div>
+        <!-- main menu footer-->
+        <!-- include includes/menu-footer-->
+        <!-- main menu footer-->
+      </div>
+      <!-- / main menu-->
      
 
 

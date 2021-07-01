@@ -36,6 +36,12 @@ public class StaffController {
 	        model.addAttribute("staff", staffRepository.findAll());
 	        return "our-staff";
 	    }
+	 
+	 @RequestMapping("/our-staff-hand")
+	    public String staffhand(Model model) {
+	        model.addAttribute("staff", staffRepository.findAll());
+	        return "our-staff-hand";
+	    }
 	  
 	  
 	  

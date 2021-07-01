@@ -40,6 +40,14 @@ public class StadiumController {
         return "our-stadium";
     }
 	
+	@RequestMapping("/our-court-hand")
+    public String court(Model model) {
+		
+        model.addAttribute("stade", stadiumRepository.findAll());
+        model.addAttribute("teams", teamRepository.findAll());
+        return "our-court-hand";
+    }
+	
 	
 	
 	@RequestMapping("/other-stadiums")

@@ -43,7 +43,7 @@
     </div>
   
     <div class="row match-height">
-      <div class="col-lg-8" style="float:none;margin:auto;" align = "center"  th:if="${team.fullname == 'Manchester United'}" th:each="team : ${team}" >
+      <div class="col-lg-8" style="float:none;margin:auto;" align = "center"  th:if="${team.fullname == 'Manchester United' and team.descipline == 'football'  }" th:each="team : ${team}" >
       
         <div class="card half-width" >
           <div class="card-content">

@@ -1,0 +1,483 @@
+
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+   >
+   
+   
+   
+   
+  <!-- BEGIN : Head-->
+ 	<div th:replace="fragments/header :: header">
+  		</div>
+  <!-- END : Head-->
+  
+  
+  
+  
+  
+
+  <!-- BEGIN : Body-->
+  <body data-col="2-columns" class=" 2-columns ">
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+    <div class="wrapper">
+
+
+
+
+
+
+     	<!-- main menu-->
+	<div th:replace="fragments/sidebar :: sidebar">
+ 		 </div>
+	<!-- main menu-->
+     
+     
+     
+     
+     
+     
+     
+     
+      
+     <!-- Navbar (Header) Starts-->
+     <div th:replace="fragments/navbar :: navbar">
+ 		</div>
+    <!-- Navbar (Header) Ends-->
+
+      <div class="main-panel">
+        <!-- BEGIN : Main Content-->
+        <div class="main-content">
+          <div class="content-wrapper"><!-- Fabs (Floating Action Buttons) in cards start -->
+
+
+            <!-- Content types section start -->
+<!-- Basic example section start -->
+<section id="basic-examples">
+  <div class="row">
+    <div class="col-12 mt-3 mb-1">
+      <div class="content-header">Teams > My Team > Our Staff :</div>
+      <p class="content-sub-header">  	</p>
+    </div>
+  </div>
+
+
+ <div class="card-title" align="right">  <a  href="/newstaff"  class="btn btn-primary"  >
+                    										<i class="ft-file-plus font-medium-2 mr-6">  Add Staff Member</i>
+                 																	 </a> 
+                 																	 
+           </div>
+
+
+  <div class="row match-height">
+
+    <div class="col-xl-3 col-lg-6 col-md-12" th:if="${staff.team_fullname == 'Manchester United' and staff.descipline == 'handball'}" th:each="staff : ${staff}" >
+      <div class="card" >
+        <div class="card-content" >
+          <div class="card-img  img-fluid "  align = "center">
+            <img class="    half-width"   style="margin-top:20px;" th:src="${staff.staff_pic_URL}" alt="Card image cap" >
+                </div>
+            <div class="card-body">
+              <h2 class="card-title" align = "center"> <strong th:text="${staff.staff_fullname}"> </strong></br> </h2>
+				
+				
+              <div class="card-footer border-top-0" align = "center">
+            
+            
+                
+              <form method="get" action="#">
+             
+                 <button type="button" class="btn btn-outline-blue" data-toggle="modal"
+                     th:attr="data-target='#bootstrap'+*{staff.id}">Modify</button>&nbsp;
+                
+                
+                    <button type="button" class="btn btn-outline-danger"  data-toggle="modal"
+                   th:attr="data-target='#default'+*{staff.id}" >
+                    Delete
+                  </button>
+        
+              		</form>
+              		
+              		
+              		 <!-- Modal -->
+                    <div class="modal fade text-left" th:id="*{'bootstrap'+{staff.id}}"
+                     tabindex="-1" role="dialog" aria-labelledby="myModalLabel35"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-xl " role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h3 class="modal-title" id="myModalLabel35"><span>Modify Staff Member :</span></h3>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                          <form class="form" action="/updatestaff" novalidate>
+                          <div class="modal-body">
+                          
+ 						<div class="form-body">
+               
+              				 <div class="form-group">
+                          		  <input  type="hidden" th:value="${staff.id}" class="form-control" id="id" name="id"/>
+                      		  </div>
+               
+               
+   				 <div class="row">
+                      		   
+                  <fieldset class="form-group col-md-6 mb-2" novalidate>
+                 <label>Staff Member Name <span class="required">*</span></label>
+                 <div class="controls">
+                <input type="text"  th:value="${staff.staff_fullname}" name="staff_fullname"  class="form-control" 
+                required data-validation-required-message="This field is required" >
+                </div>
+               </fieldset>
+             
+                   <fieldset class="form-group col-md-6 mb-2" novalidate>
+                 <label>Staff Member Age <span class="required">*</span></label>
+                 <div class="controls">
+                <input required type="number"   th:value="${staff.staff_age}" class="form-control"  name="staff_age"  
+                 data-validation-regex-regex="([\d]{1,2})"
+                 data-validation-required-message="This field is required">
+                </div>
+                
+               </fieldset>
+  
+    
+          </div>
+          
+          
+          <div class="row">
+                
+                  <fieldset class="form-group col-md-6 mb-2" novalidate>
+                 <label>Staff Member BirthDate <span class="required">*</span></label>
+                 <div class="controls">
+               <input required type="text"  th:value="${staff.staff_birth_date}" class="form-control"  name="staff_birth_date"  
+                 data-validation-regex-regex="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$"
+                 data-validation-required-message="This field is required">
+              
+              
+              
+                 </div>
+               </fieldset>
+               
+             
+                   <fieldset class="form-group col-md-6 mb-2" novalidate>
+                 <label>Staff Member Nationality <span class="required">*</span></label>
+                 <div class="controls">
+                <input type="text"  name="staff_nationality"  th:value="${staff.staff_nationality}" class="form-control" 
+                required data-validation-required-message="This field is required" >
+                </div>
+               </fieldset>
+  
+    
+          </div>
+          
+          
+          
+          <div class="row">
+                
+                  <fieldset class="form-group col-md-6 mb-2" novalidate>
+                 <label>Staff Member Gender <span class="required">*</span></label>
+                 <div class="controls">
+                <select name="staff_gender" id="select" required class="form-control">
+                  <option  th:value="${staff.staff_gender}" th:text="'Default : ' +   ${staff.staff_gender} " > </option>
+                  <option value="Male">Male</option>
+                <option value="Female">Female</option>
+             
+       
+             </select>
+                </div>
+               </fieldset>
+             
+                     <fieldset class="form-group col-md-6 mb-2" novalidate>
+                 <label>Staff Member Team <span class="required">*</span></label>
+                 <div class="controls">
+             
+                 <input type="text"  th:value="${staff.team_fullname}" name="team_fullname"  class="form-control" 
+                required data-validation-required-message="This field is required" disabled>
+                
+                </div>
+               </fieldset>
+                   
+                   
+                   
+                   
+                   
+  
+    
+          </div>
+          
+          
+ <div class="row">
+                
+                  <fieldset class="form-group col-md-6 mb-2" novalidate>
+                 <label>Staff Member Role <span class="required">*</span></label>
+                 <div class="controls">
+                
+                <select name="staff_role" id="select" required class="form-control">
+                  <option  th:value="${staff.staff_role}" th:text="'Default : ' +   ${staff.staff_role} " > </option>
+                   
+                  <option value="Manager">Manager</option>
+                  <option value="The Assistant Manager">The Assistant Manager</option>
+                  <option value="The Goalkeeping Coach">The Goalkeeping Coach</option>
+                  <option value="Fitness Coach">Fitness Coach</option>
+                  <option value="Conditioning Coach">Conditioning Coach</option>
+                  <option value="Masseur">Masseur</option>
+                  <option value="Doctor">Doctor</option>
+                  <option value="Chef / Nutritionist">Chef / Nutritionist</option>
+                  <option value="Chief Analyst">Chief Analyst</option>
+       			  <option value="Physiotherapist">Physiotherapist</option>
+       			  <option value="Scout">Scout</option>
+       			  <option value="Kit Manager">Kit Manager</option>
+             </select>
+                
+                </div>
+               </fieldset>
+             
+             
+              <fieldset class="form-group  col-md-6 mb-2" novalidate>
+           <label>Discipline <span class="required">*</span></label>
+           <div class="controls">
+                
+           <input type="text"  th:value="${staff.descipline}" name="descipline"  class="form-control" 
+                required data-validation-required-message="This field is required" disabled>
+            
+            </div>
+         </fieldset>
+                 
+  
+    
+ </div>
+
+
+            
+          
+          
+          <div class="row">
+                
+                  <fieldset class="form-group col-12" novalidate>
+                 <label>Staff Member Picture <span class="required">*</span></label>
+                 <div class="controls">
+                <input type="text" th:value="${staff.staff_pic_URL}" name="staff_pic_URL"  class="form-control" 
+                required data-validation-required-message="This field is required" >
+                </div>
+               </fieldset>
+             
+              
+          </div>
+
+
+              </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                          </div>
+                          
+                          <div class="modal-footer" novalidate>
+                            <button type="reset" class="btn btn-raised btn-warning mr-1">
+                  <i class="fa fa-refresh"></i> Reset
+                </button>
+                <button type="submit" class="btn btn-raised btn-primary">
+                  <i class="fa fa-check-square-o"></i> Save
+                </button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                   <!-- Modal -->
+              		
+              		
+              		
+              		
+              		
+              		
+              		
+              		
+              		
+              		
+              		
+              		
+              		
+              		 <!-- Modal -->
+                  <div class="modal fade text-left" th:id="*{'default'+{staff.id}}"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header bg-danger">
+                          <h4 class="modal-title" id="myModalLabel1">Confirm :</h4>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <h4><span class="text-bold-600">Warning !</span></h4>
+                          
+                           <div class="alert alert-danger" role="alert">
+                            Are you<span class="text-bold-600"> sure</span> you want to <span class="text-bold-600">delete</span> this Player ?
+                          </div>
+                          
+                          
+                          
+                         
+                        </div>
+                       
+                        <div class="modal-footer">
+                          <button type="button" class="btn grey btn-outline-dark" data-dismiss="modal">Close</button>
+                             <form action="/deletemystaff">
+                           <input type="hidden" name="id" th:value="${staff.id}" />
+                          <input type="submit" class="btn btn-outline-red" value="Delete" onclick="return "/>
+                          
+              </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              		
+              		
+              		
+              		
+              		
+              		
+              		
+              		
+              		
+              		
+              		
+              		
+              		
+              		
+              		
+              		
+              </div>
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+              <ul class="list-group" align = "center">
+                <li class="list-group-item">
+                   Team : &nbsp; <span th:text="${staff.team_fullname}"> </span>
+                </li>
+                <li class="list-group-item">
+                    Age : &nbsp; <span th:text="${staff.staff_age}"> </span>
+                </li>
+                <li class="list-group-item">
+                    Birth Date : &nbsp; <span th:text="${staff.staff_birth_date}"> </span>
+                </li>
+                <li class="list-group-item">
+                    Nationality : &nbsp; <span th:text="${staff.staff_nationality}"> </span>
+                </li>
+
+                <li class="list-group-item">
+                    Gender : &nbsp; <span th:text="${staff.staff_gender}"> </span>
+                </li>
+                
+
+              <li class="list-group-item">
+                Position : &nbsp; <strong th:text="${staff.staff_role}"> </strong>
+            </li>
+              </ul>
+              
+            </div>
+            
+        </div>
+      </div>
+    </div>
+
+
+    
+    
+
+    
+    
+
+
+  
+
+
+  
+  </div>
+</section>
+<!-- // Basic example section end -->
+
+
+
+
+
+
+
+
+
+
+          </div>
+   
+        <!-- END : End Main Content-->
+
+
+
+        <!-- BEGIN : Footer-->
+      	<div th:replace="fragments/footer :: footer">
+  		</div>
+      
+        <!-- End : Footer-->
+        
+        
+     </div>
+      </div>
+    </div>
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+
+   <!-- Theme customizer Starts-->
+    
+    <div th:replace="fragments/customizer :: customizer">
+    
+  		</div>
+    
+    
+   <!-- Theme customizer Ends-->
+   
+   
+   
+   
+    <!-- BEGIN VENDOR JS-->
+    <script src="app-assets/vendors/js/core/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script src="app-assets/vendors/js/core/popper.min.js" type="text/javascript"></script>
+    <script src="app-assets/vendors/js/core/bootstrap.min.js" type="text/javascript"></script>
+    <script src="app-assets/vendors/js/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
+    <script src="app-assets/vendors/js/prism.min.js" type="text/javascript"></script>
+    <script src="app-assets/vendors/js/jquery.matchHeight-min.js" type="text/javascript"></script>
+    <script src="app-assets/vendors/js/screenfull.min.js" type="text/javascript"></script>
+    <script src="app-assets/vendors/js/pace/pace.min.js" type="text/javascript"></script>
+    <!-- BEGIN VENDOR JS-->
+    <!-- BEGIN PAGE VENDOR JS-->
+        <script src="app-assets/vendors/js/jqBootstrapValidation.js" type="text/javascript"></script>
+    <!-- END PAGE VENDOR JS-->
+    <!-- BEGIN APEX JS-->
+    <script src="app-assets/js/app-sidebar.js" type="text/javascript"></script>
+    <script src="app-assets/js/notification-sidebar.js" type="text/javascript"></script>
+    <script src="app-assets/js/customizer.js" type="text/javascript"></script>
+       <script src="app-assets/js/components-modal.min.js" type="text/javascript"></script>
+        <script src="app-assets/js/form-validation.js" type="text/javascript"></script>
+   
+    <!-- END APEX JS-->
+    <!-- BEGIN PAGE LEVEL JS-->
+    <!-- END PAGE LEVEL JS-->
+  </body>
+  <!-- END : Body-->
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+   >
+   
+  <!-- BEGIN : Head-->
+  <div th:replace="fragments/header :: header">
+	</div>
+  <!-- END : Head-->
+
+  <!-- BEGIN : Body-->
+  <body data-col="2-columns" class=" 2-columns ">
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+    <div class="wrapper">
+				 
+				 <!-- main menu-->
+				<div th:replace="fragments/sidebar :: sidebar">
+   				</div>
+              	<!-- main menu-->
+
+     
+      
+     <!-- Navbar (Header) Starts-->
+     		 <div th:replace="fragments/navbar :: navbar">
+ 				</div>
+    <!-- Navbar (Header) Ends-->
+
+      <div class="main-panel">
+        <!-- BEGIN : Main Content-->
+        <div class="main-content">
+          <div class="content-wrapper"><!-- Fabs (Floating Action Buttons) in cards start -->
+
+
+            <!-- Content types section start -->
+<section id="content-types">
+    <div class="row">
+      <div class="col-12 mt-3 mb-1">
+        <div class="content-header">Teams > Our Team > Our Stadium :</div>
+        <p class="content-sub-header">        </p>
+      </div>
+    </div>
+    
+    
+    <div class="card-title" align="right">  <a  href="/other-stadiums"  class="btn btn-primary"  >
+                    										<i class="ft-check font-medium-2 mr-6">  All Stadiums</i>
+                 																	 </a> 
+                 																	 
+           </div>
+    
+  
+ 
+  
+    <div class="row match-height">
+      <div class="col-lg-8" style="float:none;margin:auto;" align = "center" 
+       th:if="${stade.team_fullname == 'Manchester United' and stade.descipline == 'handball'}" th:each="stade : ${stade}" >
+      
+        <div class="card half-width" >
+          <div class="card-content">
+              <div class="card-img" align = "center"  >
+             
+            <img class="card-img-top  img-fluid  half-width"   style="margin-top:20px;"   th:src="${stade.image_URL}" alt="Card image cap" >
+                </div>
+            <div class="card-body">
+              <h2 class="card-title" align = "center"> </br> <strong th:text="${stade.stadium_fullname}"> </strong></br></br> </h2>
+
+              <p class="card-text">          </p>
+             
+              <ul class="list-group">
+                <li class="list-group-item">
+                   Nick Name : &nbsp; <span th:text="${stade.stadium_placement}"> </span>
+                </li>
+                <li class="list-group-item">
+                    Founded : &nbsp; <span th:text="${stade.stadium_capacity}"> </span>
+                </li>
+                <li class="list-group-item">
+                    Owner : &nbsp;  <span th:text="${stade.team_fullname}"> </span>
+                </li> </br>
+                
+                
+               
+
+               
+              </ul>
+              
+            </div>
+            <div class="card-footer border-top-0">
+               <a class="btn btn-outline-red" href="/our-players" role="button">Players List</a>&nbsp;&nbsp; 
+                <a class="btn btn-outline-blue" href="/myteam-info" role="button">Team</a>&nbsp;&nbsp;
+                   
+                   
+                    <!-- Modal -->
+                    <div class="modal fade text-left" id="bootstrap" tabindex="-1" role="dialog" aria-labelledby="myModalLabel35"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-xl" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h3 class="modal-title" id="myModalLabel35">Modify Stadium</h3>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                       
+                       <form class="form" action="/updatestadium" novalidate>
+                          <div class="modal-body">
+              <div class="form-body">
+              
+               <div class="form-group">
+                      <input  type="hidden" th:value="${stade.id}" class="form-control" id="id" name="id"/>
+               </div>
+              
+              
+                <div class="row">
+                      		   
+                  <fieldset class="form-group col-md-6 mb-2" novalidate>
+                 <label>Stadium Name <span class="required">*</span></label>
+                 <div class="controls">
+                <input type="text"  name="stadium_fullname" th:value="${stade.stadium_fullname}" class="form-control" 
+                required data-validation-required-message="This field is required" >
+                </div>
+               </fieldset>
+             
+                  <fieldset class="form-group col-md-6 mb-2" novalidate>
+                 <label>Stadium Placement <span class="required">*</span></label>
+                 <div class="controls">
+                <input type="text"  name="stadium_placement" th:value="${stade.stadium_placement}" class="form-control" 
+                required data-validation-required-message="This field is required" >
+                </div>
+               </fieldset>
+  
+    
+          </div>
+          
+          
+          <div class="row">
+                
+                     <fieldset class="form-group col-md-6 mb-2" novalidate>
+                 <label>Stadium Capacity <span class="required">*</span></label>
+                 <div class="controls">
+                 <input required type="number"  class="form-control" th:value="${stade.stadium_capacity}" name="stadium_capacity"  
+         data-validation-regex-regex="([\d]{1,6})"
+         data-validation-required-message="This field is required">
+              
+              
+              
+                 </div>
+               </fieldset>
+              
+              
+              
+                
+             
+                   <fieldset class="form-group col-md-6 mb-2" novalidate>
+                 <label>Stadium Owning Team <span class="required">*</span></label>
+                 <div class="controls">
+                <select name="team_fullname" id="select" required class="form-control">
+                   <option  th:value="${stade.team_fullname}" th:text="'Default : ' +   ${stade.team_fullname} " > </option>
+                   <optgroup label="Football Teams">
+                  <option th:if="${teams.descipline == 'football'}"  th:each="teams : ${teams}"  th:value="${teams.fullname}" th:text="${teams.fullname}"></option>
+                </optgroup>
+                 <optgroup label="Handball Teams">
+                  <option  th:if="${teams.descipline == 'handball'}" th:each="teams : ${teams}"  th:value="${teams.fullname}" th:text="${teams.fullname}"></option>
+                </optgroup>
+       
+             </select>
+                </div>
+               </fieldset>
+  
+    
+          </div>
+          
+          
+          
+          <div class="row">
+                
+                  
+          <fieldset class="form-group col-12" novalidate>
+           <label>Discipline <span class="required">*</span></label>
+           <div class="controls">
+                
+            <input type="text" th:value="${stade.descipline}" name="descipline"  class="form-control" 
+                required data-validation-required-message="This field is required" disabled>
+            
+            </div>
+         </fieldset>
+  
+    
+          </div>
+          
+          
+         
+
+
+    
+          
+          
+          <div class="row">
+                
+                  <fieldset class="form-group col-12" novalidate>
+                 <label>Stadium Preview <span class="required">*</span></label>
+                 <div class="controls">
+                <input type="text" th:value="${stade.image_URL}" name="image_URL"  class="form-control" 
+                required data-validation-required-message="This field is required" >
+                </div>
+               </fieldset>
+             
+              
+          </div>
+
+
+              </div>
+
+              <div class="form-actions center">
+                <button type="reset" class="btn btn-raised btn-warning mr-1">
+                  <i class="fa fa-refresh"></i> Reset
+                </button>
+                <button type="submit" class="btn btn-raised btn-primary">
+                  <i class="fa fa-check-square-o"></i> Save
+                </button>
+              </div>
+            </form>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        
+                   <!-- Modal -->
+                  
+                   
+                
+                <a class="btn btn-outline-dark" href="/our-staff" role="button">Staff List</a>
+                </br>
+                
+                <button type="button" class="btn btn-outline-primary" data-toggle="modal"
+                    data-target="#bootstrap"><i class="ft-edit font-medium-2 mr-6" align="center">  Modify Stadium</i></button>
+                
+            </div>
+            </div>
+          </div>
+        </div>
+
+        
+      </div>      
+    </div>
+
+
+   
+  
+  </section>
+  <!-- Content types section end -->
+
+
+
+
+
+
+   </div>
+      
+       <!-- BEGIN : Footer-->
+      <div th:replace="fragments/footer :: footer">
+  		</div>
+      
+      
+        <!-- End : Footer-->
+
+
+       
+        </div>
+        <!-- END : End Main Content-->
+
+       
+
+      </div>
+    </div>
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+
+  <!-- Theme customizer Starts-->
+    
+    <div th:replace="fragments/customizer :: customizer">
+    
+  		</div>
+    
+    
+   <!-- Theme customizer Ends-->
+    
+        
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+    <!-- BEGIN VENDOR JS-->
+    <script src="app-assets/vendors/js/core/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script src="app-assets/vendors/js/core/popper.min.js" type="text/javascript"></script>
+    <script src="app-assets/vendors/js/core/bootstrap.min.js" type="text/javascript"></script>
+    <script src="app-assets/vendors/js/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
+    <script src="app-assets/vendors/js/prism.min.js" type="text/javascript"></script>
+    <script src="app-assets/vendors/js/jquery.matchHeight-min.js" type="text/javascript"></script>
+    <script src="app-assets/vendors/js/screenfull.min.js" type="text/javascript"></script>
+    <script src="app-assets/vendors/js/pace/pace.min.js" type="text/javascript"></script>
+    <!-- BEGIN VENDOR JS-->
+     <script src="app-assets/vendors/js/jqBootstrapValidation.js" type="text/javascript"></script>
+    <!-- BEGIN PAGE VENDOR JS-->
+    <!-- END PAGE VENDOR JS-->
+    <!-- BEGIN APEX JS-->
+    <script src="app-assets/js/app-sidebar.js" type="text/javascript"></script>
+    <script src="app-assets/js/notification-sidebar.js" type="text/javascript"></script>
+    <script src="app-assets/js/customizer.js" type="text/javascript"></script>
+    <!-- END APEX JS-->
+    <!-- BEGIN PAGE LEVEL JS-->
+    <script src="app-assets/js/components-modal.min.js" type="text/javascript"></script>
+     <script src="app-assets/js/form-validation.js" type="text/javascript"></script>
+    <!-- END PAGE LEVEL JS-->
+  </body>
+  <!-- END : Body-->
+</html>

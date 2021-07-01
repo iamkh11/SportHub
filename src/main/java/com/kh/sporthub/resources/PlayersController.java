@@ -46,6 +46,16 @@ public class PlayersController {
 	        return "our-players";
 	    }
 	  
+	// show 
+		  @RequestMapping("/our-players-hand")
+		    public String playershand(Model model) {
+		        model.addAttribute("players", playersRepository.findAll());
+		        
+		        model.addAttribute("team", teamRepository.findAll());
+		        return "our-players-hand";
+		    }
+		  
+	  
 	  @RequestMapping("/other-players")
 	    public String joueurs(Model model) {
 	        model.addAttribute("joueurs", playersRepository.findAll());
