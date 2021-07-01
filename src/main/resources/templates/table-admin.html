@@ -58,9 +58,8 @@
   <div class="card">
     <div class="card-header">
             <h4 class="card-title">Admins Table : </h4>
-            <div class="card-title" align="right">  <a  href="/add-admin"  class="btn btn-primary"  >
-                    										<i class="ft-file-plus font-medium-2 mr-6">  Add User</i>
-                 																	 </a> 
+            
+            <div class="card-title" align="right"> 
     </div>
           <div class="card-content ">
             <div class="card-body table-responsive">
@@ -115,14 +114,14 @@
                     
              <div class="form-group">
            		  <form method="get" action="#">
-                  <a th:href=" @{'/modify-admin/' + ${admins.id}} " class="btn btn-outline-blue"  >
+                 <!-- <a href="#" class="btn btn-outline-blue"  >
                     <i class="ft-edit font-medium-2 mr-auto"></i>
-                  </a>
+                  </a>  -->
                  
                   
                   <button type="button" class="btn btn-outline-danger"  data-toggle="modal"
                    th:attr="data-target='#default'+*{admins.id}" >
-                    <i class="ft-x font-medium-2 mr-auto"></i>
+                    Delete
                   </button>
   								</form>
                   <!-- Modal -->

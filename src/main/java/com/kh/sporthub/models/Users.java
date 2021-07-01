@@ -21,7 +21,7 @@ public abstract class Users {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String id; 
-	private String name;
+	private String fullname;
 	private String username;
 	private String email;
 	private String password;
@@ -36,16 +36,6 @@ public Users () {
 }
 
 
-public Users(String name, String username, String email, String password ,String profil_pic_URL ) {
-	
-	this.name = name;
-	this.username = username;
-	this.email = email;
-	this.password = password;
-	this.profil_pic_URL = profil_pic_URL;
-	
-	
-}
 
 
 public String getId() {
@@ -53,19 +43,27 @@ public String getId() {
 }
 
 
+
+
 public void setId(String id) {
 	this.id = id;
 }
 
 
-public String getName() {
-	return name;
+
+
+public String getFullname() {
+	return fullname;
 }
 
 
-public void setName(String name) {
-	this.name = name;
+
+
+public void setFullname(String fullname) {
+	this.fullname = fullname;
 }
+
+
 
 
 public String getUsername() {
@@ -73,9 +71,13 @@ public String getUsername() {
 }
 
 
+
+
 public void setUsername(String username) {
 	this.username = username;
 }
+
+
 
 
 public String getEmail() {
@@ -83,9 +85,13 @@ public String getEmail() {
 }
 
 
+
+
 public void setEmail(String email) {
 	this.email = email;
 }
+
+
 
 
 public String getPassword() {
@@ -93,9 +99,13 @@ public String getPassword() {
 }
 
 
+
+
 public void setPassword(String password) {
 	this.password = password;
 }
+
+
 
 
 public String getProfil_pic_URL() {
@@ -103,16 +113,23 @@ public String getProfil_pic_URL() {
 }
 
 
+
+
 public void setProfil_pic_URL(String profil_pic_URL) {
 	this.profil_pic_URL = profil_pic_URL;
 }
 
 
+
+
 @Override
 public String toString() {
-	return "Users [id=" + id + ", name=" + name + ", username=" + username + ", email=" + email + ", password="
+	return "Users [id=" + id + ", fullname=" + fullname + ", username=" + username + ", email=" + email + ", password="
 			+ password + ", profil_pic_URL=" + profil_pic_URL + "]";
 }
+
+
+
 
 
 

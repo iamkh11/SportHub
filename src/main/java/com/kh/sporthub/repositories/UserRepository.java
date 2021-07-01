@@ -16,6 +16,11 @@ import com.kh.sporthub.models.User;
  */
 public interface UserRepository extends MongoRepository<User, String> {
     
+	
+	
+	 @Override
+	    public void delete(User admins);
+	 
     User findByEmail(String email);
     
 }

@@ -65,10 +65,9 @@
                 <tr>
                 
                   <th>Full Name</th>
-                  <th>Username</th>
+                  
                   <th>Email</th>
-                 
-                  <th>Badge</th>
+               
                  
                  
                 </tr>
@@ -77,10 +76,10 @@
 
                  <tr  th:each="supporters : ${supporters}">
                 
-                 <td th:text="${supporters.name}">      </td>
-                 <td th:text="${supporters.username}">      </td>
+                 <td th:text="${supporters.fullname}">      </td>
+                
                  <td th:text="${supporters.email}">      </td>
-                 <td th:text="${supporters.badge}">      </td>
+               
                  
                  
                 </tr>
@@ -93,9 +92,9 @@
                 <tr>
                 
                   <th>Full Name</th>
-                  <th>Username</th>
+                
                   <th>Email</th>
-                  <th>Badge</th>
+                 
                   
                 </tr>
               </tfoot>

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.kh.sporthub.models.Admins;
+
 import com.kh.sporthub.models.Stadium;
 import com.kh.sporthub.models.Team;
 import com.kh.sporthub.repositories.StadiumRepository;

@@ -10,7 +10,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import com.kh.sporthub.models.Admins;
+
 import com.kh.sporthub.models.Discipline;
 import com.kh.sporthub.models.News;
 import com.kh.sporthub.models.Players;
@@ -20,7 +20,7 @@ import com.kh.sporthub.models.Staff;
 import com.kh.sporthub.models.Supporters;
 import com.kh.sporthub.models.Team;
 import com.kh.sporthub.models.Ticket;
-import com.kh.sporthub.repositories.AdminsRepository;
+
 import com.kh.sporthub.repositories.DisciplineRepository;
 import com.kh.sporthub.repositories.NewsRepository;
 import com.kh.sporthub.repositories.PlayersRepository;
@@ -40,7 +40,7 @@ public class SporthubApplication  implements CommandLineRunner{
 
 	
 	// Users
-	 	private final AdminsRepository adminsRepository;
+	 
 	 	private final SupportersRepository supportersRepository;
 	
 	// Team Staff Players
@@ -62,13 +62,13 @@ public class SporthubApplication  implements CommandLineRunner{
 	    
 	
 	@Autowired
-	public SporthubApplication(AdminsRepository adminsRepository,SupportersRepository supportersRepository,
+	public SporthubApplication( SupportersRepository supportersRepository,
 			TeamRepository teamRepository,PlayersRepository playerRepository,StaffRepository staffRepository,
 			StadiumRepository stadiumRepository,TicketRepository ticketRepository,
 			DisciplineRepository disciplineRepository, NewsRepository newsRepository) {
 		
 			// Users
-			this.adminsRepository=adminsRepository;
+			
 			this.supportersRepository=supportersRepository;
 		
 			// Team Staff Players
